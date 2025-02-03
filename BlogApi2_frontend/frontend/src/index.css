@@ -1,0 +1,52 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+:root {
+  --color-forest: #2c5f2d;
+  --color-sage: #97bc62;
+  --color-bark: #5c4033;
+  --color-sky: #89cff0;
+  --color-sunset: #ffa07a;
+}
+
+body {
+  background-color: #f0f4f0;
+  color: var(--color-bark);
+}
+
+.btn-primary {
+  background-color: var(--color-forest);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-sage);
+}
+
+.btn-secondary {
+  background-color: var(--color-sky);
+  color: var(--color-bark);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-sunset);
+}
+
