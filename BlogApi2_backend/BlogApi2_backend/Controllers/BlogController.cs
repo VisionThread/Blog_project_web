@@ -1,4 +1,5 @@
-﻿using System.Xml.Linq;
+﻿using System.Reflection.Metadata;
+using System.Xml.Linq;
 using BlogApi2_backend.Data;
 using BlogApi2_backend.Models.Dtos;
 using BlogApi2_backend.Models.Entities;
@@ -22,159 +23,278 @@ namespace BlogApi2_backend.Controllers
         //to get all the blogs
         // GET: api/Blogs(to fetch all the existing blogs)
         [HttpGet]
-        public IActionResult GetBlogs()
+        public async Task<IActionResult> GetBlogs()
         {
-            var blogs = _dbcontext.Blogs.ToList();
-
-            return Ok(blogs);
-        }
-        //get blogs by id 
-        [HttpGet]
-        [Route("{id:int}")]
-        public IActionResult GetBlogById(int id)
-        {
-            //var b= _dbcontext.Blogs.Find(id);
-            // if(b==null)
-            // {
-            //     return NotFound();
-            // }
-
-            // return Ok(b);
-
-            var blog = _dbcontext.Blogs
-                        .Where(b => b.Id == id)
-                        .Select(b => new
-                        {
-                            b.Id,
-                            b.Title,
-                            b.Content,
-                            b.CreatedAt,
-                            AuthorName = b.Author.Name // Assuming Author class has a Name property
-                        })
-                        .FirstOrDefault();
-
-            if (blog == null)
+            try
             {
-                return NotFound();
+                var blogs = await _dbcontext.Blogs.ToListAsync(); // Asynchronously fetches blogs
+                return Ok(blogs);  // Returns an HTTP 200 response with the list of blogs
             }
-
-            return Ok(blog);
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Message = "Error occurred", Error = ex.Message }); // Returns an HTTP 500 if an error occurs
+            }
         }
-        //posting blogs 
-        [HttpPost]
-        public IActionResult AddBlog(AddBlogDto addBlog)
+
+        //get blog by title
+        [HttpGet("title")]
+        public async Task<IActionResult> GetBlogByTitle([FromQuery] string title)
         {
-            var BlogEntity = new Blog()
-            { 
-                Title = addBlog.Title,
-                Content = addBlog.Content,
-                CreatedAt = DateTime.Now,
-                AuthorId = addBlog.AuthorId
-            };
+            try
+            {
+                if (string.IsNullOrEmpty(title))
+                {
+                    return BadRequest(new { Message = "Title query parameter is required." });
+                }
 
-            _dbcontext.Blogs.Add(BlogEntity);
-            _dbcontext.SaveChanges();
+                var blog = await _dbcontext.Blogs
+                    .Where(b => b.Title.ToLower() == title.ToLower())
+                    .Select(b => new
+                    {
+                        b.Id,
+                        b.Title,
+                        b.Content,
+                        b.CreatedAt,
+                        AuthorName = b.Author.Name // Assuming Author class has a Name property
+                    })
+                    .FirstOrDefaultAsync(); // Asynchronous operation
 
-            return Ok(BlogEntity);
+                if (blog == null)
+                {
+                    return NotFound(new { Message = "Blog not found" });
+                }
+
+                return Ok(blog); // Returns an HTTP 200 with the blog data
+            }
+            catch (Exception ex)
+            {
+                // Log the exception if necessary
+                return StatusCode(500, new { Message = "An error occurred while processing your request.", Error = ex.Message });
+            }
         }
 
+
+
+
+
+        //get blogs by id 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetBlogById([FromRoute] int id)
+        {
+            try
+            {
+                var blog = await _dbcontext.Blogs
+                    .Where(b => b.Id == id)
+                    .Select(b => new
+                    {
+                        b.Id,
+                        b.Title,
+                        b.Content,
+                        b.CreatedAt,
+                        AuthorName = b.Author.Name // Assuming Author class has a Name property
+                    })
+                    .FirstOrDefaultAsync(); // Asynchronous method
+
+                if (blog == null)
+                {
+                    return NotFound(new { Message = "Blog not found" }); // Return NotFound with message
+                }
+
+                return Ok(blog); // Return blog data with 200 OK
+            }
+            catch (Exception ex)
+            {
+                // Log the exception if necessary
+                return StatusCode(500, new { Message = "An error occurred while processing your request.", Error = ex.Message });
+            }
+        }
+
+        ////posting blogs 
         //[HttpPost]
         //public IActionResult AddBlog(AddBlogDto addBlog)
         //{
-        //    // Find the author by AuthorId
-        //    var author = _dbcontext.Authors.FirstOrDefault(a => a.Id == addBlog.AuthorId);
-        //    if (author == null)
-        //    {
-        //        return NotFound("Author not found");
-        //    }
-
-        //    // Create the new blog entity
-        //    var blogEntity = new Blog()
-        //    {
+        //    var BlogEntity = new Blog()
+        //    { 
         //        Title = addBlog.Title,
         //        Content = addBlog.Content,
         //        CreatedAt = DateTime.Now,
-        //        AuthorId = addBlog.AuthorId,
-        //        Author = author // Set the Author navigation property
+        //        AuthorId = addBlog.AuthorId
         //    };
 
-        //    // Add the blog to the database
-        //    _dbcontext.Blogs.Add(blogEntity);
-
-        //    // Add the blog to the author's Blogs list
-        //    author.Blogs.Add(blogEntity);
-
-        //    // Save changes to the database
+        //    _dbcontext.Blogs.Add(BlogEntity);
         //    _dbcontext.SaveChanges();
 
-        //    // Get updated list of blogs for the author, including Author information
-        //    var updatedAuthorBlogs = _dbcontext.Blogs
-        //        .Where(b => b.AuthorId == addBlog.AuthorId)
-        //        .ToList();
-
-        //    // Return the updated list of blogs for the author
-        //    return Ok(updatedAuthorBlogs);
+        //    return Ok(BlogEntity);
         //}
 
 
-        //updating the particular blog 
-        [HttpPut]
-        [Route("{id:int}")]
-        public IActionResult UpdateBlog(int id,UpdateBlogDto updateBlog)
+
+        ////updating the particular blog 
+        //[HttpPut("{id:int}")]
+        //public IActionResult UpdateBlog(int id, [FromBody] UpdateBlogDto updateBlog)
+        //{
+        //    // Find the blog to update by its ID
+        //    var blogToUpdate = _dbcontext.Blogs.FirstOrDefault(b => b.Id == id);
+
+        //    if (blogToUpdate == null)
+        //    {
+        //        return NotFound(new { Message = "Blog not found" });
+        //    }
+
+        //    // Update the blog's title and content with the new values
+        //    blogToUpdate.Title = updateBlog.Title;
+        //    blogToUpdate.Content = updateBlog.Content;
+
+        //    // Save the changes to the database
+        //    _dbcontext.SaveChanges();
+
+        //    // Return a success message with the updated blog data
+        //    return Ok(new { Message = "Blog updated successfully", Blog = blogToUpdate });
+        //}
+
+
+
+
+
+        ////delete the blog
+        //[HttpDelete("{id}")]
+        //public IActionResult DeleteBlog(int id)
+        //{
+        //    var blogToDelete = _dbcontext.Blogs.FirstOrDefault(b => b.Id == id);
+
+        //    if (blogToDelete == null)
+        //    {
+        //        return NotFound(new { Message = "Blog not found" });
+        //    }
+
+        //    _dbcontext.Blogs.Remove(blogToDelete);
+        //    _dbcontext.SaveChanges();
+
+        //    return Ok(new { Message = "Blog deleted successfully" });
+        //}
+
+        ////to delete all the blogs
+        //// Delete all blogs
+        //[HttpDelete]
+        //public IActionResult DeleteAllBlogs()
+        //{
+        //    // Retrieve all blogs
+        //    var blogs = _dbcontext.Blogs.ToList();
+
+        //    // If there are no blogs, return a response indicating nothing to delete
+        //    if (!blogs.Any())
+        //    {
+        //        return NotFound("No blogs found to delete");
+        //    }
+
+        //    // Remove all blogs from the database
+        //    _dbcontext.Blogs.RemoveRange(blogs);
+        //    _dbcontext.SaveChanges();
+
+        //    return Ok("All blogs deleted successfully");
+        //}
+
+
+        // Posting blogs
+        [HttpPost]
+        public async Task<IActionResult> AddBlog([FromBody] AddBlogDto addBlog)
         {
-            var existingBlog = _dbcontext.Blogs.FirstOrDefault(b => b.Id == id);
-
-            if (existingBlog == null)
+            try
             {
-                return NotFound(new { Message = "Blog not found" });
+                var blogEntity = new Blog()
+                {
+                    Title = addBlog.Title,
+                    Content = addBlog.Content,
+                    CreatedAt = DateTime.Now,
+                    AuthorId = addBlog.AuthorId
+                };
+
+                await _dbcontext.Blogs.AddAsync(blogEntity);
+                await _dbcontext.SaveChangesAsync();
+
+                return Ok(blogEntity);
             }
-
-            existingBlog.Title = updateBlog.Title;
-            existingBlog.Content = updateBlog.Content;
-            existingBlog.CreatedAt = DateTime.Now; // or retain original, depending on your logic
-            existingBlog.AuthorId = updateBlog.AuthorId;
-
-            _dbcontext.SaveChanges();
-            return Ok(existingBlog);
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Message = "An error occurred while posting the blog.", Error = ex.Message });
+            }
         }
 
-        //delete the blog
+        // Updating a particular blog
+        [HttpPut("{id:int}")]
+        public async Task<IActionResult> UpdateBlog(int id, [FromBody] UpdateBlogDto updateBlog)
+        {
+            try
+            {
+                var blogToUpdate = await _dbcontext.Blogs.FirstOrDefaultAsync(b => b.Id == id);
+
+                if (blogToUpdate == null)
+                {
+                    return NotFound(new { Message = "Blog not found" });
+                }
+
+                // Update the blog's title and content
+                blogToUpdate.Title = updateBlog.Title;
+                blogToUpdate.Content = updateBlog.Content;
+
+                await _dbcontext.SaveChangesAsync();
+
+                return Ok(new { Message = "Blog updated successfully", Blog = blogToUpdate });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Message = "An error occurred while updating the blog.", Error = ex.Message });
+            }
+        }
+
+        // Deleting a blog
         [HttpDelete("{id}")]
-        public IActionResult DeleteBlog(int id)
+        public async Task<IActionResult> DeleteBlog(int id)
         {
-            var blogToDelete = _dbcontext.Blogs.FirstOrDefault(b => b.Id == id);
-
-            if (blogToDelete == null)
+            try
             {
-                return NotFound(new { Message = "Blog not found" });
+                var blogToDelete = await _dbcontext.Blogs.FirstOrDefaultAsync(b => b.Id == id);
+
+                if (blogToDelete == null)
+                {
+                    return NotFound(new { Message = "Blog not found" });
+                }
+
+                _dbcontext.Blogs.Remove(blogToDelete);
+                await _dbcontext.SaveChangesAsync();
+
+                return Ok(new { Message = "Blog deleted successfully" });
             }
-
-            _dbcontext.Blogs.Remove(blogToDelete);
-            _dbcontext.SaveChanges();
-
-            return Ok(new { Message = "Blog deleted successfully" });
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Message = "An error occurred while deleting the blog.", Error = ex.Message });
+            }
         }
 
-        //to delete all the blogs
-        // Delete all blogs
+        // Deleting all blogs
         [HttpDelete]
-        public IActionResult DeleteAllBlogs()
+        public async Task<IActionResult> DeleteAllBlogs()
         {
-            // Retrieve all blogs
-            var blogs = _dbcontext.Blogs.ToList();
-
-            // If there are no blogs, return a response indicating nothing to delete
-            if (!blogs.Any())
+            try
             {
-                return NotFound("No blogs found to delete");
+                var blogs = await _dbcontext.Blogs.ToListAsync();
+
+                if (!blogs.Any())
+                {
+                    return NotFound("No blogs found to delete");
+                }
+
+                _dbcontext.Blogs.RemoveRange(blogs);
+                await _dbcontext.SaveChangesAsync();
+
+                return Ok("All blogs deleted successfully");
             }
-
-            // Remove all blogs from the database
-            _dbcontext.Blogs.RemoveRange(blogs);
-            _dbcontext.SaveChanges();
-
-            return Ok("All blogs deleted successfully");
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Message = "An error occurred while deleting all blogs.", Error = ex.Message });
+            }
         }
+
 
     }
 }

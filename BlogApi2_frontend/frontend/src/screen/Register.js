@@ -47,50 +47,12 @@ function Register() {
   };
 
   return (
-    // <div className="register-container">
-    //   <h2>Register</h2>
-    //   <form onSubmit={handleSubmit}>
-    //     <div>
-    //       <label htmlFor="name">Name</label>
-    //       <input
-    //         type="text"
-    //         id="name"
-    //         value={name}
-    //         onChange={(e) => setName(e.target.value)}
-    //         required
-    //       />
-    //     </div>
-    //     <div>
-    //       <label htmlFor="email">Email</label>
-    //       <input
-    //         type="email"
-    //         id="email"
-    //         value={email}
-    //         onChange={(e) => setEmail(e.target.value)}
-    //         required
-    //       />
-    //     </div>
-    //     <div>
-    //       <label htmlFor="password">Password</label>
-    //       <input
-    //         type="password"
-    //         id="password"
-    //         value={password}
-    //         onChange={(e) => setPassword(e.target.value)}
-    //         required
-    //       />
-    //     </div>
-    //     <button type="submit">Register</button>
-    //   </form>
-
-    //   {message && <p>{message}</p>}
-    // </div>
-
-    <div className="max-w-md mx-auto bg-white p-8 rounded-lg shadow-md">
+    <div className="max-w-sm mx-auto p-8 rounded-lg shadow-sm">
+   <div className="w-full max-w-sm bg-white p-5 rounded-lg shadow-lg">
     <h1 className="text-2xl font-bold mb-4 text-[var(--color-forest)]">Register</h1>
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label htmlFor="name" className="block mb-1 text-[var(--color-bark)]">
+        <label htmlFor="name" className="block mb-1 text-[var(--color-bark)]" >
           Name
         </label>
         <input
@@ -103,7 +65,7 @@ function Register() {
         />
       </div>
       <div>
-        <label htmlFor="email" className="block mb-1 text-[var(--color-bark)]">
+        <label htmlFor="email" className="block mb-1 text-[var(--color-bark)]" >
           Email
         </label>
         <input
@@ -112,11 +74,12 @@ function Register() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
+          autoComplete="new-email"
           className="w-full px-3 py-2 border border-[var(--color-sage)] rounded focus:outline-none focus:ring-2 focus:ring-[var(--color-forest)]"
         />
       </div>
       <div>
-        <label htmlFor="password" className="block mb-1 text-[var(--color-bark)]">
+        <label htmlFor="password" className="block mb-1 text-[var(--color-bark)]" >
           Password
         </label>
         <input
@@ -125,6 +88,7 @@ function Register() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
+          autoComplete="new-password"
           className="w-full px-3 py-2 border border-[var(--color-sage)] rounded focus:outline-none focus:ring-2 focus:ring-[var(--color-forest)]"
         />
       </div>
@@ -137,6 +101,7 @@ function Register() {
     </form>
 
     {message && <p className="mt-4 text-green-500">{message}</p>}
+  </div>
   </div>
   );
 }

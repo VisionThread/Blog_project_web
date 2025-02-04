@@ -18,166 +18,292 @@ namespace BlogApi2_backend.Controllers
         { 
             this.dbcontext = dbcontext;
         }
-        // GET: api/Author(to fetch all the authors)
-        [HttpGet]
-        public IActionResult GetBlogs()
-        {
-            var authors = dbcontext.Authors.ToList();
-
-            return Ok(authors);
-
-        }
-
-        [HttpGet("by-id/{id:int}")]
-        public IActionResult GetAuthorById(int id)
-        {
-            var author = dbcontext.Authors.Where(a => a.Id == id)
-                .Select(a => new
-                {
-                    AuthorId = a.Id,
-                    AuthorName = a.Name,
-                    Blogs = dbcontext.Blogs
-                        .Where(b => b.AuthorId == a.Id)
-                        .Select(b => new
-                        {
-                            BlogId = b.Id,
-                            Title = b.Title,
-                            Content = b.Content,
-                            CreatedAt = b.CreatedAt
-                        }).ToList()
-                }).FirstOrDefault();
-
-            if (author == null)
-            {
-                return NotFound(new { Message = "Author not found" });
-            }
-
-            return Ok(author);
-        }
-
-
-
-        //Get authors and their respective blogs based on their names
-        [HttpGet("by-name")]
-        public IActionResult GetAuthor([FromQuery] string name)
-        {
-           var author = dbcontext.Authors.Where(a => a.Name.ToLower() == name.ToLower()).Select(a => new
-           {
-               AuthorId=a.Id,
-               AuthorName = a.Name,
-               Blogs = dbcontext.Blogs
-                .Where(b => b.AuthorId == a.Id)
-                .Select(b => new
-                {
-                    BlogId = b.Id,
-                    Title = b.Title,
-                    Content = b.Content,
-                    CreatedAt = b.CreatedAt
-                }).ToList()
-           }).FirstOrDefault();
-
-
-
-            if (author == null)
-            {
-                return NotFound(new { Message = "Author not found" });
-            }
-
-            return Ok(author);
-        }
-
-        //[HttpPost]
-        //public IActionResult AddAuthor(AddAuthor addAuthor)
+        //// GET: api/Author(to fetch all the authors)
+        //[HttpGet]
+        //public IActionResult GetBlogs()
         //{
-        //    // Create a new Author entity from the AddAuthor DTO
-        //    var authorEntity = new Author()
-        //    {
-        //        Name = addAuthor.Name,
-        //        Email = addAuthor.Email,
-        //        Password = addAuthor.Password
-        //    };
+        //    var authors = dbcontext.Authors.ToList();
 
-        //    // Add the new Author entity to the database
-        //    dbcontext.Authors.Add(authorEntity);
-        //    dbcontext.SaveChanges();
+        //    return Ok(authors);
 
-        //    // Return the newly created author as a response
-        //    return CreatedAtAction(nameof(GetBlogs), new { id = authorEntity.Id }, authorEntity);
         //}
 
-        //login of all the authors 
+        //[HttpGet("by-id/{id}")]
+        //public IActionResult GetAuthorById(int id)
+        //{
+        //    var author = dbcontext.Authors.Where(a => a.Id == id)
+        //        .Select(a => new
+        //        {
+        //            AuthorId = a.Id,
+        //            AuthorName = a.Name,
+        //            Blogs = dbcontext.Blogs
+        //                .Where(b => b.AuthorId == a.Id)
+        //                .Select(b => new
+        //                {
+        //                    BlogId = b.Id,
+        //                    Title = b.Title,
+        //                    Content = b.Content,
+        //                    CreatedAt = b.CreatedAt
+        //                }).ToList()
+        //        }).FirstOrDefault();
+
+        //    if (author == null)
+        //    {
+        //        return NotFound(new { Message = "Author not found" });
+        //    }
+
+        //    return Ok(author);
+        //}
+
+
+
+        ////Get authors and their respective blogs based on their names
+        //[HttpGet("by-name")]
+        //public IActionResult GetAuthor([FromQuery] string name)
+        //{
+        //   var author = dbcontext.Authors.Where(a => a.Name.ToLower() == name.ToLower()).Select(a => new
+        //   {
+        //       AuthorId=a.Id,
+        //       AuthorName = a.Name,
+        //       Blogs = dbcontext.Blogs
+        //        .Where(b => b.AuthorId == a.Id)
+        //        .Select(b => new
+        //        {
+        //            BlogId = b.Id,
+        //            Title = b.Title,
+        //            Content = b.Content,
+        //            CreatedAt = b.CreatedAt
+        //        }).ToList()
+        //   }).FirstOrDefault();
+
+
+
+        //    if (author == null)
+        //    {
+        //        return NotFound(new { Message = "Author not found" });
+        //    }
+
+        //    return Ok(author);
+        //}
+
+
+        //[HttpPost("login")]
+        //public IActionResult Login([FromBody] LoginDto loginDto)
+        //{
+        //    if (loginDto == null || string.IsNullOrWhiteSpace(loginDto.Email) || string.IsNullOrWhiteSpace(loginDto.Password))
+        //    {
+        //        return BadRequest(new { Message = "Email and password are required." });
+        //    }
+
+        //    var author = dbcontext.Authors.FirstOrDefault(a => a.Email == loginDto.Email && a.Password == loginDto.Password);
+
+        //    if (author == null)
+        //    {
+        //        return Unauthorized(new { Message = "Invalid credentials" });
+        //    }
+
+        //    return Ok(new { Message = "Login Successful", AuthorId = author.Id, Name = author.Name });
+        //}
+
+
+        // GET: api/Author (to fetch all the authors)
+        [HttpGet]
+        public async Task<IActionResult> GetBlogs()
+        {
+            try
+            {
+                var authors = await dbcontext.Authors.ToListAsync();
+
+                return Ok(authors);
+            }
+            catch (Exception ex)
+            {
+                // Log the exception and return a 500 status code with error message
+                return StatusCode(500, new { Message = "An error occurred while fetching authors.", Error = ex.Message });
+            }
+        }
+
+        // GET: api/Author/by-id/{id} (to fetch author by ID)
+        [HttpGet("by-id/{id}")]
+        public async Task<IActionResult> GetAuthorById(int id)
+        {
+            try
+            {
+                var author = await dbcontext.Authors
+                    .Where(a => a.Id == id)
+                    .Select(a => new
+                    {
+                        AuthorId = a.Id,
+                        AuthorName = a.Name,
+                        Blogs = dbcontext.Blogs
+                            .Where(b => b.AuthorId == a.Id)
+                            .Select(b => new
+                            {
+                                BlogId = b.Id,
+                                Title = b.Title,
+                                Content = b.Content,
+                                CreatedAt = b.CreatedAt
+                            })
+                            .ToList()
+                    })
+                    .FirstOrDefaultAsync();
+
+                if (author == null)
+                {
+                    return NotFound(new { Message = "Author not found" });
+                }
+
+                return Ok(author);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Message = "An error occurred while fetching the author.", Error = ex.Message });
+            }
+        }
+
+        // GET: api/Author/by-name (Get authors and their respective blogs based on their names)
+        [HttpGet("by-name")]
+        public async Task<IActionResult> GetAuthor([FromQuery] string name)
+        {
+            try
+            {
+                var author = await dbcontext.Authors
+                    .Where(a => a.Name.ToLower() == name.ToLower())
+                    .Select(a => new
+                    {
+                        AuthorId = a.Id,
+                        AuthorName = a.Name,
+                        Blogs = dbcontext.Blogs
+                            .Where(b => b.AuthorId == a.Id)
+                            .Select(b => new
+                            {
+                                BlogId = b.Id,
+                                Title = b.Title,
+                                Content = b.Content,
+                                CreatedAt = b.CreatedAt
+                            })
+                            .ToList()
+                    })
+                    .FirstOrDefaultAsync();
+
+                if (author == null)
+                {
+                    return NotFound(new { Message = "Author not found" });
+                }
+
+                return Ok(author);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Message = "An error occurred while fetching the author by name.", Error = ex.Message });
+            }
+        }
+
+        // POST: api/Author/login (for author login)
         [HttpPost("login")]
-        public IActionResult Login([FromBody] LoginDto loginDto)
+        public async Task<IActionResult> Login([FromBody] LoginDto loginDto)
         {
-            if (loginDto == null || string.IsNullOrWhiteSpace(loginDto.Email) || string.IsNullOrWhiteSpace(loginDto.Password))
+            try
             {
-                return BadRequest(new { Message = "Email and password are required." });
+                if (loginDto == null || string.IsNullOrWhiteSpace(loginDto.Email) || string.IsNullOrWhiteSpace(loginDto.Password))
+                {
+                    return BadRequest(new { Message = "Email and password are required." });
+                }
+
+                var author = await dbcontext.Authors
+                    .FirstOrDefaultAsync(a => a.Email == loginDto.Email && a.Password == loginDto.Password);
+
+                if (author == null)
+                {
+                    return Unauthorized(new { Message = "Invalid credentials" });
+                }
+
+                return Ok(new { Message = "Login Successful", AuthorId = author.Id, Name = author.Name });
             }
-
-            var author = dbcontext.Authors.FirstOrDefault(a => a.Email == loginDto.Email && a.Password == loginDto.Password);
-
-            if (author == null)
+            catch (Exception ex)
             {
-                return Unauthorized(new { Message = "Invalid credentials" });
+                return StatusCode(500, new { Message = "An error occurred during login.", Error = ex.Message });
             }
-
-            return Ok(new { Message = "Login Successful", AuthorId = author.Id, Name = author.Name });
         }
 
+
+        //register the new user
         [HttpPost("register")]
-        public IActionResult Register(AddAuthor addAuthor)
+        public async Task<IActionResult> Register([FromBody] AddAuthor addAuthor)
         {
-            // Check if the email is already in use
-            var existingAuthor = dbcontext.Authors.FirstOrDefault(a => a.Email == addAuthor.Email);
-            if (existingAuthor != null)
+            try
             {
-                return BadRequest(new { Message = "Email is already registered" });
+                // Check if the email is already in use asynchronously
+                var existingAuthor = await dbcontext.Authors
+                    .FirstOrDefaultAsync(a => a.Email == addAuthor.Email);
+
+                if (existingAuthor != null)
+                {
+                    return BadRequest(new { Message = "Email is already registered" });
+                }
+
+                // Create a new Author entity from the AddAuthor DTO
+                var authorEntity = new Author()
+                {
+                    Name = addAuthor.Name,
+                    Email = addAuthor.Email,
+                    Password = addAuthor.Password // Ideally, you should hash the password here!
+                };
+
+                // Add the new Author entity to the database asynchronously
+                await dbcontext.Authors.AddAsync(authorEntity);
+                await dbcontext.SaveChangesAsync();
+
+                // Return the newly created author as a response
+                return CreatedAtAction(nameof(GetBlogs), new { id = authorEntity.Id }, authorEntity);
             }
-
-            // Create a new Author entity from the AddAuthor DTO
-            var authorEntity = new Author()
+            catch (Exception ex)
             {
-                Name = addAuthor.Name,
-                Email = addAuthor.Email,
-                Password = addAuthor.Password // You should hash the password before saving in a real-world application
-            };
-
-            // Add the new Author entity to the database
-            dbcontext.Authors.Add(authorEntity);
-            dbcontext.SaveChanges();
-
-            // Return the newly created author as a response
-            return CreatedAtAction(nameof(GetBlogs), new { id = authorEntity.Id }, authorEntity);
+                // Log the exception and return a 500 status code with error message
+                return StatusCode(500, new { Message = "An error occurred while registering the author.", Error = ex.Message });
+            }
         }
+
+
+
         //author want to update their information 
         [HttpPut("{id}")]
-        public IActionResult UpdateAuthor(int id, [FromBody] UpdateAuthorDto updateAuthorDto)
+        public async Task<IActionResult> UpdateAuthor(int id, [FromBody] UpdateAuthorDto updateAuthorDto)
         {
-            // Find the author by id
-            var author = dbcontext.Authors.FirstOrDefault(a => a.Id == id);
-
-            // Check if the author exists
-            if (author == null)
+            try
             {
-                return NotFound(new { Message = "Author not found" });
+                // Find the author by id asynchronously
+                var author = await dbcontext.Authors.FirstOrDefaultAsync(a => a.Id == id);
+
+                // Check if the author exists
+                if (author == null)
+                {
+                    return NotFound(new { Message = "Author not found" });
+                }
+
+                // Update the author's details if new values are provided
+                author.Name = updateAuthorDto.Name ?? author.Name;
+                author.Email = updateAuthorDto.Email ?? author.Email;
+
+                // Only update the password if provided (hash the password in real-world applications)
+                if (!string.IsNullOrEmpty(updateAuthorDto.Password))
+                {
+                    author.Password = updateAuthorDto.Password; // Ideally, hash the password here!
+                }
+
+                // Save the changes asynchronously
+                await dbcontext.SaveChangesAsync();
+
+                // Return the updated author details
+                return Ok(new { Message = "Author details updated successfully", Author = author });
             }
-
-            // Update the author's details
-            author.Name = updateAuthorDto.Name ?? author.Name;
-            author.Email = updateAuthorDto.Email ?? author.Email;
-
-            // Only update the password if it's provided (and you should hash it in real-world cases)
-            if (!string.IsNullOrEmpty(updateAuthorDto.Password))
+            catch (Exception ex)
             {
-                author.Password = updateAuthorDto.Password; // Make sure to hash the password before saving!
+                // Log the exception and return 500 status code with error message
+                return StatusCode(500, new { Message = "An error occurred while updating the author.", Error = ex.Message });
             }
-
-            // Save the changes to the database
-            dbcontext.SaveChanges();
-
-            // Return the updated author
-            return Ok(new { Message = "Author details updated successfully", Author = author });
         }
+
 
 
     }

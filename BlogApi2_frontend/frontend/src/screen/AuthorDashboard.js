@@ -97,7 +97,7 @@ import { useAuthor } from "../context/AuthorContext";
 function AuthorDashboard() {
   const [blogs, setBlogs] = useState([]);
   const navigate = useNavigate();
-  const { authorId } = useAuthor(); // Assuming this provides the author ID
+  const { authorId,authorName } = useAuthor(); // Assuming this provides the author ID
 
   useEffect(() => {
     async function fetchAuthorBlogs(id) {
@@ -121,7 +121,7 @@ function AuthorDashboard() {
 
     // Fetch blogs if authorId is available
     if (authorId) {
-      fetchAuthorBlogs(authorId);
+      fetchAuthorBlogs(authorId,authorName);
     }
   }, [authorId]);
 

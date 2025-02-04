@@ -32,6 +32,15 @@ builder.Services.AddCors(options =>
     });
 });
 
+builder.Services.AddDistributedMemoryCache(); // Adds a memory cache to store session data
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Set timeout duration for the session
+    options.Cookie.HttpOnly = true; // Restrict cookie access to HTTP only
+    options.Cookie.IsEssential = true; // Make sure the cookie is essential for the app
+});
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -42,6 +51,7 @@ if (app.Environment.IsDevelopment())
 
 // Apply CORS middleware
 app.UseCors("AllowSpecificOrigin");
+app.UseSession();
 
 app.UseHttpsRedirection();
 

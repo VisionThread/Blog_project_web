@@ -8,7 +8,7 @@ GET {{BlogApi2_backend_HostAddress}}/api/Blog
 Accept: application/json
 
 ###
-GET {{BlogApi2_backend_HostAddress}}/api/Blog/20
+GET {{BlogApi2_backend_HostAddress}}/api/Blog/40
 Accept: application/json
 
 ###
@@ -30,6 +30,17 @@ Content-Type: application/json
   "Title": "fashion 2025",
   "Content": "In this blog, we will explore emerging trends in technology that are shaping the future.",
   "AuthorId": 8
+}
+
+###
+POST {{BlogApi2_backend_HostAddress}}/api/Blog
+Accept: application/json
+Content-Type: application/json
+
+{
+  "Title": "AI in Healthcare",
+  "Content": "Artificial Intelligence is revolutionizing the healthcare sector by improving diagnostics, treatment plans, and patient care.",
+  "AuthorId": 3
 }
 
 ###
@@ -62,13 +73,14 @@ Accept: application/json
 
 
 ###
-POST {{BlogApi2_backend_HostAddress}}/api/Author
+POST {{BlogApi2_backend_HostAddress}}/api/Author/login
 Content-Type: application/json
 Accept: application/json
 
 {
   "Name": "Sarah Lee",
-  "Email": "sarah.lee@domain.org"
+  "Email": "sarah.lee@domain.org",
+  "Password":"sarah@12"
 }
 
 
@@ -92,6 +104,18 @@ Content-Type: application/json
   "Content": "A sneak peek into the latest fashion trends and how you can incorporate them into your wardrobe.",
   "AuthorId": 4
 }
+
+###
+POST {{BlogApi2_backend_HostAddress}}/api/Blog
+Accept: application/json
+Content-Type: application/json
+
+{
+  "Title": "The Evolution of Social Media",
+  "Content": "Social media platforms continue to evolve, with new features and trends emerging every year. Let's explore the changing dynamics of digital communication.",
+  "AuthorId": 6
+}
+
 
 ###
 POST {{BlogApi2_backend_HostAddress}}/api/Blog
@@ -128,7 +152,7 @@ Content-Type: application/json
 
 
 ###
-PUT {{BlogApi2_backend_HostAddress}}/api/Blog/1
+PUT {{BlogApi2_backend_HostAddress}}/api/Blog/32
 Accept:  application/json
 Content-Type: application/json
 
@@ -181,5 +205,58 @@ DELETE {{BlogApi2_backend_HostAddress}}/api/Blog
 
 
 ###
-GET {{BlogApi2_backend_HostAddress}}/api/Blog/32
+GET {{BlogApi2_backend_HostAddress}}/api/Blog
  Accept: application/json
+
+###
+PUT {{BlogApi2_backend_HostAddress}}/api/Blog/31
+Accept:  application/json
+Content-Type: application/json
+
+{
+  "Title": "Updated Blog Title",
+  "Content": "This is the updated content of the blog.",
+  "AuthorId": 8
+}
+
+###
+GET {{BlogApi2_backend_HostAddress}}/api/Blog/title?title=Ai%20in%20Healthcare
+Accept:  application/json
+
+
+###
+POST {{BlogApi2_backend_HostAddress}}/api/Author/register
+Accept: application/json
+Content-Type: application/json
+
+{
+  "Name": "John Doe",
+  "Email": "johndoe@example.com",
+  "Password": "password123"
+}
+
+###
+GET {{BlogApi2_backend_HostAddress}}/api/Author
+Accept: application/json
+
+###
+PUT {{BlogApi2_backend_HostAddress}}/api/Author/12
+Accept: application/json
+Content-Type: application/json
+
+{
+  "Name": "Jane Doe",
+  "Email": "janedoe@example.com",
+  "Password": "newpassword123"
+}
+
+###
+POST {{BlogApi2_backend_HostAddress}}/api/Comment
+Content-Type: application/json
+{
+   
+    "CommentText": "This is a great blog post! I really enjoyed reading it.",
+    "CreatedAt": "2025-02-04T12:00:00",
+    "BlogId": 41,
+    "AuthorId": 10
+}

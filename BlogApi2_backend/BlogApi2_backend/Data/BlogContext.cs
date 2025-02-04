@@ -11,5 +11,7 @@ namespace BlogApi2_backend.Data
 
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Author> Authors { get; set; }
+
+        public DbSet<Comments> Comments { get; set; }
     }
 }
