@@ -1,61 +1,11 @@
 
-
-// import React, { useState, useEffect } from "react";
-// import { useParams } from "react-router-dom"; // For accessing the blogId from the URL
-
-// function BlogDetailPage() {
-//   const { blogId } = useParams(); // Get the blogId from the URL parameter
-//   console.log("Blog ID:", blogId); // Log the blogId to the console (it should be a string by default)
-
-//   // If you want it as an integer:
-// const blogIdInt = parseInt(blogId, 10);
-// //const blogIdInt = 21;
-//   console.log("Blog ID as integer:", blogIdInt);
-
-//   const [blogData, setBlogData] = useState(null);
-
-//   useEffect(() => {
-//     const fetchBlog = async () => {
-//       try {
-//         const response = await fetch(`http://localhost:5233/api/Blog/${blogIdInt}`);
-//         console.log(response); // Check response status and body
-//         const data = await response.json();
-//         setBlogData(data);
-//       } catch (error) {
-//         console.error("Error fetching blog data:", error);
-//       }
-//     };
-
-//     fetchBlog();
-//   }, [blogIdInt]); // Fetch the blog whenever the blogId changes
-
-//   return (
-//     <div className="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-lg">
-//       {blogData ? (
-//         <div>
-//           <h3 className="text-2xl font-semibold">{blogData.title}</h3>
-//           <p className="mt-2">{blogData.content}</p>
-//           <div className="mt-4">
-//             <span className="text-gray-500">By {blogData.authorName}</span>
-//             <span className="text-gray-500 ml-4">
-//               {new Date(blogData.createdAt).toLocaleDateString()}
-//             </span>
-//           </div>
-//         </div>
-//       ) : (
-//         <p>Loading blog...</p>
-//       )}
-//     </div>
-//   );
-// }
-
-// export default BlogDetailPage;
-
-
-
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom"; // Added useNavigate
 import { useAuthor } from "../context/AuthorContext";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+
 function BlogDetailPage() {
   const { blogId } = useParams();
   const navigate = useNavigate(); // Hook for navigation
@@ -63,7 +13,8 @@ function BlogDetailPage() {
   const [commentText, setCommentText] = useState(""); // State to hold comment input
   const [isSubmitting, setIsSubmitting] = useState(false); // State to manage submitting status
   const [blogData, setBlogData] = useState(null);
-  const { authorId } = useAuthor();
+  const { authorId ,authorName } = useAuthor();
+  const [submittedComment,setSubmitComment]=useState("");
 
   useEffect(() => {
     const fetchBlog = async () => {
@@ -74,6 +25,7 @@ function BlogDetailPage() {
         setBlogData(data);
       } catch (error) {
         console.error("Error fetching blog data:", error);
+        toast.error("An unexpected error !")
       }
     };
 
@@ -88,13 +40,13 @@ function BlogDetailPage() {
     e.preventDefault();
 
     if (!commentText.trim()) {
-      alert("Please enter a comment.");
+      toast.warn("Please enter the comment")
       return;
     }
    
 
     if (!authorId) {
-      alert("Please log in to comment.");
+      toast.error("Please log in to comment.");
       return;
     }
 
@@ -119,36 +71,20 @@ function BlogDetailPage() {
 
       if (response.ok) {
         const newComment = await response.json();
-        alert("Comment added successfully!");
+        setSubmitComment(newComment.commentText)
+        console.log(newComment.commentText + authorName);
+        toast.success("Comment added successfully!");
         setCommentText(""); // Reset comment field after submission
       } else {
         alert("Failed to add comment.");
       }
     } catch (error) {
       console.error("Error submitting comment:", error);
-      alert("An error occurred. Please try again.");
+      toast.error("An unexpected error !")
     } finally {
       setIsSubmitting(false);
     }
   };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   return (
@@ -190,14 +126,14 @@ function BlogDetailPage() {
             {isSubmitting ? "Submitting..." : "Submit Comment"}
           </button>
         </form>
+
+        <div className="mt-6">
+    <h3 className="font-semibold">{authorName}</h3>
+    <p className="text-gray-600">{submittedComment}</p>
+  </div> 
       </div>
 
-
-
-
-
-
-
+     
 
 
       {/* Go Back Button */}

@@ -1,4 +1,5 @@
-﻿using BlogApi2_backend.Data;
+﻿using AutoMapper;
+using BlogApi2_backend.Data;
 using BlogApi2_backend.Models.Dtos;
 using BlogApi2_backend.Models.Entities;
 using Microsoft.AspNetCore.Http;
@@ -12,10 +13,12 @@ namespace BlogApi2_backend.Controllers
     public class CommentController : ControllerBase
     {
         private readonly BlogContext dbcontext;
+        private readonly IMapper _mapper;
 
-        public CommentController(BlogContext dbcontext)
+        public CommentController(BlogContext dbcontext,IMapper mapper)
         {
             this.dbcontext = dbcontext;
+            this._mapper = mapper;
         }
 
 
@@ -39,18 +42,22 @@ namespace BlogApi2_backend.Controllers
                 return BadRequest("Comment data is required.");
             }
 
+            var blog1 = await dbcontext.Blogs.FindAsync(addCommentDto.BlogId);
+            if (blog1 == null)
+            {
+                return BadRequest("Invalid BlogId. The blog does not exist.");
+            }
+
+
+            // Validate AuthorId (if needed)
+            var author = await dbcontext.Authors.FindAsync(addCommentDto.AuthorId);
+            if (author == null)
+                return BadRequest("Invalid AuthorId. The author does not exist.");
+
+            var comment = _mapper.Map<Comments>(addCommentDto);
+
             
 
-            // Create the Comment entity from the DTO
-            var comment = new Comments
-            {
-                CommentText = addCommentDto.CommentText,
-                CreatedAt = addCommentDto.CreatedAt,
-                BlogId = addCommentDto.BlogId, 
-                AuthorId = addCommentDto.AuthorId
-            };
-
-            // Add the comment to the database
             dbcontext.Comments.Add(comment);
             await dbcontext.SaveChangesAsync();
 

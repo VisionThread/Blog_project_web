@@ -13,5 +13,17 @@ namespace BlogApi2_backend.Data
         public DbSet<Author> Authors { get; set; }
 
         public DbSet<Comments> Comments { get; set; }
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            // Explicitly configure the relationship between Blog and Author
+            modelBuilder.Entity<Blog>()
+                .HasOne(b => b.Author)
+                .WithMany(a => a.Blogs)
+                .HasForeignKey(b => b.AuthorId);
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

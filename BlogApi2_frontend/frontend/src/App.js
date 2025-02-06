@@ -46,9 +46,13 @@ import Footer from "./component/Footer";
 import { AuthorProvider } from "./context/AuthorContext";
 import AppRoutes from "./Routes";
 
+import { ToastContainer } from "react-toastify";
+
 function App() {
   return (
     <AuthorProvider>
+      <ToastContainer
+      autoClose={2000} />
       <Router>
         <div className="App bg-[#F0F4F0] min-h-screen flex flex-col">
           <Navbar />

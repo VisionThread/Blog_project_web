@@ -3,12 +3,13 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuthor } from "../context/AuthorContext";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { ROUTES } from "../RoutesConstant";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState(""); // State to hold the success/error message
-  const [messageColor, setMessageColor] = useState("");
   const navigate = useNavigate();
   const { login } = useAuthor();
 
@@ -26,24 +27,17 @@ function Login() {
     const data = await response.json();
 
 if (response.ok) {
-  // Show a success message
- 
-  setMessage("Login Successful!");
-  setMessageColor("green");
+  toast.success("Login successful!")
   // Proceed with the login
   login(data.authorId,data.name);
   setTimeout(() => {
-    navigate("/Home");
+    navigate(ROUTES.HOME);
   }, 2000);
 } else {
-  // Show an error message if credentials are invalid
-  setMessage("Invalid credentials");
-      setMessageColor("red");
+ 
+  toast.error("Invalid credentials");
 }
-setTimeout(() => {
-  setMessage(""); 
-}, 3000);
-  };
+};
 
   return (
     <div className="max-w-md mx-auto  p-8 rounded-lg shadow-sm">
@@ -80,17 +74,17 @@ setTimeout(() => {
           </button>
         </form>
        
-        {message && (
+        {/* {message && (
           <div style={{ color: messageColor }} className="mt-4 text-center">
             {message}
           </div>
-        )}
+        )} */}
 
 
 
         <p className="text-center text-gray-600 mt-4">
           Don't have an account? 
-          <Link to="/register" className="text-green-600 hover:underline ml-1">Sign up</Link>
+          <Link to={ROUTES.REGISTER} className="text-green-600 hover:underline ml-1">Sign up</Link>
         </p>
       </div>
     </div>

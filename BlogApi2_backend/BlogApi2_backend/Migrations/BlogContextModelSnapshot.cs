@@ -106,13 +106,11 @@ namespace BlogApi2_backend.Migrations
 
             modelBuilder.Entity("BlogApi2_backend.Models.Entities.Comments", b =>
                 {
-                    b.HasOne("BlogApi2_backend.Models.Entities.Blog", "Blog")
+                    b.HasOne("BlogApi2_backend.Models.Entities.Blog", null)
                         .WithMany("Comments")
                         .HasForeignKey("BlogId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Blog");
                 });
 
             modelBuilder.Entity("BlogApi2_backend.Models.Entities.Author", b =>

@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { ROUTES } from "../RoutesConstant";
 
 function Register() {
   // State to store the form data
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  // State to store any error or success message
-  const [message, setMessage] = useState('');
- 
   // Initialize useNavigate hook for redirecting
   const navigate = useNavigate();
 
@@ -33,16 +32,17 @@ function Register() {
       const data = await response.json();
 
       if (response.ok) {
-        setMessage('Registration successful!');
+       toast.success("Registration successful !")
 
         setTimeout(() => {
-          navigate('/login');
+          navigate(ROUTES.LOGIN);
         }, 2000); 
       } else {
-        setMessage(`Error: ${data.Message}`);
+        toast.error(`Error: ${data.Message}`);
       }
     } catch (error) {
-      setMessage('Error: Unable to register');
+      // setMessage('Error: Unable to register');
+      toast.error("Error :unable to register");
     }
   };
 
@@ -100,7 +100,7 @@ function Register() {
       </button>
     </form>
 
-    {message && <p className="mt-4 text-green-500">{message}</p>}
+    {/* {message && <p className="mt-4 text-green-500">{message}</p>} */}
   </div>
   </div>
   );

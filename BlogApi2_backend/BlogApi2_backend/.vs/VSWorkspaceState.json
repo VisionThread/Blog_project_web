@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\bin\\Debug",
+    "\\bin\\Debug\\net9.0",
+    "\\bin\\Release",
+    "\\bin\\Release\\net9.0",
+    "\\Controllers",
+    "\\Data",
+    "\\Models",
+    "\\Models\\Dtos",
+    "\\Models\\Entities"
+  ],
+  "SelectedNode": "\\Controllers\\AuthorController.cs",
+  "PreviewInSolutionExplorer": false
+}

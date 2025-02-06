@@ -1,5 +1,8 @@
+using BlogApi2_backend.Configuration;
 using BlogApi2_backend.Data;
 using Microsoft.EntityFrameworkCore;
+using AutoMapper;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,9 +43,12 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true; // Make sure the cookie is essential for the app
 });
 
+IServiceCollection serviceCollection = builder.Services.AddAutoMapper(typeof(AutoMapperConfig));
+
+
 
 var app = builder.Build();
-
+ 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

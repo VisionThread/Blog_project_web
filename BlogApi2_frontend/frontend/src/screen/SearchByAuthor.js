@@ -4,7 +4,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BlogDetail from "../component/Blog"; // Import BlogDetail component
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function AuthorSearch() {
   const [name, setName] = useState(""); // Input value
   const [authorData, setAuthorData] = useState(null); // Stores response data
@@ -14,7 +15,7 @@ function AuthorSearch() {
 
   const handleSearch = async () => {
     if (!name) {
-      alert("Please enter an author's name.");
+      toast.warn("Please enter an author's name.");
       return;
     }
 

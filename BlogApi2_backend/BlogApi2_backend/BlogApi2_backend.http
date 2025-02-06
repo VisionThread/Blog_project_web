@@ -8,7 +8,7 @@ GET {{BlogApi2_backend_HostAddress}}/api/Blog
 Accept: application/json
 
 ###
-GET {{BlogApi2_backend_HostAddress}}/api/Blog/40
+GET {{BlogApi2_backend_HostAddress}}/api/Blog/35
 Accept: application/json
 
 ###
@@ -17,10 +17,22 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "Title": "Gossip girl",
-  "Content": "This is the content of the blog post.",
-  "AuthorId": 9
+  "Title": "Breaking Bad",
+  "Content": "A story of transformation, secrets, and consequences in the underworld.",
+  "AuthorId": 7
 }
+
+###
+PUT {{BlogApi2_backend_HostAddress}}/api/Blog/42
+Accept:  application/json
+Content-Type: application/json
+
+{
+  "Title": "Breaking Bad part 1",
+  "Content": "A story of transformation, secrets, and consequences in the underworld.",
+  "AuthorId": 7
+}
+
 ###
 POST {{BlogApi2_backend_HostAddress}}/api/Blog
 Accept: application/json
@@ -44,7 +56,7 @@ Content-Type: application/json
 }
 
 ###
-GET {{BlogApi2_backend_HostAddress}}/api/Blog/15
+GET {{BlogApi2_backend_HostAddress}}/api/Blog
 Accept: application/json
 
 ###
@@ -147,23 +159,23 @@ Content-Type: application/json
 {
   "Title": "Top 25 Destinations to Visit in 2025 in india",
   "Content": "Explore the most popular travel destinations for 2025 and why they should be on your bucket list.",
-  "AuthorId": 9
+  "AuthorId": 7
 }
 
 
 ###
-PUT {{BlogApi2_backend_HostAddress}}/api/Blog/32
+PUT {{BlogApi2_backend_HostAddress}}/api/Blog/47
 Accept:  application/json
 Content-Type: application/json
 
 {
-  "Title": "Updated Blog Title",
-  "Content": "This is the updated content of the blog.",
+  "Title": "Healthy part 2",
+  "Content": "Sleep is important",
   "AuthorId": 9
 }
 
 ###
-DELETE {{BlogApi2_backend_HostAddress}}/api/Blog/2
+DELETE {{BlogApi2_backend_HostAddress}}/api/Blog/44
 Accept: application/json
 
 
@@ -184,19 +196,19 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "Name": "John Smith",
-  "Email": "charliesmith@example.com",
-  "Password": "securePassword123"
+  "Name": "Jerry Levi",
+  "Email": "jerry8@example.com",
+  "Password": "jerry"
 }
 
 
 ###
-GET {{BlogApi2_backend_HostAddress}}/api/Author/by-name?name=Emily%20Johnson
+GET {{BlogApi2_backend_HostAddress}}/api/Author/by-name?name=smruti%20sonekar
 Accept: application/json
 
 
 ###
-GET {{BlogApi2_backend_HostAddress}}/api/Author/by-id/8
+GET {{BlogApi2_backend_HostAddress}}/api/Author/by-id/7
 Accept: application/json
 
 ###
@@ -209,7 +221,7 @@ GET {{BlogApi2_backend_HostAddress}}/api/Blog
  Accept: application/json
 
 ###
-PUT {{BlogApi2_backend_HostAddress}}/api/Blog/31
+PUT {{BlogApi2_backend_HostAddress}}/api/Blog
 Accept:  application/json
 Content-Type: application/json
 
@@ -220,7 +232,7 @@ Content-Type: application/json
 }
 
 ###
-GET {{BlogApi2_backend_HostAddress}}/api/Blog/title?title=Ai%20in%20Healthcare
+GET {{BlogApi2_backend_HostAddress}}/api/Blog/title?title=To%20
 Accept:  application/json
 
 
@@ -239,6 +251,12 @@ Content-Type: application/json
 GET {{BlogApi2_backend_HostAddress}}/api/Author
 Accept: application/json
 
+
+###
+GET {{BlogApi2_backend_HostAddress}}/api/Blog
+Accept: application/json
+
+
 ###
 PUT {{BlogApi2_backend_HostAddress}}/api/Author/12
 Accept: application/json
@@ -255,8 +273,8 @@ POST {{BlogApi2_backend_HostAddress}}/api/Comment
 Content-Type: application/json
 {
    
-    "CommentText": "This is a great blog post! I really enjoyed reading it.",
+    "CommentText": "good work.",
     "CreatedAt": "2025-02-04T12:00:00",
-    "BlogId": 41,
-    "AuthorId": 10
+    "BlogId": 40,
+    "AuthorId": 11
 }

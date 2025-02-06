@@ -1,8 +1,12 @@
-﻿using System.Text.Json;
+﻿using System.Collections.Generic;
+using System.Text.Json;
+using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using BlogApi2_backend.Data;
 using BlogApi2_backend.Models.Dtos;
 using BlogApi2_backend.Models.Entities;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,10 +17,12 @@ namespace BlogApi2_backend.Controllers
     public class AuthorController : ControllerBase
     {
         private readonly BlogContext dbcontext;
-
-        public AuthorController(BlogContext dbcontext)
+        private readonly IMapper _mapper;
+        public AuthorController(BlogContext dbcontext, IMapper mapper)
         { 
             this.dbcontext = dbcontext;
+            this._mapper = mapper;
+
         }
         //// GET: api/Author(to fetch all the authors)
         //[HttpGet]
@@ -129,25 +135,40 @@ namespace BlogApi2_backend.Controllers
         {
             try
             {
-                var author = await dbcontext.Authors
-                    .Where(a => a.Id == id)
-                    .Select(a => new
-                    {
-                        AuthorId = a.Id,
-                        AuthorName = a.Name,
-                        Blogs = dbcontext.Blogs
-                            .Where(b => b.AuthorId == a.Id)
-                            .Select(b => new
-                            {
-                                BlogId = b.Id,
-                                Title = b.Title,
-                                Content = b.Content,
-                                CreatedAt = b.CreatedAt
-                            })
-                            .ToList()
-                    })
-                    .FirstOrDefaultAsync();
+                //var author = await dbcontext.Authors
+                //    .Where(a => a.Id == id)
+                //    .Select(a => new
+                //    {
+                //        AuthorId = a.Id,
+                //        AuthorName = a.Name,
+                //        Blogs = dbcontext.Blogs
+                //            .Where(b => b.AuthorId == a.Id)
+                //            .Select(b => new
+                //            {
+                //                BlogId = b.Id,
+                //                Title = b.Title,
+                //                Content = b.Content,
+                //                CreatedAt = b.CreatedAt
+                //            })
+                //            .ToList()
+                //    })
+                //    .FirstOrDefaultAsync();
 
+                var author = await dbcontext.Authors
+                              .Where(a => a.Id == id)
+                              .ProjectTo<GetAuthorDto>(_mapper.ConfigurationProvider)
+                              .FirstOrDefaultAsync();
+                              
+                
+                
+                //.Where(a => a.Id == id)
+                //Filters the authors to get the one with the matching id.
+
+                //.ProjectTo<AuthorDto>(_mapper.ConfigurationProvider)
+                //Uses AutoMapper to transform the query results into AuthorDto objects. This method reads your mapping configuration and selects only the necessary fields.
+
+                //.FirstOrDefaultAsync()
+                //Retrieves the first matching record(or null if none is found).
                 if (author == null)
                 {
                     return NotFound(new { Message = "Author not found" });
@@ -167,24 +188,30 @@ namespace BlogApi2_backend.Controllers
         {
             try
             {
+                //var author = await dbcontext.Authors
+                //    .Where(a => a.Name.ToLower() == name.ToLower())
+                //    .Select(a => new
+                //    {
+                //        AuthorId = a.Id,
+                //        AuthorName = a.Name,
+                //        Blogs = dbcontext.Blogs
+                //            .Where(b => b.AuthorId == a.Id)
+                //            .Select(b => new
+                //            {
+                //                BlogId = b.Id,
+                //                Title = b.Title,
+                //                Content = b.Content,
+                //                CreatedAt = b.CreatedAt
+                //            })
+                //            .ToList()
+                //    })
+                //    .FirstOrDefaultAsync();
+
+
                 var author = await dbcontext.Authors
-                    .Where(a => a.Name.ToLower() == name.ToLower())
-                    .Select(a => new
-                    {
-                        AuthorId = a.Id,
-                        AuthorName = a.Name,
-                        Blogs = dbcontext.Blogs
-                            .Where(b => b.AuthorId == a.Id)
-                            .Select(b => new
-                            {
-                                BlogId = b.Id,
-                                Title = b.Title,
-                                Content = b.Content,
-                                CreatedAt = b.CreatedAt
-                            })
-                            .ToList()
-                    })
-                    .FirstOrDefaultAsync();
+                              .Where(a => a.Name.ToLower() == name.ToLower())
+                              .ProjectTo<GetAuthorDto>(_mapper.ConfigurationProvider)
+                              .FirstOrDefaultAsync();
 
                 if (author == null)
                 {
@@ -243,12 +270,14 @@ namespace BlogApi2_backend.Controllers
                 }
 
                 // Create a new Author entity from the AddAuthor DTO
-                var authorEntity = new Author()
-                {
-                    Name = addAuthor.Name,
-                    Email = addAuthor.Email,
-                    Password = addAuthor.Password // Ideally, you should hash the password here!
-                };
+                //var authorEntity = new Author()
+                //{
+                //    Name = addAuthor.Name,
+                //    Email = addAuthor.Email,
+                //    Password = addAuthor.Password 
+                //};
+
+                var authorEntity = _mapper.Map<Author>(addAuthor);
 
                 // Add the new Author entity to the database asynchronously
                 await dbcontext.Authors.AddAsync(authorEntity);
