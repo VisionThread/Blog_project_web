@@ -1,5 +1,5 @@
-// BlogDetail.js
-import React from "react";
+// // BlogDetail.js
+// import React from "react";
 
 function BlogDetail({ blog, authorName, onBack }) {
   return (

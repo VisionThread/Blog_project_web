@@ -7,6 +7,6 @@
     "\\Models\\Dtos",
     "\\Models\\Entities"
   ],
-  "SelectedNode": "\\Controllers\\AuthorController.cs",
+  "SelectedNode": "\\BlogApi2_backend.csproj",
   "PreviewInSolutionExplorer": false
 }

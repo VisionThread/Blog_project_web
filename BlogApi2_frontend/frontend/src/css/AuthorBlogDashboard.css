@@ -76,3 +76,49 @@
 .delete-button:hover {
   background-color: #b91c1c; /* Matches hover:bg-red-700 */
 }
+
+/* Toast Container */
+.delete-toast {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Group */
+.button-group2 {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 10px;
+}
+
+/* Yes Button */
+.yes-btn {
+  background: #dc2626; /* Red */
+  color: #ffffff;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.yes-btn:hover {
+  background: #b91c1c;
+}
+
+/* No Button */
+.no-btn {
+  background: #16a34a; /* Green */
+  color: #ffffff;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.no-btn:hover {
+  background: #15803d;
+}

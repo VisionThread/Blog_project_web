@@ -9,8 +9,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: white;
-    padding: 40px;
+    background-color: rgb(236 245 237);
+    padding: 5px;
   }
   
   .home-content {

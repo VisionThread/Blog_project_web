@@ -27,7 +27,6 @@
 //   return useContext(AuthorContext);
 // };
 
-
 import React, { createContext, useContext, useState } from "react";
 
 // Create a context to store author data
@@ -39,13 +38,13 @@ export const AuthorProvider = ({ children }) => {
   const [authorName, setAuthorName] = useState("");
 
   const login = (id, name) => {
-    setAuthorId(id);    // Store authorId
+    setAuthorId(id); // Store authorId
     setAuthorName(name); // Store author name
   };
 
   const logout = () => {
-    setAuthorId(null);     // Reset authorId on logout
-    setAuthorName("");     // Reset author name on logout
+    setAuthorId(null); // Reset authorId on logout
+    setAuthorName(""); // Reset author name on logout
   };
 
   return (

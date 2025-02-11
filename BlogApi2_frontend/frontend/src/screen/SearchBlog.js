@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/SearchBlog.css";
@@ -21,9 +20,6 @@ function SearchBlogs() {
     // Function to fetch the blog by title
     const fetchBlog = async () => {
       try {
-        // const response = await fetch(
-        //   `http://localhost:5233/api/Blog/title?title=${encodeURIComponent(searchQuery)}`
-        // );
         const response = await BlogService.searchBlogByTitle(searchQuery);
         if (!response) throw new Error("No blogs found");
         setBlogs(response);
@@ -41,62 +37,59 @@ function SearchBlogs() {
     return () => clearTimeout(debounceTimeout); // Cleanup timeout on change
   }, [searchQuery]);
 
-
-
-
   return (
     <div className="overall-container">
-    <h1 className="overall-title">Search Blog</h1>
-  
-    {/* Search Bar */}
-    <div className="search-blog-container">
-      <input
-        type="text"
-        placeholder="Enter blog title..."
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-        className="search-input-field"
-      />
-      {/* Autocomplete Suggestions */}
-      {showSuggestions && blogs.length > 0 && (
-        <ul className="autocomplete-suggestions">
-          {blogs.map((blog) => (
-            <li
-              key={blog.id}
-              className="suggestion-item"
-              onClick={() => {
-                navigate(`/blog/${blog.id}`);
-                setSearchQuery(blog.title); // Set the input to selected blog title
-                setShowSuggestions(false); // Hide suggestions
-              }}
-            >
-              {blog.title}
-            </li>
-          ))}
-        </ul>
+      <h1 className="overall-title">Search Blog</h1>
+
+      {/* Search Bar */}
+      <div className="search-blog-container">
+        <input
+          type="text"
+          placeholder="Enter blog title..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="search-input-field"
+        />
+        {/* Autocomplete Suggestions */}
+        {showSuggestions && blogs.length > 0 && (
+          <ul className="autocomplete-suggestions">
+            {blogs.map((blog) => (
+              <li
+                key={blog.id}
+                className="suggestion-item"
+                onClick={() => {
+                  navigate(`/blog/${blog.id}`);
+                  setSearchQuery(blog.title); // Set the input to selected blog title
+                  setShowSuggestions(false); // Hide suggestions
+                }}
+              >
+                {blog.title}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
+      {/* Error Message */}
+      {error && <p className="error-message">{error}</p>}
+
+      {/* Display Blog */}
+      {blogs.length === 1 && (
+        <div className="blog-card">
+          <h2 className="blog-title">{blogs[0].title}</h2>
+          <p className="blog-content">
+            {blogs[0].content.substring(0, 100)}...
+          </p>
+          <button
+            onClick={() => navigate(`/blog/${blogs[0].id}`)}
+            className="read-more-btn"
+          >
+            Read more
+          </button>
+        </div>
       )}
     </div>
-  
-    {/* Error Message */}
-    {error && <p className="error-message">{error}</p>}
-  
-    {/* Display Blog */}
-    {blogs.length === 1 && (
-      <div className="blog-card">
-        <h2 className="blog-title">{blogs[0].title}</h2>
-        <p className="blog-content">{blogs[0].content.substring(0, 100)}...</p>
-        <button
-          onClick={() => navigate(`/blog/${blogs[0].id}`)}
-          className="read-more-btn"
-        >
-          Read more
-        </button>
-      </div>
-    )}
-  </div>
   );
- 
 }
 
 export default SearchBlogs;
-

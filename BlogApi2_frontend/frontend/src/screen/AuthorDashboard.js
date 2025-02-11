@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthor } from "../context/AuthorContext";
-import { ROUTES } from "../RoutesConstant";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "../css/AuthorBlogDashboard.css";
@@ -37,37 +36,40 @@ function AuthorDashboard() {
 
   //confirmation of deletion
   const showDeleteConfirmation = (blogid) => {
-    // Creating a custom toast for confirmation
     toast(
-      <div>
-        <p>Are you sure you want to delete this blog?</p>
-        <div className="flex justify-end space-x-2">
-          <button
-            onClick={() => handleDelete(blogid, true)} // If Yes is clicked
-            className="bg-red-600 text-white px-4 py-2 rounded"
-          >
-            Yes
-          </button>
-          <button
-            onClick={() => handleDelete(blogid, false)} // If No is clicked
-            className="bg-green-600 text-white px-4 py-2 rounded"
-          >
-            No
-          </button>
+      ({ closeToast }) => (
+        <div className="delete-toast">
+          <p>Are you sure you want to delete this blog?</p>
+          <div className="button-group2">
+            <button className="yes-btn" 
+              onClick={() => {
+                handleDelete(blogid, true); // Perform deletion
+                setTimeout(closeToast, 200); // Close toast after 2 seconds
+              }}>
+              Yes
+            </button>
+            <button className="no-btn" onClick={closeToast}>
+              No
+            </button>
+          </div>
         </div>
-      </div>,
+      ),
       {
-        position: "top-right",
-        autoClose: 4000, // Prevent auto-close
-        closeOnClick: false, // Prevent closing when clicking on the toast
-        draggable: false, // Make it not draggable
+        position: "top-right", // Ensure it appears at the center
+        autoClose:false, // Prevents auto-closing
+        closeOnClick: false, // Prevent accidental closing
+        closeButton: false, // Hide default close button
+        draggable: false,
+        hideProgressBar: true, // Remove progress bar
       }
     );
   };
+  
+  
 
   const handleDelete = async (blogId, isConfirmed) => {
     if (!isConfirmed) {
-      toast.info("Blog deletion canceled.");
+      //toast.info("Blog deletion canceled.");
       return;
     }
 

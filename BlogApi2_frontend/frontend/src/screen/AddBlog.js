@@ -8,7 +8,6 @@ import "react-toastify/dist/ReactToastify.css";
 import "../css/Addblog.css";
 import BlogService from "../services/blogService";
 
-
 function AddBlog() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -35,18 +34,11 @@ function AddBlog() {
     };
 
     try {
-      // const response = await fetch("http://localhost:5233/api/Blog", {
-      //   method: "POST",
-      //   headers: { "Content-Type": "application/json" },
-      //   body: JSON.stringify(blogData),
-      // });
       const response = await BlogService.createBlog(blogData);
-      // const data = await response.json();
-      console.log("Response",response);
+      // console.log("Response",response);
       if (response) {
         setBlogId(response.id);
-        saveBlogId(response.id); // Save the blog ID in the context
-        // alert("Blog created successfully!");
+        saveBlogId(response.id);
         toast.success("Blog created successfully! 🎉");
       } else {
         toast.error("Failed to create blog ! ❌ ");
@@ -57,18 +49,12 @@ function AddBlog() {
     }
   };
 
-
   return (
     <div className="blog-container">
-      <h1 className="blog-heading">
-        Create a New Blog
-      </h1>
+      <h1 className="blog-heading">Create a New Blog</h1>
       <form onSubmit={handleCreateBlog} className="blog-form">
         <div>
-          <label
-            htmlFor="title"
-            className="blog-label"
-          >
+          <label htmlFor="title" className="blog-label">
             Blog Title
           </label>
           <input
@@ -81,10 +67,7 @@ function AddBlog() {
           />
         </div>
         <div>
-          <label
-            htmlFor="content"
-            className="blog-form"
-          >
+          <label htmlFor="content" className="blog-form">
             Content
           </label>
           <textarea
@@ -96,10 +79,7 @@ function AddBlog() {
             className="blog-textarea"
           />
         </div>
-        <button
-          type="submit"
-          className="blog-submit"
-        >
+        <button type="submit" className="blog-submit">
           Create Blog
         </button>
       </form>
@@ -114,10 +94,7 @@ function AddBlog() {
         </button>
       )}
 
-      <button
-        onClick={() => navigate(-1)}
-        className="blog-back"
-      >
+      <button onClick={() => navigate(-1)} className="blog-back">
         ⬅️ Go Back
       </button>
     </div>

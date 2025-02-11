@@ -1,8 +1,7 @@
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../RoutesConstant";
-import "../css/Home.css"
+import "../css/Home.css";
 
 function Home() {
   const navigate = useNavigate();
@@ -11,9 +10,7 @@ function Home() {
     <div className="home-container">
       <div className="home-content">
         {/* Header Section */}
-        <h1 className="home-title">
-        Let Your Ideas Flow with InkSpire!
-        </h1>
+        <h1 className="home-title">Let Your Ideas Flow with InkSpire!</h1>
         <p className="home-description">
           Explore, create, and manage amazing blogs!
         </p>
@@ -26,7 +23,7 @@ function Home() {
           >
             ✍️ Create a Blog
           </button>
-          
+
           <button
             onClick={() => navigate(ROUTES.AUTHOR_SEARCH)}
             className="home-button"
@@ -42,7 +39,7 @@ function Home() {
           >
             🔍 Search Blogs by Title
           </button>
-          
+
           <button
             onClick={() => navigate(ROUTES.AUTHOR_DASHBOARD)}
             className="home-button"

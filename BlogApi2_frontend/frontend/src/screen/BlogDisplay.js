@@ -35,9 +35,6 @@ function BlogDetailPage() {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        // const response = await fetch(
-        //   `http://localhost:5233/api/Comment/blog/${blogIdInt}`
-        // );
         const response = await commentService.getCommentsByBlog(blogIdInt);
         if (!response) throw new Error("Failed to load comments.");
         //const data = await response.json();
@@ -78,19 +75,13 @@ function BlogDetailPage() {
     };
 
     try {
-      // const response = await fetch("http://localhost:5233/api/Comment", {
-      //   method: "POST",
-      //   headers: { "Content-Type": "application/json" },
-      //   body: JSON.stringify(commentData),
-      // });
-
       const response = await commentService.CommentPost(commentData);
 
       if (response) {
         const newComment = await response;
         setComments((prevComments) => [...prevComments, newComment]);
-        setCommentText(""); // ✅ Clear input after submission
-        setSubmittedComment(commentText); // ✅ Update UI
+        setCommentText(""); 
+        setSubmittedComment(commentText); 
         toast.success("Comment added successfully!");
       } else {
         toast.error("Failed to add comment.");
@@ -146,9 +137,6 @@ function BlogDetailPage() {
           </button>
         </form>
       </div>
-
-      {/* Submitted Comment Preview */}
-
       {/* Comment List */}
       <div className="comments-list">
         <h2 className="comment-header">Comments</h2>
@@ -158,7 +146,9 @@ function BlogDetailPage() {
               <h3 className="author-name">
                 {comment.authorName || authorName || "Anonymous"}
               </h3>
-              <p className="comment-content">{comment.commentText || submittedComment}</p>
+              <p className="comment-content">
+                {comment.commentText || submittedComment}
+              </p>
               <span className="comment-date">
                 {new Date(comment.createdAt).toLocaleDateString("en-US", {
                   year: "numeric",
@@ -173,15 +163,7 @@ function BlogDetailPage() {
             No comments yet. Be the first to comment!
           </p>
         )}
-     
-
-      {/* {submittedComment && (
-          <div className="submitted-comment comment">
-            <h3 className="author-name">{authorName}</h3>
-            <p className="comment-content">{submittedComment}</p>
-          </div>
-        )} */}
-       </div>
+      </div>
       {/* Go Back Button */}
       <button onClick={() => navigate(-1)} className="go-back-button">
         ⬅️ Go Back

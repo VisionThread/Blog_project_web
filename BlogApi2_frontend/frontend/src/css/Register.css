@@ -4,10 +4,10 @@
     display: grid;
     place-items: center;            /* Tailwind max-w-sm = 24rem (384px) */
     margin: 0 auto;               /* mx-auto */
-    padding: 2rem;                /* p-8 */
+    padding: 10px;                /* p-8 */
     border-radius: 0.5rem;        /* rounded-lg */
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* shadow-sm */
-    display: flex;
+    display: flex; 
     justify-content: center; /* Centers horizontally */
     align-items: center;  
   }
@@ -25,10 +25,6 @@
   
   /* Title: replicates text-2xl, font-bold, mb-4, and text-[var(--color-forest)] */
   .register-title {
-    /* font-size: 1.5rem;     
-    font-weight: bold;      
-    margin-bottom: 1rem;         
-    color: var(--color-forest);    */
     font-size: 1.875rem;         /* 30px */
     font-weight: bold;
     text-align: center;
