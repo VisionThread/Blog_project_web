@@ -1,0 +1,91 @@
+/* Outer container: replicates max-w-sm, mx-auto, p-8, rounded-lg, and shadow-sm */
+.register-container {
+    max-width: 50%; 
+    display: grid;
+    place-items: center;            /* Tailwind max-w-sm = 24rem (384px) */
+    margin: 0 auto;               /* mx-auto */
+    padding: 2rem;                /* p-8 */
+    border-radius: 0.5rem;        /* rounded-lg */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* shadow-sm */
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;  
+  }
+  
+  /* Inner container: replicates w-full, max-w-sm, bg-white, p-5, rounded-lg, and shadow-lg */
+  .register-inner-container {
+    width: 100%;
+    max-width: 24rem;             /* max-w-sm */
+    background-color: #ffffff;    /* bg-white */
+    padding: 1.25rem;             /* p-5 */
+    border-radius: 0.5rem;        /* rounded-lg */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+  }
+  
+  /* Title: replicates text-2xl, font-bold, mb-4, and text-[var(--color-forest)] */
+  .register-title {
+    /* font-size: 1.5rem;     
+    font-weight: bold;      
+    margin-bottom: 1rem;         
+    color: var(--color-forest);    */
+    font-size: 1.875rem;         /* 30px */
+    font-weight: bold;
+    text-align: center;
+    color: #2F855A;              /* Tailwind green-700 */
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Form: replicates space-y-4 (vertical spacing between children) */
+  .register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;                   /* space-y-4 */
+  }
+  
+  /* Form group to wrap each label/input pair */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Label: replicates block, mb-1, and text-[var(--color-bark)] */
+  .register-label {
+    display: block;
+    margin-bottom: 0.25rem;       /* mb-1 (0.25rem = 4px) */
+    color: var(--color-bark);     /* text-[var(--color-bark)] */
+  }
+  
+  /* Input: replicates w-full, px-3, py-2, border, border-[var(--color-sage)], rounded, focus:outline-none, focus:ring-2, and focus:ring-[var(--color-forest)] */
+  .register-input {
+    width: 100%;
+    box-sizing: border-box;          /* Ensures padding and borders are included in width */
+    padding: 0.5rem 0.75rem;           /* py-2 (0.5rem) and px-3 (0.75rem) */
+    border: 1px solid var(--color-sage); /* Border color from CSS variable */
+    border-radius: 0.25rem;            /* Tailwind 'rounded' (default radius) */
+    line-height: 1.5;                 /* Consistent line-height for text */
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .register-input:focus {
+    border-color: var(--color-forest);
+    box-shadow: 0 0 0 2px var(--color-forest);
+  }
+  
+  /* Button: replicates w-full, py-2, rounded, bg-[var(--color-forest)], text-white, transition-colors, duration-200, and hover:bg-[var(--color-sage)] */
+  .register-button {
+    width: 100%;                 
+    padding: 0.5rem;              /* py-2 */
+    border-radius: 0.25rem;       /* rounded */
+    background-color: var(--color-forest);
+    color: #ffffff;               /* text-white */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .register-button:hover {
+    background-color: var(--color-sage);
+  }
+  

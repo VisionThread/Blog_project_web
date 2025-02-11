@@ -242,9 +242,9 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "Name": "John Doe",
-  "Email": "johndoe@example.com",
-  "Password": "password123"
+  "Name": "Tia khanna",
+  "Email": "tia34@domain.com",
+  "Password": "tia"
 }
 
 ###
@@ -278,3 +278,7 @@ Content-Type: application/json
     "BlogId": 40,
     "AuthorId": 11
 }
+
+###
+GET {{BlogApi2_backend_HostAddress}}/api/Comment/blog/35
+Accept: application/json

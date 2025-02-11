@@ -1,0 +1,104 @@
+/* Outer container: replicates max-w-md, mx-auto, p-8, rounded-lg, and shadow-sm */
+.login-container {
+    max-width: 28rem;            /* ~448px */
+    margin: 10px auto;
+    padding: 2rem;               /* 32px */
+    border-radius: 0.5rem;       /* rounded-lg in Tailwind (0.5rem) */
+    box-shadow: 0 1px 2px rgba(243, 168, 168, 0.05); /* shadow-sm */
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;  
+  }
+  
+  /* Inner form container: replicates w-full, max-w-sm, bg-white, p-5, rounded-lg, and shadow-lg */
+  .form-container {
+    width: 100%;
+    max-width: 21rem;            /* ~320px */
+    background-color: #ffffff;
+    padding: 1.25rem;            /* 20px */
+    border-radius: 0.5rem;       /* rounded-lg */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+      
+  }
+  
+  /* Form title: replicates text-3xl, font-bold, text-center, text-green-700, and mb-6 */
+  .form-title {
+    font-size: 1.875rem;         /* 30px */
+    font-weight: bold;
+    text-align: center;
+    color: #2F855A;              /* Tailwind green-700 */
+    margin-bottom: 1.5rem;       /* 24px */
+  }
+  
+  /* Form content: replicates space-y-5 */
+  .form-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;               /* 20px */
+  }
+  
+  /* Form group: groups label and input */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Label style: replicates block, text-gray-700, and font-medium */
+  .form-label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #4A5568;              /* Tailwind gray-700 */
+  }
+  
+  /* Input field style: replicates w-full, px-4, py-2, border, rounded-md, focus:outline-none, focus:ring-2, and focus:ring-green-500 */
+  .form-input {
+    width: 100%;
+    box-sizing: border-box;          /* Ensures padding and borders are included in width */
+    padding: 0.5rem 0.75rem;           /* py-2 (0.5rem) and px-3 (0.75rem) */
+    border: 1px solid var(--color-sage); /* Border color from CSS variable */
+    border-radius: 0.25rem;            /* Tailwind 'rounded' (default radius) */
+    line-height: 1.5;                 /* Consistent line-height for text */
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .form-input:focus {
+    border-color: var(--color-forest);
+    box-shadow: 0 0 0 2px var(--color-forest);
+  }
+  
+  /* Button style: replicates w-full, py-2, rounded-md, bg-green-600, text-white, font-semibold, transition, duration-200, and hover:bg-green-500 */
+  .form-button {
+    width: 100%;                 
+    padding: 0.5rem;              /* py-2 */
+    border-radius: 0.25rem;       /* rounded */
+    background-color: var(--color-forest);
+    color: #ffffff;               /* text-white */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .form-button:hover {
+    background-color: var(--color-sage);
+  }
+  
+  /* Signup text: replicates text-center, text-gray-600, and mt-4 */
+  .signup-text {
+    text-align: center;
+    color: #718096;              /* Tailwind gray-600 */
+    margin-top: 1rem;            /* 16px */
+  }
+  
+  /* Signup link: replicates text-green-600, hover:underline, and ml-1 */
+  .signup-link {
+    color: #38A169;              /* Tailwind green-600 */
+    text-decoration: underline;
+    margin-left: 0.25rem;        /* 4px */
+  }
+  
+  .signup-link:hover {
+    color: #2F855A;              /* Tailwind green-700 */
+  }
+  

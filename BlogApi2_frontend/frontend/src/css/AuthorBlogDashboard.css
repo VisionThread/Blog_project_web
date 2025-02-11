@@ -1,0 +1,78 @@
+:root {
+  --color-forest: #2c5f2d;
+  /* --color-forest: #229222; */
+  --color-bark: #5a3e36;
+  --color-gray-light: #f7f7f7;
+  --color-gray-dark: #4a4a4a;
+}
+
+.blogs-container {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0.75rem;
+}
+
+.blogs-title {
+  font-size: 1.875rem; /* Matches text-3xl */
+  font-weight: 700;
+  color: var(--color-forest);
+  margin-bottom: 1.5rem;
+}
+
+.no-blogs-text {
+  color: #4a4a4a; /* Matches text-gray-600 */
+}
+
+.blogs-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.blog-item {
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.blog-title {
+  font-size: 1.25rem; /* Matches text-xl */
+  font-weight: 600; /* Matches font-semibold */
+  color: var(--color-bark);
+}
+
+.blog-content {
+  color: var(--color-gray-dark); /* Matches text-gray-700 */
+}
+
+.button-group1 {
+  margin-top: 0.5rem;
+}
+
+.edit-button,
+.delete-button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  color: white;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.edit-button {
+  background-color: #2563eb; /* Matches bg-blue-600 */
+  margin-right: 0.75rem;
+}
+
+.edit-button:hover {
+  background-color: #1e40af; /* Matches hover:bg-blue-700 */
+}
+
+.delete-button {
+  background-color: #dc2626; /* Matches bg-red-600 */
+}
+
+.delete-button:hover {
+  background-color: #b91c1c; /* Matches hover:bg-red-700 */
+}

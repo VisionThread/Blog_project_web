@@ -1,11 +1,11 @@
-
-
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import BlogDetail from "../component/Blog"; // Import BlogDetail component
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "../css/SearchAuthor.css";
+import authorService from "../services/authorService";
+
 function AuthorSearch() {
   const [name, setName] = useState(""); // Input value
   const [authorData, setAuthorData] = useState(null); // Stores response data
@@ -20,14 +20,12 @@ function AuthorSearch() {
     }
 
     try {
-      const response = await fetch(`http://localhost:5233/api/Author/by-name?name=${name}`);
-      const data = await response.json(); // Parse the response JSON
-
-      if (!response.ok) {
-        throw new Error(data.message || "Author not found.");
+      const response = await authorService.getAuthorName(name);
+      console.log(response);
+      if (!response) {
+        throw new Error(response.message || "Author not found.");
       }
-
-      setAuthorData(data);  // Set the correct structure (use authorName and blogs)
+      setAuthorData(response); // Set the correct structure (use authorName and blogs)
       setError(null);
       setSelectedBlog(null); // Reset selected blog on new search
     } catch (err) {
@@ -38,7 +36,7 @@ function AuthorSearch() {
   };
 
   const handleBlogClick = (blogId) => {
-    console.log("Selected Blog ID:", blogId); 
+    console.log("Selected Blog ID:", blogId);
     navigate(`/blog/${blogId}`); // Navigate to the blog detail page
   };
 
@@ -47,28 +45,23 @@ function AuthorSearch() {
   };
 
   return (
-    <div className="max-w-lg mx-auto p-6 bg-white shadow-lg rounded-lg">
-      <h2 className="text-2xl font-semibold mb-6 text-[var(--color-forest)] text-center">
-        Search Author Blogs
-      </h2>
+    <div className="search-author-container">
+      <h2 className="search-author-title">Search Author Blogs</h2>
 
-      <div className="flex mb-6">
+      <div className="search-author-bar">
         <input
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Enter author's name"
-          className="border border-[var(--color-sage)] p-3 rounded-l-lg w-full focus:outline-none focus:ring-2 focus:ring-[var(--color-forest)] transition duration-200"
+          className="search-author-input"
         />
-        <button
-          onClick={handleSearch}
-          className="bg-[var(--color-forest)] text-white px-6 py-3 rounded-r-lg hover:bg-[var(--color-sage)] transition duration-200"
-        >
+        <button onClick={handleSearch} className="search-author-btn">
           Search
         </button>
       </div>
 
-      {error && <p className="text-red-500 text-center">{error}</p>}
+      {error && <p className="search-author-error">{error}</p>}
 
       {selectedBlog ? (
         <BlogDetail
@@ -79,23 +72,27 @@ function AuthorSearch() {
       ) : (
         authorData && (
           <div>
-            <h3 className="text-xl font-semibold text-[var(--color-forest)]">{authorData.authorName}'s Blogs</h3>
+            <h3 className="search-author-subtitle">
+              {authorData.authorName}'s Blogs
+            </h3>
             {/* Check if blogs exists and is an array */}
             {Array.isArray(authorData.blogs) && authorData.blogs.length > 0 ? (
-              <ul className="mt-4 space-y-4">
+              <ul className="blog-list">
                 {authorData.blogs.map((blog) => (
                   <li
                     key={blog.blogId}
-                    className="border p-4 rounded-lg cursor-pointer hover:bg-[var(--color-sage)]"
+                    className="blog-item"
                     onClick={() => handleBlogClick(blog.blogId)}
                   >
-                    <h4 className="font-semibold text-[var(--color-forest)]">{blog.title}</h4>
-                    <span className="text-sm text-gray-500">{new Date(blog.createdAt).toLocaleDateString()}</span>
+                    <h4 className="blog-title">{blog.title}</h4>
+                    <span className="blog-date">
+                      {new Date(blog.createdAt).toLocaleDateString()}
+                    </span>
                   </li>
                 ))}
               </ul>
             ) : (
-              <p className="text-center text-gray-500">No blogs found for this author.</p>
+              <p className="no-blogs">No blogs found for this author.</p>
             )}
           </div>
         )

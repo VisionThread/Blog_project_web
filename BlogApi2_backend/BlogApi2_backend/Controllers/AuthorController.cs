@@ -135,25 +135,6 @@ namespace BlogApi2_backend.Controllers
         {
             try
             {
-                //var author = await dbcontext.Authors
-                //    .Where(a => a.Id == id)
-                //    .Select(a => new
-                //    {
-                //        AuthorId = a.Id,
-                //        AuthorName = a.Name,
-                //        Blogs = dbcontext.Blogs
-                //            .Where(b => b.AuthorId == a.Id)
-                //            .Select(b => new
-                //            {
-                //                BlogId = b.Id,
-                //                Title = b.Title,
-                //                Content = b.Content,
-                //                CreatedAt = b.CreatedAt
-                //            })
-                //            .ToList()
-                //    })
-                //    .FirstOrDefaultAsync();
-
                 var author = await dbcontext.Authors
                               .Where(a => a.Id == id)
                               .ProjectTo<GetAuthorDto>(_mapper.ConfigurationProvider)
@@ -188,26 +169,6 @@ namespace BlogApi2_backend.Controllers
         {
             try
             {
-                //var author = await dbcontext.Authors
-                //    .Where(a => a.Name.ToLower() == name.ToLower())
-                //    .Select(a => new
-                //    {
-                //        AuthorId = a.Id,
-                //        AuthorName = a.Name,
-                //        Blogs = dbcontext.Blogs
-                //            .Where(b => b.AuthorId == a.Id)
-                //            .Select(b => new
-                //            {
-                //                BlogId = b.Id,
-                //                Title = b.Title,
-                //                Content = b.Content,
-                //                CreatedAt = b.CreatedAt
-                //            })
-                //            .ToList()
-                //    })
-                //    .FirstOrDefaultAsync();
-
-
                 var author = await dbcontext.Authors
                               .Where(a => a.Name.ToLower() == name.ToLower())
                               .ProjectTo<GetAuthorDto>(_mapper.ConfigurationProvider)

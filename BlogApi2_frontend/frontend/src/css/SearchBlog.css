@@ -1,0 +1,114 @@
+/* Container */
+.overall-container {
+  max-width: 32rem;             /* Equivalent to Tailwind's max-w-lg (approx 32rem) */
+  margin: 0 auto;               /* Centers the container horizontally */
+  padding: 1.5rem 0.2rem;              /* p-6 equals 1.5rem */
+  background-color: #ffffff;    /* White background (bg-white) */
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* Approximation of Tailwind's shadow-lg */
+  border-radius: 0.5rem;        /* Rounded corners (rounded-lg) */
+}
+
+/* Title styling */
+.overall-title {
+  font-size: 1.5rem;            /* Tailwind's text-2xl */
+  font-weight: 600;             /* Tailwind's font-semibold */
+  margin-bottom: 1.5rem;        /* mb-6 equals 1.5rem */
+  color: var(--color-forest);   /* Custom color variable */
+  text-align: center;           /* Centers the text */
+}
+
+/* Search Bar Container */
+.search-blog-container {
+  display: flex;
+  margin-bottom: 1.5rem;  
+}
+
+/* Adds left margin to all children except the first one */
+.search-blog-container > *:not(:first-child) {
+  margin-left: 0.5rem;
+}
+
+/* Input Field styling */
+.search-input-field {
+  flex: 1;
+  width: 100%;
+  padding: 0.75rem;             /* p-3 equals 0.75rem */
+  border: 1px solid var(--color-sage);
+  border-right: none;           /* Remove right border for a connected look with the button */
+  border-top-left-radius: 0.5rem;    /* rounded-l-lg */
+  border-bottom-left-radius: 0.5rem;
+  transition: box-shadow 0.2s ease; /* Transition for focus effect */
+}
+
+.search-input-field:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-forest); /* Focus ring effect */
+}
+
+/* Autocomplete Suggestions styling */
+.autocomplete-suggestions {
+  position: absolute;                      /* Positioned absolutely relative to the container */
+  transform: translateX(-0.9rem);           /* Tailwind's -translate-x-2 */
+  width: calc(100% -20rem);                             /* Full width */
+  background-color: #ffffff;               /* White background */
+  border: 1px solid #D1D5DB;               /* Light gray border (border-gray-300) */
+  border-radius: 0.375rem;                 /* Rounded corners (rounded-md) */
+  margin-top: 3rem;                        /* mt-12 equals 3rem */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Subtle shadow (shadow-md) */
+  max-height: 15rem;                       /* max-h-60 equals 15rem */
+  overflow-y: auto;                        /* Enables vertical scrolling if needed */
+  z-index: 10;                             /* Ensures suggestions appear above other elements */
+}
+
+/* Suggestion Item styling */
+.suggestion-item {
+  padding: 0.5rem 1rem;                     /* py-2 and px-4 */
+  cursor: pointer;                          /* Pointer cursor for interactivity */
+}
+
+.suggestion-item:hover {
+  background-color: #f7fafc;                /* Light background on hover (hover:bg-gray-100) */
+}
+
+/* Error Message styling */
+.error-message {
+  color: #e53e3e;                           /* Red text (text-red-600) */
+}
+
+/* Blog Card styling */
+.blog-card {
+  background-color: #dfdbdb;                /* Custom background color */
+  padding: 1rem;                            /* p-4 equals 1rem */
+  border-radius: 0.5rem;                    /* Rounded corners (rounded-lg) */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);   /* Shadow effect (shadow-md) */
+  transition: box-shadow 0.3s ease;         /* Smooth transition for hover effects */
+}
+
+.blog-card:hover {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* Enhanced shadow on hover (hover:shadow-lg) */
+}
+
+/* Blog Title styling */
+.blog-title {
+  font-size: 1.25rem;                       /* Tailwind's text-xl */
+  font-weight: 600;                         /* Tailwind's font-semibold */
+}
+
+/* Blog Content styling */
+.blog-content {
+  color: #4a5568;                          /* Gray text (text-gray-700) */
+  margin-top: 0.5rem;                      /* mt-2 equals 0.5rem */
+}
+
+/* Read More Button styling */
+.read-more-btn {
+  margin-top: 0.5rem;                       /* mt-2 equals 0.5rem */
+  color: #38a169;                           /* Green text (text-green-600) */
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.read-more-btn:hover {
+  text-decoration: underline;               /* Underline on hover (hover:underline) */
+}

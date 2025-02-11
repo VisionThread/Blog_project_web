@@ -5,6 +5,9 @@ import { useBlog } from "../context/BlogContext";
 import { ROUTES } from "../RoutesConstant";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "../css/Addblog.css";
+import BlogService from "../services/blogService";
+
 
 function AddBlog() {
   const [title, setTitle] = useState("");
@@ -32,17 +35,17 @@ function AddBlog() {
     };
 
     try {
-      const response = await fetch("http://localhost:5233/api/Blog", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(blogData),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setBlogId(data.id);
-        saveBlogId(data.id); // Save the blog ID in the context
+      // const response = await fetch("http://localhost:5233/api/Blog", {
+      //   method: "POST",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify(blogData),
+      // });
+      const response = await BlogService.createBlog(blogData);
+      // const data = await response.json();
+      console.log("Response",response);
+      if (response) {
+        setBlogId(response.id);
+        saveBlogId(response.id); // Save the blog ID in the context
         // alert("Blog created successfully!");
         toast.success("Blog created successfully! 🎉");
       } else {
@@ -54,16 +57,17 @@ function AddBlog() {
     }
   };
 
+
   return (
-    <div className="max-w-2xl mx-auto bg-white px-2 py-2 rounded-lg shadow-xl">
-      <h1 className="text-xl font-semibold mb-6 text-[var(--color-forest)] text-center">
+    <div className="blog-container">
+      <h1 className="blog-heading">
         Create a New Blog
       </h1>
-      <form onSubmit={handleCreateBlog} className="space-y-6">
+      <form onSubmit={handleCreateBlog} className="blog-form">
         <div>
           <label
             htmlFor="title"
-            className="block text-[var(--color-bark)] mb-2 font-medium"
+            className="blog-label"
           >
             Blog Title
           </label>
@@ -73,13 +77,13 @@ function AddBlog() {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
-            className="w-full px-4 py-3 border border-[var(--color-sage)] rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--color-forest)] transition duration-300"
+            className="blog-input"
           />
         </div>
         <div>
           <label
             htmlFor="content"
-            className="block text-[var(--color-bark)] mb-2 font-medium"
+            className="blog-form"
           >
             Content
           </label>
@@ -89,12 +93,12 @@ function AddBlog() {
             onChange={(e) => setContent(e.target.value)}
             required
             rows="6"
-            className="w-full px-4 py-3 border border-[var(--color-sage)] rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--color-forest)] transition duration-300"
+            className="blog-textarea"
           />
         </div>
         <button
           type="submit"
-          className="w-full py-3 rounded-lg bg-[var(--color-forest)] text-white font-semibold transition-colors duration-300 hover:bg-[var(--color-sage)]"
+          className="blog-submit"
         >
           Create Blog
         </button>
@@ -103,7 +107,7 @@ function AddBlog() {
       {/* Show Preview Button only after Blog Creation */}
       {blogId && (
         <button
-          className="w-full mt-6 py-3 rounded-lg bg-blue-600 text-white font-semibold transition-colors duration-300 hover:bg-blue-500"
+          className="blog-preview"
           onClick={() => navigate(`/blog/${blogId}`)}
         >
           Preview Blog
@@ -112,7 +116,7 @@ function AddBlog() {
 
       <button
         onClick={() => navigate(-1)}
-        className="mt-6 px-5 py-2 bg-[var(--color-forest)] text-white text-lg rounded-lg shadow-md hover:bg-green-700 transition-all"
+        className="blog-back"
       >
         ⬅️ Go Back
       </button>

@@ -45,6 +45,7 @@ import Navbar from "./component/Navbar";
 import Footer from "./component/Footer";
 import { AuthorProvider } from "./context/AuthorContext";
 import AppRoutes from "./Routes";
+import "./index.css"
 
 import { ToastContainer } from "react-toastify";
 
@@ -54,9 +55,9 @@ function App() {
       <ToastContainer
       autoClose={2000} />
       <Router>
-        <div className="App bg-[#F0F4F0] min-h-screen flex flex-col">
+        <div className="app">
           <Navbar />
-          <main className="container mx-auto mt-8 px-4 flex-grow">
+          <main className="main-container">
             <AppRoutes />
           </main>
           <Footer />

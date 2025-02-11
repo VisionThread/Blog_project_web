@@ -1,0 +1,111 @@
+/* Container for the search section */
+.search-author-container {
+    max-width: 32rem;             /* Equivalent to Tailwind's max-w-lg (approx 32rem) */
+    margin: 0 auto;               /* Centers the container horizontally */
+    padding: 1.5rem;              /* p-6 equals 1.5rem */
+    background-color: #ffffff;    /* White background (bg-white) */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* Approximation of Tailwind's shadow-lg */
+    border-radius: 0.5rem;        /* Rounded corners (rounded-lg) */
+  }
+  
+  /* Title styling */
+  .search-author-title {
+    font-size: 1.5rem;            /* text-2xl */
+    font-weight: 600;             /* font-semibold */
+    margin-bottom: 1.5rem;        /* mb-6 equals 1.5rem */
+    color: var(--color-forest);   /* Custom color variable */
+    text-align: center;
+  }
+  
+  /* Container for the input and button */
+  .search-author-bar {
+    display: flex;
+    margin-bottom: 1.5rem;        /* mb-6 */
+  }
+  
+  /* Input field styling */
+  .search-author-input {
+    flex: 1;
+    width: 100%;
+    padding: 0.75rem;             /* p-3 equals 0.75rem */
+    border: 1px solid var(--color-sage);
+    border-right: none;           /* Remove right border for a connected look with the button */
+    border-top-left-radius: 0.5rem;    /* rounded-l-lg */
+    border-bottom-left-radius: 0.5rem;
+    transition: box-shadow 0.2s ease;  /* Transition for focus effect */
+  }
+  
+  .search-author-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-forest); /* Mimics focus:ring-2 focus:ring-[var(--color-forest)] */
+  }
+  
+  /* Button styling */
+  .search-author-btn {
+    padding: 0.75rem 1.5rem;      /* py-3 and px-6 */
+    background-color: var(--color-forest);
+    color: #ffffff;              /* text-white */
+    border: none;
+    border-top-right-radius: 0.5rem;   /* rounded-r-lg */
+    border-bottom-right-radius: 0.5rem;
+    transition: background-color 0.2s ease;
+  }
+  
+  .search-author-btn:hover {
+    background-color: var(--color-sage);  /* hover:bg-[var(--color-sage)] */
+  }
+  
+  /* Error message styling */
+  .search-author-error {
+    color: #f56565;              /* Approximation of Tailwind's text-red-500 */
+    text-align: center;
+  }
+  
+ 
+  /* Subtitle for the author's blogs section */
+  .search-author-subtitle {
+    font-size: 1.25rem;          /* text-xl */
+    font-weight: 600;            /* font-semibold */
+    color: var(--color-forest);
+  }
+  
+  /* List styling for blogs */
+  .blog-list {
+    margin-top: 1rem;            /* mt-4 equals 1rem */
+  }
+  
+  .blog-list > * + * {
+    margin-top: 1rem;            /* Simulates Tailwind's space-y-4 */
+  }
+  
+  /* Individual blog item styling */
+  .blog-item {
+    border: 1px solid #e5e7eb;   /* Light border similar to Tailwind's default */
+    padding: 1rem;               /* p-4 equals 1rem */
+    border-radius: 0.5rem;       /* rounded-lg */
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .blog-item:hover {
+    background-color: var(--color-sage);
+  }
+  
+  /* Blog title styling */
+  .blog-title {
+    font-weight: 600;            /* font-semibold */
+    color: var(--color-forest);
+  }
+  
+  /* Blog date styling */
+  .blog-date {
+    font-size: 0.875rem;         /* text-sm equals 0.875rem */
+    color: #6b7280;              /* Approximation of Tailwind's text-gray-500 */
+  }
+  
+  /* Styling for the "no blogs" message */
+  .no-blogs {
+    text-align: center;
+    color: #6b7280;              /* text-gray-500 equivalent */
+  }
+  

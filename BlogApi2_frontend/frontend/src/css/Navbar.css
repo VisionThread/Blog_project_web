@@ -1,0 +1,153 @@
+/* Navbar Styles */
+.navbar {
+  background: linear-gradient(to right, #2d6a4f, #1b5e20);
+  padding: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: white;
+  transition: color 0.3s ease, transform 0.3s ease;
+  font-family: "Dancing Script", cursive;
+}
+
+.navbar-logo:hover {
+  color: #2dbf75;
+  transform: scale(1.05);
+}
+
+/* NavLink Styles */
+.navlink {
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+}
+
+.navlink-active {
+  background-color: #2dbf75;
+  color: white;
+}
+
+.navlink-inactive {
+  color: #9fe0b9;
+}
+
+.navlink-inactive:hover {
+  background-color: #2dbf75;
+  color: white;
+}
+
+.navlink-inactive:focus {
+  outline: none;
+  border: 2px solid #2dbf75; /* ring effect with color */
+  opacity: 0.5;
+  transform: scale(1.05);
+}
+
+/* Dropdown Styles */
+.dropdown-container {
+  position: relative;
+}
+
+.dropdown-button {
+  background-color: #1b5e20;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.6rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  text-decoration: none;
+  color: #edf4f0;
+  transition: all 0.3s ease-in-out;
+}
+
+.dropdown-button:hover {
+  color: #2dbf75;
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: -10px;
+  left: +3px;
+  top: calc(100% + 0.5rem); /* positions the menu just below the trigger */
+  width: 8rem;
+  /* background-color: rgb(39, 205, 59); */
+  border-radius: 0.5rem; /* subtle rounding for the container */
+  box-shadow: 0 4px 6px rgba(231, 226, 226, 0.1); 
+  z-index: 10;
+  overflow: hidden; /* clips inner content to maintain the rounded corners */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dropdown-item {
+  /* width: 100%;
+  padding: 0.5rem 1rem;
+  text-align: left;
+  color: #4b5563;
+  transition: background-color 0.2s ease; */
+  display: flow-root;
+  width: 100%;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.6rem;
+  border-radius: 9999px;
+  border-color: #e4f1e6; /* gives a pill-shaped feel like .navlink */
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  text-decoration: none;
+  color: #4b5563;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #abc6b6;
+  color: #2d3748;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+}
+
+.space-x-2 {
+  gap: 0.5rem; /* space between elements */
+}
+
+@media (min-width: 640px) {
+  .sm\:space-x-4 {
+    gap: 1rem; /* space between elements at small screens and above */
+  }
+}
+
+.icon-size {
+  font-size: 1.5rem; /* equivalent to text-2xl in Tailwind */
+}
+
+.text-small {
+  font-size: 0.875rem; /* equivalent to text-sm in Tailwind */
+}
+
+.font-medium {
+  font-weight: 500; /* equivalent to font-medium in Tailwind */
+}

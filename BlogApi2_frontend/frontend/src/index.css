@@ -1,7 +1,9 @@
 
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
+ 
+
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 
 body {
@@ -50,3 +52,32 @@ body {
   background-color: var(--color-sunset);
 }
 
+/* General Layout */
+.app {
+  background-color: #f0f4f0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main Container */
+.main-container {
+  margin-top: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 100%;
+  max-width: 1000rem; /* Equivalent to container mx-auto */
+  flex-grow: 1;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scrollbar-width: none; /* Firefox */
+}
+
+body {
+  -ms-overflow-style: none; /* IE & Edge */
+}

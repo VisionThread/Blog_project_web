@@ -1,8 +1,11 @@
-
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ROUTES } from "../RoutesConstant";
 import { useAuthor } from "../context/AuthorContext";
+import "../css/EditBlog.css";
+import BlogService from "../services/blogService";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function EditBlog() {
   const { blogId } = useParams(); // Access blogId from URL params
@@ -20,10 +23,10 @@ function EditBlog() {
 
     const fetchBlog = async () => {
       try {
-        const response = await fetch(`http://localhost:5233/api/Blog/${blogId}`);
-        const data = await response.json();
-        console.log("Fetched blog:", data);
-        setBlog(data);
+        const response = await BlogService.getBlogById(blogId);
+        console.log(response);
+        console.log("Fetched blog:", response);
+        setBlog(response);
       } catch (error) {
         console.error("Error fetching blog:", error);
       }
@@ -44,38 +47,30 @@ function EditBlog() {
       content: blog.content,
       AuthorId: authorId,
     });
-
-
+    const updatedData = {
+      title: blog.title,
+      content: blog.content,
+      AuthorId: authorId,
+    };
 
     try {
-      const response = await fetch(`http://localhost:5233/api/Blog/${blogId}`, {
-        method: "PUT",
-        headers: {
-          "Accept": "application/json",
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          title: blog.title,
-          content: blog.content,
-          AuthorId: authorId, 
-        }),
-      });
+      // Directly call BlogService.updateBlog and await the result
+      const response = await BlogService.updateBlog(blogId, updatedData);
+      console.log("Blog updated successfully:", response);
 
-      if (!response.ok) {
-        const errorDetail = await response.text();
-        console.error("Error response:", errorDetail);
-        throw new Error(`Error: ${response.statusText}, ${errorDetail}`);
-      }
-
+      // No need to check response.ok here because your service method already handles errors
       navigate(ROUTES.AUTHOR_DASHBOARD);
     } catch (error) {
       console.error("Error updating blog:", error);
+      toast.error(
+        "An error occurred while updating the blog. Please try again."
+      );
     }
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white shadow-md rounded-lg">
-      <h1 className="text-2xl font-bold mb-4 text-[var(--color-forest)]">Edit Your Blog</h1>
+    <div className="editor-container">
+      <h1 className="editor-title">Edit Your Blog</h1>
 
       <form onSubmit={handleUpdate}>
         <input
@@ -83,7 +78,7 @@ function EditBlog() {
           name="title"
           value={blog.title}
           onChange={handleChange}
-          className="w-full p-2 border rounded mb-4"
+          className="editor-input"
           placeholder="Blog Title"
         />
 
@@ -91,19 +86,19 @@ function EditBlog() {
           name="content"
           value={blog.content}
           onChange={handleChange}
-          className="w-full p-2 border rounded mb-4"
+          className="editor-input"
           rows="5"
           placeholder="Blog Content"
         />
 
-        <button type="submit" className="px-6 py-2 bg-green-600 text-white rounded-md">
+        <button type="submit" className="editor-btn save-btn">
           ✅ Save Changes
         </button>
 
         <button
           type="button"
           onClick={() => navigate(ROUTES.AUTHOR_DASHBOARD)}
-          className="px-6 py-2 bg-gray-500 text-white rounded-md ml-2"
+          className="editor-btn cancel-btn"
         >
           ❌ Cancel
         </button>
@@ -111,7 +106,7 @@ function EditBlog() {
         <button
           type="button"
           onClick={() => navigate(`/blog/${blogId}`)}
-          className="px-6 py-2 bg-gray-500 text-white rounded-md ml-2 hover:bg-gray-600 transition"
+          className="editor-btn  preview-btn"
         >
           Preview
         </button>

@@ -1,0 +1,53 @@
+.footer {
+  background: linear-gradient(to right, #2d6a4f, #1b5e20); /* Same gradient */
+  padding-top: 0.05rem; /* Reduce top padding */
+  padding-bottom: 0.05rem; /* Reduce bottom padding */
+  margin-top: 2rem; /* Keep margin */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Keep shadow */
+  min-height: 10px; /* Optional: Set a minimal height */
+  }
+  
+  .footer-container {
+    max-width: 1200px; /* container mx-auto */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    justify-content: space-between; /* This distributes space between flex items */
+     gap: 0.1rem;  /* space-y-2 */
+  }
+  
+  .footer-title {
+    font-size: 1.5rem; /* equivalent to text-2xl */
+    font-weight: 600; /* equivalent to font-semibold */
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-description {
+    font-size: 1.125rem; /* equivalent to text-lg */
+    color: #a8d8d8; /* equivalent to text-emerald-200 */
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;  /*equivalent to space-x-6 */
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-text {
+    font-size: 0.875rem; /* equivalent to text-sm */
+    color: #a8d8d8; /* equivalent to text-emerald-200 */
+  }
+  
+  .footer-link {
+    color: #e6f9f0; /* equivalent to text-emerald-100 */
+    transition: color 0.3s, transform 0.3s;
+  }
+  
+  .footer-link:hover {
+    color: white;
+    transform: scale(1.05);
+  }
+  

@@ -22,6 +22,8 @@ namespace BlogApi2_backend.Configuration
             // Map Blog -> BlogDto
             CreateMap<Blog, BlogDto>()
                 .ForMember(dest => dest.BlogId, opt => opt.MapFrom(src => src.Id));
+
+            CreateMap<AddAuthor, Author>();
         }
     }
 }

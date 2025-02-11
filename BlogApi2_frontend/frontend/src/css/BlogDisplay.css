@@ -1,0 +1,243 @@
+/*General Layout*/
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f7fafc;
+  padding: 2.5rem 1rem;
+}
+
+/* Blog Post Section */
+.blog-post {
+  max-width: 48rem;
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}
+
+/* Title & Content */
+.blog-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--color-forest);
+}
+
+.blog-content {
+  margin-top: 1rem;
+  font-size: 1.125rem;
+  color: #4a5568;
+}
+
+.blog-meta {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  color: #718096;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Comment Section */
+/* ===== Comment Section Styles ===== */
+.comment-section {
+  max-width: 48rem;
+  width: 100%;
+  min-height: 220px; /* Increased height to fit textarea & button */
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin: 1rem auto;
+  transition: box-shadow 0.3s ease-in-out;
+  overflow: visible; /* Allows elements to be fully visible */
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* Adds spacing between elements */
+}
+
+.comment-section:hover {
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px); /* Subtle hover effect */
+}
+
+
+/* ===== Comment Header ===== */
+
+.comments-list {
+  margin-top: 1.5rem; /* Reduced from 300px to a reasonable spacing */
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-height: 150px; /* Adds a limit to prevent excessive height */
+  overflow-y: auto; /* Enables scrolling if there are too many comments */
+  width: 52%; /* Increased width */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.comment-header {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2f855a;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.comment-item {
+  background: #ffffff;
+  padding: 12px;
+  border-radius: 6px;
+  width: 95%; 
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+
+.comment-item:last-child {
+  margin-bottom: 0;
+}
+
+.author-name {
+  font-weight: bold;
+  color: #333;
+}
+
+.comment-content {
+  margin-top: 5px;
+  color: #555;
+}
+
+.comment-date {
+  display: block;
+  font-size: 0.9rem;
+  color: #777;
+  margin-top: 5px;
+}
+
+
+.comment:hover {
+  transform: translateY(-2px);
+  background-color: #edf2f7;
+}
+
+/* ===== Comment Author Name ===== */
+.comment .author-name {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: #2d3748;
+  margin-bottom: 0.25rem;
+}
+
+/* ===== Comment Content ===== */
+.comment .comment-content {
+  color: #4a5568;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+/* ===== Comment Date ===== */
+.comment .comment-date {
+  font-size: 0.875rem;
+  color: #718096;
+  text-align: right;
+  font-style: italic;
+}
+
+/* ===== Comment Input Box ===== */
+.comment-textarea {
+  width: 89%; /* Full width for better alignment */
+  min-height: 50px; /* Slightly increased height for readability */
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  resize: vertical;
+  background-color: #f7fafc;
+  transition: border 0.3s ease-in-out;
+}
+
+.comment-textarea:focus {
+  border-color: #2f855a;
+  outline: none;
+}
+
+/* ===== Submit Button ===== */
+.submit-button {
+  display: block; /* Ensures it appears properly */
+  width: 180px; /* Set a fixed width */
+  margin-top: 0.75rem;
+  padding: 0.5rem 1rem;
+  background-color: #2f855a;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+  cursor: pointer;
+  border: none;
+  text-align: center;
+}
+
+.submit-button:hover {
+  background-color: #276749;
+  transform: scale(1.05);
+}
+
+.submit-button.disabled {
+  background-color: #cbd5e0;
+  cursor: not-allowed;
+  transform: none;
+}
+
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  .comment-section {
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+  .comment {
+    padding: 0.75rem;
+  }
+
+  .comment-textarea {
+    font-size: 0.9rem;
+  }
+
+  .submit-button {
+    font-size: 0.9rem;
+    padding: 0.5rem 1.25rem;
+  }
+
+}
+
+
+/* Go Back Button */
+.go-back-button {
+  margin-top: 1.5rem;
+  padding: 0.5rem 1.25rem;
+  background-color: var(--color-forest);
+  color: white;
+  font-size: 1.125rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.go-back-button:hover {
+  background-color: #2f855a;
+}
+
+/* Loading Text */
+.loading-text {
+  font-size: 1.125rem;
+  color: #4a5568;
+} 
