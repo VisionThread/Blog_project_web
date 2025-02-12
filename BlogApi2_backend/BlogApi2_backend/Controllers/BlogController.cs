@@ -114,14 +114,6 @@ namespace BlogApi2_backend.Controllers
         {
             try
             {
-                //var blogEntity = new Blog()
-                //{
-                //    Title = addBlog.Title,
-                //    Content = addBlog.Content,
-                //    CreatedAt = DateTime.Now,
-                //    AuthorId = addBlog.AuthorId
-                //};
-
                 var blogEntity = _mapper.Map<Blog>(addBlog);
                 blogEntity.CreatedAt = DateTime.Now;
 

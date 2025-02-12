@@ -9,13 +9,11 @@ function Home() {
   return (
     <div className="home-container">
       <div className="home-content">
-        {/* Header Section */}
         <h1 className="home-title">Let Your Ideas Flow with InkSpire!</h1>
         <p className="home-description">
           Explore, create, and manage amazing blogs!
         </p>
 
-        {/* Buttons Section */}
         <div className="button-group">
           <button
             onClick={() => navigate(ROUTES.ADD_BLOG)}

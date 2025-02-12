@@ -70,10 +70,8 @@ function SearchBlogs() {
         )}
       </div>
 
-      {/* Error Message */}
       {error && <p className="error-message">{error}</p>}
 
-      {/* Display Blog */}
       {blogs.length === 1 && (
         <div className="blog-card">
           <h2 className="blog-title">{blogs[0].title}</h2>

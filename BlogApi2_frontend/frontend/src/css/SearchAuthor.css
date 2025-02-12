@@ -27,62 +27,62 @@
   .search-author-input {
     flex: 1;
     width: 100%;
-    padding: 0.75rem;             /* p-3 equals 0.75rem */
+    padding: 0.75rem;             
     border: 1px solid var(--color-sage);
-    border-right: none;           /* Remove right border for a connected look with the button */
-    border-top-left-radius: 0.5rem;    /* rounded-l-lg */
+    border-right: none;           
+    border-top-left-radius: 0.5rem;    
     border-bottom-left-radius: 0.5rem;
-    transition: box-shadow 0.2s ease;  /* Transition for focus effect */
+    transition: box-shadow 0.2s ease;  
   }
   
   .search-author-input:focus {
     outline: none;
-    box-shadow: 0 0 0 2px var(--color-forest); /* Mimics focus:ring-2 focus:ring-[var(--color-forest)] */
+    box-shadow: 0 0 0 2px var(--color-forest); 
   }
   
   /* Button styling */
   .search-author-btn {
-    padding: 0.75rem 1.5rem;      /* py-3 and px-6 */
+    padding: 0.75rem 1.5rem;      
     background-color: var(--color-forest);
-    color: #ffffff;              /* text-white */
+    color: #ffffff;             
     border: none;
-    border-top-right-radius: 0.5rem;   /* rounded-r-lg */
+    border-top-right-radius: 0.5rem;   
     border-bottom-right-radius: 0.5rem;
     transition: background-color 0.2s ease;
   }
   
   .search-author-btn:hover {
-    background-color: var(--color-sage);  /* hover:bg-[var(--color-sage)] */
+    background-color: var(--color-sage);  
   }
   
   /* Error message styling */
   .search-author-error {
-    color: #f56565;              /* Approximation of Tailwind's text-red-500 */
+    color: #f56565;             
     text-align: center;
   }
   
  
   /* Subtitle for the author's blogs section */
   .search-author-subtitle {
-    font-size: 1.25rem;          /* text-xl */
-    font-weight: 600;            /* font-semibold */
+    font-size: 1.25rem;          
+    font-weight: 600;            
     color: var(--color-forest);
   }
   
   /* List styling for blogs */
   .blog-list {
-    margin-top: 1rem;            /* mt-4 equals 1rem */
+    margin-top: 1rem;            
   }
   
   .blog-list > * + * {
-    margin-top: 1rem;            /* Simulates Tailwind's space-y-4 */
+    margin-top: 1rem;            
   }
   
   /* Individual blog item styling */
   .blog-item {
-    border: 1px solid #e5e7eb;   /* Light border similar to Tailwind's default */
-    padding: 1rem;               /* p-4 equals 1rem */
-    border-radius: 0.5rem;       /* rounded-lg */
+    border: 1px solid #e5e7eb;   
+    padding: 1rem;               
+    border-radius: 0.5rem;       
     cursor: pointer;
     transition: background-color 0.2s ease;
   }
@@ -93,19 +93,19 @@
   
   /* Blog title styling */
   .blog-title {
-    font-weight: 600;            /* font-semibold */
+    font-weight: 600;            
     color: var(--color-forest);
   }
   
   /* Blog date styling */
   .blog-date {
-    font-size: 0.875rem;         /* text-sm equals 0.875rem */
-    color: #6b7280;              /* Approximation of Tailwind's text-gray-500 */
+    font-size: 0.875rem;        
+    color: #6b7280;              
   }
   
   /* Styling for the "no blogs" message */
   .no-blogs {
     text-align: center;
-    color: #6b7280;              /* text-gray-500 equivalent */
+    color: #6b7280;              
   }
   

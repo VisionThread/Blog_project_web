@@ -1,6 +1,6 @@
 :root {
   --color-forest: #2c5f2d;
-  /* --color-forest: #229222; */
+  
   --color-bark: #5a3e36;
   --color-gray-light: #f7f7f7;
   --color-gray-dark: #4a4a4a;
@@ -16,14 +16,14 @@
 }
 
 .blogs-title {
-  font-size: 1.875rem; /* Matches text-3xl */
+  font-size: 1.875rem; 
   font-weight: 700;
   color: var(--color-forest);
   margin-bottom: 1.5rem;
 }
 
 .no-blogs-text {
-  color: #4a4a4a; /* Matches text-gray-600 */
+  color: #4a4a4a; 
 }
 
 .blogs-list {
@@ -61,20 +61,20 @@
 }
 
 .edit-button {
-  background-color: #2563eb; /* Matches bg-blue-600 */
+  background-color: #2563eb; 
   margin-right: 0.75rem;
 }
 
 .edit-button:hover {
-  background-color: #1e40af; /* Matches hover:bg-blue-700 */
+  background-color: #1e40af; 
 }
 
 .delete-button {
-  background-color: #dc2626; /* Matches bg-red-600 */
+  background-color: #dc2626; 
 }
 
 .delete-button:hover {
-  background-color: #b91c1c; /* Matches hover:bg-red-700 */
+  background-color: #b91c1c; 
 }
 
 /* Toast Container */

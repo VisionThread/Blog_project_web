@@ -7,6 +7,6 @@
     "\\Models\\Dtos",
     "\\Models\\Entities"
   ],
-  "SelectedNode": "\\BlogApi2_backend.csproj",
+  "SelectedNode": "\\Models\\Dtos\\AddComment.cs",
   "PreviewInSolutionExplorer": false
 }

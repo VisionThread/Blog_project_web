@@ -8,7 +8,7 @@ function AboutPage() {
 
   return (
     <div className="about-container">
-      <h1 className="about-heading">About This Blog</h1>
+      <h1 className="about-heading">From Passion to Platform🎊</h1>
 
       <p className="about-text leading-relaxed mb-4">
         This platform is for writers, thinkers, and creators to share their
