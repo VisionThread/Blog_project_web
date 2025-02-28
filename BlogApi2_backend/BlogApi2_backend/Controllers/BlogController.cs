@@ -1,12 +1,17 @@
-﻿using System.Reflection.Metadata;
+﻿using System.Net;
+using System.Reflection.Metadata;
 using System.Xml.Linq;
 using AutoMapper;
 using BlogApi2_backend.Data;
 using BlogApi2_backend.Models.Dtos;
 using BlogApi2_backend.Models.Entities;
+using BlogApi2_backend.Services.IServices;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
+using static System.Reflection.Metadata.BlobBuilder;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace BlogApi2_backend.Controllers
@@ -15,13 +20,28 @@ namespace BlogApi2_backend.Controllers
     [ApiController]
     public class BlogController : ControllerBase
     {
-        private readonly BlogContext _dbcontext;
-        private readonly IMapper _mapper;
-
-        public BlogController(BlogContext dbcontext,IMapper mapper)
+       
+        private readonly IBlogReadService _blogReadService;
+        private readonly IBlogWriteService _blogWriteService;
+        private readonly IBlogDeleteService _blogDeleteService;
+        private int GetStatusCodeFromException(Exception exp)
         {
-            _dbcontext = dbcontext;
-            this._mapper = mapper;
+            switch (exp)
+            {
+                case SqliteException _: return (int)HttpStatusCode.InternalServerError;
+                case ArgumentException _: return (int)HttpStatusCode.BadRequest;
+                case InvalidOperationException _: return (int)HttpStatusCode.BadRequest;
+                case TimeoutException _: return (int)HttpStatusCode.RequestTimeout;
+                default: return (int)HttpStatusCode.InternalServerError;
+            }
+        }
+
+        public BlogController(IBlogReadService blogReadService, IBlogWriteService blogWriteService,IBlogDeleteService blogDeleteService)
+            
+        {
+            _blogReadService = blogReadService;
+            _blogWriteService = blogWriteService;
+            _blogDeleteService = blogDeleteService;
         }
 
         //to get all the blogs
@@ -29,102 +49,66 @@ namespace BlogApi2_backend.Controllers
         [HttpGet]
         public async Task<IActionResult> GetBlogs()
         {
-            try
-            {
-                var blogs = await _dbcontext.Blogs.ToListAsync(); // Asynchronously fetches blogs
-                return Ok(blogs);  // Returns an HTTP 200 response with the list of blogs
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { Message = "Error occurred", Error = ex.Message }); // Returns an HTTP 500 if an error occurs
-            }
+           var blogs = await _blogReadService.GetBlogs();
+
+            return Ok(blogs);
         }
 
         //get blog by title
         [HttpGet("title")]
         public async Task<IActionResult> GetBlogByTitle([FromQuery] string title)
         {
-            try
+            var blogs = await _blogReadService.GetBlogByTitle(title);
+            if(blogs == null)
             {
-                if (string.IsNullOrEmpty(title))
-                {
-                    return BadRequest(new { Message = "Title query parameter is required." });
-                }
-                var blog = await _dbcontext.Blogs
-                    .Where(b => b.Title.ToLower().Contains(title.ToLower()))
-                    .Include(b => b.Author)
-                    .ToListAsync(); ;
-
-                // Asynchronous operation
-
-                var blog2 = _mapper.Map<List<GetBlogTitleDto>>(blog);
-
-                if (blog == null)
-                {
-                    return NotFound(new { Message = "Blog not found" });
-                }
-
-                return Ok(blog2);
-                // Returns an HTTP 200 with the blog data
-
-
-
+                return NotFound(new {Message ="No Blogs Found"});
             }
-            catch (Exception ex)
-            {
-                // Log the exception if necessary
-                return StatusCode(500, new { Message = "An error occurred while processing your request.", Error = ex.Message });
-            }
+
+            return Ok(blogs);
         }
-
-
-
-
 
         //get blogs by id 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetBlogById([FromRoute] int id)
+        public async Task<IActionResult> GetBlogById(int id)
         {
             try
             {
-                var blog = await _dbcontext.Blogs
-                    .Where(b => b.Id == id)
-                    .Include(b => b.Author)
-                    .FirstOrDefaultAsync(); // Asynchronous method
-
-                var blog2 = _mapper.Map<GetBlogTitleDto>(blog);
-
+                var blog = await _blogReadService.GetBlogById(id);
                 if (blog == null)
                 {
-                    return NotFound(new { Message = "Blog not found" }); // Return NotFound with message
+                    return NotFound(new { Message = "No Blogs Found" });
                 }
-
-                return Ok(blog2); // Return blog data with 200 OK
+                var blogResponse = new
+                {
+                    blog.Id,
+                    blog.Title,
+                    blog.Content,
+                    blog.CreatedAt,
+                    blog.Author?.Name
+                };
+                return Ok(blogResponse);
             }
             catch (Exception ex)
             {
-                // Log the exception if necessary
-                return StatusCode(500, new { Message = "An error occurred while processing your request.", Error = ex.Message });
+                return StatusCode(500, new { Message = "An error occurred", Error = ex.Message });
+
             }
+
         }
 
-        // Posting blogs
+        // Creating blog
         [HttpPost]
-        public async Task<IActionResult> AddBlog([FromBody] AddBlogDto addBlog)
+        public async Task<IActionResult> CreateBlog([FromBody] AddBlogDto addBlog)
         {
             try
             {
-                var blogEntity = _mapper.Map<Blog>(addBlog);
-                blogEntity.CreatedAt = DateTime.Now;
-
-                await _dbcontext.Blogs.AddAsync(blogEntity);
-                await _dbcontext.SaveChangesAsync();
-
-                return Ok(blogEntity);
+              var blog = await _blogWriteService.CreateBlog(addBlog);
+                return Ok(blog);
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { Message = "An error occurred while posting the blog.", Error = ex.Message });
+                var statusCode = GetStatusCodeFromException(ex);
+                return StatusCode(statusCode, new { message = "Error occurred", details = ex.Message });
             }
         }
 
@@ -134,50 +118,39 @@ namespace BlogApi2_backend.Controllers
         {
             try
             {
-                // Find the blog to update by id
-                var blogToUpdate = _dbcontext.Blogs.FirstOrDefault(b => b.Id == id);
-
-
-                if (blogToUpdate == null)
+                var blogToUpdate = await _blogWriteService.UpdateBlog(id, updateBlog);
+                if(!blogToUpdate)
                 {
-                    return NotFound(new { Message = "Blog not found" });
+                   return NotFound(new { Message = "Blog not found" });
                 }
-
-                blogToUpdate.Title = updateBlog.Title;
-                blogToUpdate.Content = updateBlog.Content;
-                
-                // Save changes to the database
-                await _dbcontext.SaveChangesAsync();
 
                 return Ok(new { Message = "Blog updated successfully", Blog = blogToUpdate });
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { Message = "An error occurred while updating the blog.", Error = ex.Message });
+                var statusCode = GetStatusCodeFromException(ex);
+                return StatusCode(statusCode, new { message = "Error occurred", details = ex.Message });
             }
         }
 
         // Deleting a blog
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteBlog(int id)
+        public async Task<IActionResult> DeleteBlogById(int id)
         {
             try
             {
-                var blogToDelete = await _dbcontext.Blogs.FirstOrDefaultAsync(b => b.Id == id);
+                var blogToDelete = await _blogDeleteService.DeleteBlogById(id);
 
-                if (blogToDelete == null)
+                if (!blogToDelete)
                 {
                     return NotFound(new { Message = "Blog not found" });
                 }
-
-                _dbcontext.Blogs.Remove(blogToDelete);
-                await _dbcontext.SaveChangesAsync();
-
                 return Ok(new { Message = "Blog deleted successfully" });
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { Message = "An error occurred while deleting the blog.", Error = ex.Message });
+                var statusCode = GetStatusCodeFromException(ex);
+                return StatusCode(statusCode, new { message = "Error occurred", details = ex.Message });
             }
         }
 
@@ -187,21 +160,19 @@ namespace BlogApi2_backend.Controllers
         {
             try
             {
-                var blogs = await _dbcontext.Blogs.ToListAsync();
+                var blogsToBeDeleted = await _blogDeleteService.DeleteAllBlogs();
 
-                if (!blogs.Any())
+                if (!blogsToBeDeleted)
                 {
                     return NotFound("No blogs found to delete");
                 }
-
-                _dbcontext.Blogs.RemoveRange(blogs);
-                await _dbcontext.SaveChangesAsync();
 
                 return Ok("All blogs deleted successfully");
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { Message = "An error occurred while deleting all blogs.", Error = ex.Message });
+                var statusCode = GetStatusCodeFromException(ex);
+                return StatusCode(statusCode, new { message = "Error occurred", details = ex.Message });
             }
         }
 

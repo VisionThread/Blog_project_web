@@ -12,7 +12,7 @@ function AddBlog() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [blogId, setBlogId] = useState(null);
-  const { authorId } = useAuthor(); // Access authorId and authorName
+  const { authorId } = useAuthor(); 
 
   const { saveBlogId } = useBlog();
   const navigate = useNavigate();
@@ -20,10 +20,9 @@ function AddBlog() {
   const handleCreateBlog = async (e) => {
     e.preventDefault();
 
-    // Check if the user is logged in
     if (!authorId) {
       toast.error("Please log in to create a blog");
-      navigate(ROUTES.LOGIN); // Optionally redirect to login page
+      navigate(ROUTES.LOGIN); 
       return;
     }
 
@@ -35,7 +34,6 @@ function AddBlog() {
 
     try {
       const response = await BlogService.createBlog(blogData);
-      // console.log("Response",response);
       if (response) {
         setBlogId(response.id);
         saveBlogId(response.id);
@@ -83,8 +81,6 @@ function AddBlog() {
           Create Blog
         </button>
       </form>
-
-      {/* Show Preview Button only after Blog Creation */}
       {blogId && (
         <button
           className="blog-preview"

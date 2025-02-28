@@ -21,7 +21,6 @@ function SearchBlogs() {
     const fetchBlog = async () => {
       try {
         const response = await BlogService.searchBlogByTitle(searchQuery);
-        if (!response) throw new Error("No blogs found");
         setBlogs(response);
         setShowSuggestions(true);
         setError(null);
@@ -32,9 +31,8 @@ function SearchBlogs() {
       }
     };
 
-    const debounceTimeout = setTimeout(fetchBlog, 300); // Debounce to wait 300ms before triggering the fetch
-
-    return () => clearTimeout(debounceTimeout); // Cleanup timeout on change
+    const debounceTimeout = setTimeout(fetchBlog, 300);                                                                 
+    return () => clearTimeout(debounceTimeout);                                                                      
   }, [searchQuery]);
 
   return (

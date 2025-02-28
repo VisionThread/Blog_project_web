@@ -1,13 +1,16 @@
 ﻿using System.Collections.Generic;
+using System.Net;
 using System.Text.Json;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using BlogApi2_backend.Data;
 using BlogApi2_backend.Models.Dtos;
 using BlogApi2_backend.Models.Entities;
+using BlogApi2_backend.Services.IServices;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 
 namespace BlogApi2_backend.Controllers
@@ -16,30 +19,36 @@ namespace BlogApi2_backend.Controllers
     [ApiController]
     public class AuthorController : ControllerBase
     {
-        private readonly BlogContext dbcontext;
-        private readonly IMapper _mapper;
-        public AuthorController(BlogContext dbcontext, IMapper mapper)
+       
+        private readonly IAuthorService _authorService;
+        private readonly IAuthorWriteService _authorWriteService;
+
+        private int GetStatusCodeFromException(Exception exp)
+        {
+            switch (exp)
+            {
+                case SqliteException _: return (int)HttpStatusCode.InternalServerError;
+                case ArgumentException _: return (int)HttpStatusCode.BadRequest;
+                case InvalidOperationException _: return (int)HttpStatusCode.BadRequest;
+                case TimeoutException _: return (int)HttpStatusCode.RequestTimeout;
+                default: return (int)HttpStatusCode.InternalServerError;
+            }
+        }
+
+        public AuthorController(IAuthorService authorService,IAuthorWriteService authorWriteService)
         { 
-            this.dbcontext = dbcontext;
-            this._mapper = mapper;
+            
+            _authorService = authorService;
+            _authorWriteService = authorWriteService;
 
         }
         
         // GET: api/Author (to fetch all the authors)
         [HttpGet]
-        public async Task<IActionResult> GetBlogs()
+        public async Task<IActionResult> GetAuthors()
         {
-            try
-            {
-                var authors = await dbcontext.Authors.ToListAsync();
-
-                return Ok(authors);
-            }
-            catch (Exception ex)
-            {
-                // Log the exception and return a 500 status code with error message
-                return StatusCode(500, new { Message = "An error occurred while fetching authors.", Error = ex.Message });
-            }
+            var authors = await _authorService.GetAllAuthors();
+            return Ok(authors);
         }
 
         // GET: api/Author/by-id/{id} (to fetch author by ID)
@@ -48,21 +57,8 @@ namespace BlogApi2_backend.Controllers
         {
             try
             {
-                var author = await dbcontext.Authors
-                              .Where(a => a.Id == id)
-                              .ProjectTo<GetAuthorDto>(_mapper.ConfigurationProvider)
-                              .FirstOrDefaultAsync();
-                              
-                
-                
-                //.Where(a => a.Id == id)
-                //Filters the authors to get the one with the matching id.
+                var author = await _authorService.GetAuthorById(id);                                                                                                                               //Retrieves the first matching record(or null if none is found).
 
-                //.ProjectTo<AuthorDto>(_mapper.ConfigurationProvider)
-                //Uses AutoMapper to transform the query results into AuthorDto objects. This method reads your mapping configuration and selects only the necessary fields.
-
-                //.FirstOrDefaultAsync()
-                //Retrieves the first matching record(or null if none is found).
                 if (author == null)
                 {
                     return NotFound(new { Message = "Author not found" });
@@ -72,21 +68,18 @@ namespace BlogApi2_backend.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { Message = "An error occurred while fetching the author.", Error = ex.Message });
+                var statusCode = GetStatusCodeFromException(ex);
+                return StatusCode(statusCode, new { message = "Error occurred", details = ex.Message });
             }
         }
 
-        // GET: api/Author/by-name (Get authors and their respective blogs based on their names)
+                                                                                                                                                                                             // GET: api/Author/by-name (Get authors and their respective blogs based on their names)
         [HttpGet("by-name")]
         public async Task<IActionResult> GetAuthor([FromQuery] string name)
         {
             try
             {
-                var author = await dbcontext.Authors
-                              .Where(a => a.Name.ToLower() == name.ToLower())
-                              .ProjectTo<GetAuthorDto>(_mapper.ConfigurationProvider)
-                              .FirstOrDefaultAsync();
-
+                var author = await _authorService.GetAuthorByName(name);    
                 if (author == null)
                 {
                     return NotFound(new { Message = "Author not found" });
@@ -96,7 +89,8 @@ namespace BlogApi2_backend.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { Message = "An error occurred while fetching the author by name.", Error = ex.Message });
+                var statusCode = GetStatusCodeFromException(ex);
+                return StatusCode(statusCode, new { message = "Error occurred", details = ex.Message });
             }
         }
 
@@ -111,9 +105,7 @@ namespace BlogApi2_backend.Controllers
                     return BadRequest(new { Message = "Email and password are required." });
                 }
 
-                var author = await dbcontext.Authors
-                    .FirstOrDefaultAsync(a => a.Email == loginDto.Email && a.Password == loginDto.Password);
-
+                var author = await _authorWriteService.LoginAuthor(loginDto);   
                 if (author == null)
                 {
                     return Unauthorized(new { Message = "Invalid credentials" });
@@ -123,7 +115,7 @@ namespace BlogApi2_backend.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { Message = "An error occurred during login.", Error = ex.Message });
+                return Unauthorized(new { Message = "Invalid credentials" + ex.Message });
             }
         }
 
@@ -134,36 +126,13 @@ namespace BlogApi2_backend.Controllers
         {
             try
             {
-                // Check if the email is already in use asynchronously
-                var existingAuthor = await dbcontext.Authors
-                    .FirstOrDefaultAsync(a => a.Email == addAuthor.Email);
+                var newauthor = await _authorWriteService.RegisterAuthor(addAuthor);
 
-                if (existingAuthor != null)
-                {
-                    return BadRequest(new { Message = "Email is already registered" });
-                }
-
-                // Create a new Author entity from the AddAuthor DTO
-                //var authorEntity = new Author()
-                //{
-                //    Name = addAuthor.Name,
-                //    Email = addAuthor.Email,
-                //    Password = addAuthor.Password 
-                //};
-
-                var authorEntity = _mapper.Map<Author>(addAuthor);
-
-                // Add the new Author entity to the database asynchronously
-                await dbcontext.Authors.AddAsync(authorEntity);
-                await dbcontext.SaveChangesAsync();
-
-                // Return the newly created author as a response
-                return CreatedAtAction(nameof(GetBlogs), new { id = authorEntity.Id }, authorEntity);
+                return CreatedAtAction(nameof(GetAuthors), new { id = newauthor.Id }, newauthor);
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                // Log the exception and return a 500 status code with error message
-                return StatusCode(500, new { Message = "An error occurred while registering the author.", Error = ex.Message });
+                return BadRequest(new { message = ex.Message });
             }
         }
 
@@ -175,42 +144,17 @@ namespace BlogApi2_backend.Controllers
         {
             try
             {
-                // Find the author by id asynchronously
-                var author = await dbcontext.Authors.FirstOrDefaultAsync(a => a.Id == id);
-
-                // Check if the author exists
-                if (author == null)
-                {
-                    return NotFound(new { Message = "Author not found" });
-                }
-
-                // Update the author's details if new values are provided
-                author.Name = updateAuthorDto.Name ?? author.Name;
-                author.Email = updateAuthorDto.Email ?? author.Email;
-
-                // Only update the password if provided (hash the password in real-world applications)
-                if (!string.IsNullOrEmpty(updateAuthorDto.Password))
-                {
-                    author.Password = updateAuthorDto.Password; // Ideally, hash the password here!
-                }
-
-                // Save the changes asynchronously
-                await dbcontext.SaveChangesAsync();
-
-                // Return the updated author details
-                return Ok(new { Message = "Author details updated successfully", Author = author });
+                                                                                                                         
+               var updatedAuthor = await _authorWriteService.UpdateDetailAuthor(id, updateAuthorDto);
+                                                                                                                                         
+                return Ok(new { Message = "Author details updated successfully", Author = updatedAuthor });
             }
             catch (Exception ex)
             {
-                // Log the exception and return 500 status code with error message
-                return StatusCode(500, new { Message = "An error occurred while updating the author.", Error = ex.Message });
+                return NotFound(new { Message = ex.Message });
             }
         }
 
-
-
     }
-
-
 
 }

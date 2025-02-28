@@ -39,41 +39,38 @@
   justify-content: space-between;
 }
 
-/* Comment Section */
-/* ===== Comment Section Styles ===== */
+
 .comment-section {
   max-width: 48rem;
   width: 100%;
-  min-height: 220px; /* Increased height to fit textarea & button */
+  min-height: 220px; 
   background-color: #ffffff;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
   padding: 1.5rem;
   margin: 1rem auto;
   transition: box-shadow 0.3s ease-in-out;
-  overflow: visible; /* Allows elements to be fully visible */
+  overflow: visible; 
   display: flex;
   flex-direction: column;
-  gap: 0.75rem; /* Adds spacing between elements */
+  gap: 0.75rem; 
 }
 
 .comment-section:hover {
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
-  transform: translateY(-2px); /* Subtle hover effect */
+  transform: translateY(-2px); 
 }
 
 
-/* ===== Comment Header ===== */
-
 .comments-list {
-  margin-top: 1.5rem; /* Reduced from 300px to a reasonable spacing */
+  margin-top: 1.5rem; 
   padding: 20px;
   background: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  max-height: 150px; /* Adds a limit to prevent excessive height */
-  overflow-y: auto; /* Enables scrolling if there are too many comments */
-  width: 52%; /* Increased width */
+  max-height: 150px; 
+  overflow-y: auto; 
+  width: 52%; 
   margin-left: auto;
   margin-right: auto;
 }

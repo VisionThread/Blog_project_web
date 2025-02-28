@@ -1,7 +1,7 @@
 [
   {
     "ContainingType": "BlogApi2_backend.Controllers.AuthorController",
-    "Method": "GetBlogs",
+    "Method": "GetAuthors",
     "RelativePath": "api/Author",
     "HttpMethod": "GET",
     "IsController": true,
@@ -106,7 +106,7 @@
   },
   {
     "ContainingType": "BlogApi2_backend.Controllers.BlogController",
-    "Method": "AddBlog",
+    "Method": "CreateBlog",
     "RelativePath": "api/Blog",
     "HttpMethod": "POST",
     "IsController": true,
@@ -169,7 +169,7 @@
   },
   {
     "ContainingType": "BlogApi2_backend.Controllers.BlogController",
-    "Method": "DeleteBlog",
+    "Method": "DeleteBlogById",
     "RelativePath": "api/Blog/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,

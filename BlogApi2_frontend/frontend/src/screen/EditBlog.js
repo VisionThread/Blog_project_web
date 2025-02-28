@@ -8,19 +8,25 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function EditBlog() {
-  const { blogId } = useParams(); // Access blogId from URL params
+  const { blogId } = useParams();
   const navigate = useNavigate();
-  const { authorId } = useAuthor(); // Get authorId from context
+  const { authorId } = useAuthor();
   const [blog, setBlog] = useState("");
 
-  console.log("blogId from params:", blogId); // Log blogId
-
+  console.log("blogId from params:", blogId);
   useEffect(() => {
-    if (!blogId) {
-      console.error("Blog ID is not available yet");
-      return; // Exit if blogId is not available
+    if (!authorId) {
+      console.warn("User is not logged in. Redirecting to login...");
+      navigate(ROUTES.LOGIN);
     }
-
+  }, [authorId, navigate]);
+  useEffect(() => {
+    if (!blogId) 
+      {
+      console.error("Blog ID is not available yet");
+      return;
+    }
+   
     const fetchBlog = async () => {
       try {
         const response = await BlogService.getBlogById(blogId);
@@ -33,7 +39,7 @@ function EditBlog() {
     };
 
     fetchBlog();
-  }, [blogId]); // Run this effect when blogId changes
+  }, [blogId]);
 
   const handleChange = (e) => {
     setBlog({ ...blog, [e.target.name]: e.target.value });
@@ -54,11 +60,9 @@ function EditBlog() {
     };
 
     try {
-      // Directly call BlogService.updateBlog and await the result
       const response = await BlogService.updateBlog(blogId, updatedData);
       console.log("Blog updated successfully:", response);
 
-      // No need to check response.ok here because your service method already handles errors
       navigate(ROUTES.AUTHOR_DASHBOARD);
     } catch (error) {
       console.error("Error updating blog:", error);

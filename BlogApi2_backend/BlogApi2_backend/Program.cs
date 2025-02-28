@@ -2,6 +2,8 @@ using BlogApi2_backend.Configuration;
 using BlogApi2_backend.Data;
 using Microsoft.EntityFrameworkCore;
 using AutoMapper;
+using BlogApi2_backend.Services;
+using BlogApi2_backend.Services.IServices;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,32 +17,30 @@ builder.Services.AddOpenApi();
 builder.Services.AddDbContext<BlogContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-//builder.Services.AddCors(options =>
-//{
-//    options.AddPolicy("AllowSpecificOrigin", policy =>
-//    {
-//        policy.WithOrigins("http://localhost:3000")
-//              .AllowAnyHeader()
-//              .AllowAnyMethod();
-//    });
-//});
+builder.Services.AddScoped<IBlogReadService, BlogService>();
+builder.Services.AddScoped<IBlogWriteService, BlogService>();
+builder.Services.AddScoped<IBlogDeleteService, BlogService>();
+
+builder.Services.AddScoped<IAuthorService, AuthorService>();
+builder.Services.AddScoped<IAuthorWriteService, AuthorService>();
+
 
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin", policy =>
     {
-        policy.WithOrigins("http://localhost:3000") // Replace with your frontend URL
+        policy.WithOrigins("http://localhost:3000")                                                                                             // Replace with your frontend URL
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
 });
 
-builder.Services.AddDistributedMemoryCache(); // Adds a memory cache to store session data
+builder.Services.AddDistributedMemoryCache();                                                                                                // Adds a memory cache to store session data
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(30); // Set timeout duration for the session
-    options.Cookie.HttpOnly = true; // Restrict cookie access to HTTP only
-    options.Cookie.IsEssential = true; // Make sure the cookie is essential for the app
+    options.IdleTimeout = TimeSpan.FromMinutes(30);                                                                                   // Set timeout duration for the session
+    options.Cookie.HttpOnly = true;                                                                                                     // Restrict cookie access to HTTP only
+    options.Cookie.IsEssential = true;                                                                                         // Make sure the cookie is essential for the app
 });
 
 IServiceCollection serviceCollection = builder.Services.AddAutoMapper(typeof(AutoMapperConfig));

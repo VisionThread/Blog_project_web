@@ -5,6 +5,6 @@
         public int AuthorId { get; set; }
         public required string AuthorName { get; set; }
 
-        public List<BlogDto> Blogs { get; set; }
+        public List<BlogDto>? Blogs { get; set; }
     }
 }

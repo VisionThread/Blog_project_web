@@ -25,7 +25,7 @@ namespace BlogApi2_backend.Controllers
         [HttpGet("blog/{blogId}")]
         public async Task<IActionResult> GetCommentsForBlog(int blogId)
         {
-            //var blog = await dbcontext.Blogs.Include(b => b.Comments).FirstOrDefaultAsync(b => b.Id == blogId);
+            
             var blog = await dbcontext.Blogs
                                 .Where(b => b.Id == blogId)
                                 .Select(b => new

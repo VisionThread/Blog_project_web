@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BlogApi2_backend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fec05827b2734929fcd52b6b9b2f0ae219435c39")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+92ffdafad51df7380eff4a12934690d86ada35ea")]
 [assembly: System.Reflection.AssemblyProductAttribute("BlogApi2_backend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BlogApi2_backend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

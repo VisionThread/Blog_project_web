@@ -33,32 +33,32 @@
 
 /* Base Button Styles */
 .editor-btn {
-  padding: 0.5rem 1.5rem; /* py-2 (0.5rem) and px-6 (1.5rem) */
-  color: #ffffff; /* text-white */
+  padding: 0.5rem 1.5rem; 
+  color: #ffffff; 
   border: none;
-  border-radius: 0.475rem; /* rounded-md (approx 0.375rem) */
+  border-radius: 0.475rem; 
   cursor: pointer;
-  transition: background-color 0.3s ease; /* transition for hover effects */
+  transition: background-color 0.3s ease; 
   
 }
 
 /* Save Button */
 .save-btn {
-  background-color: #16a34a; /* Tailwind's green-600 */
+  background-color: #16a34a; 
 }
 
 /* Cancel Button */
 .cancel-btn {
-  background-color: #6b7280; /* Tailwind's gray-500 */
-  margin-left: 0.5rem; /* ml-2 equals 0.5rem */
+  background-color: #6b7280; 
+  margin-left: 0.5rem; 
 }
 
 /* Preview Button */
 .preview-btn {
-  background-color: #6b7280; /* Tailwind's gray-500 */
-  margin-left: 0.5rem; /* ml-2 equals 0.5rem */
+  background-color: #6b7280; 
+  margin-left: 0.5rem; 
 }
 
 .preview-btn:hover {
-  background-color: #4b5563; /* Tailwind's hover:bg-gray-600 */
+  background-color: #4b5563; 
 }

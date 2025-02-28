@@ -16,7 +16,7 @@ function Register() {
 
   // Handle form submission
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault();                                                                                                              // is a method that prevents the default behavior of an event in JavaScript.
 
     // Create the payload to send to the API
     const newUser = { name, email, password };
@@ -26,14 +26,13 @@ function Register() {
 
       if (response) {
         toast.success("Registration successful !");
-        setTimeout(() => {
-          navigate(ROUTES.LOGIN);
-        }, 2000);
+        navigate(ROUTES.LOGIN);
+      
       } else {
         toast.error(`Error: ${response.Message}`);
       }
     } catch (error) {
-      // setMessage('Error: Unable to register');
+      
       toast.error("Error :unable to register");
     }
   };

@@ -1,15 +1,11 @@
 const API_BASE_URL =
-  process.env.REACT_APP_API_BASE_URL || "http://localhost:5233";
+  process.env.REACT_APP_API_BASE_URL;
 
-class CommentService
-{
-    constructor(baseUrl, prefix = "/api/Comment") {
-        this.baseUrl = baseUrl;
-        this.prefix = prefix;
-      }
-
-
-        // Generic request method that handles the API call
+class CommentService {
+  constructor(baseUrl, prefix = "/api/Comment") {
+    this.baseUrl = baseUrl;
+    this.prefix = prefix;
+  }
   async request(endpoint, method = "GET", body = null, headers = {}) {
     const fullUrl = `${this.baseUrl}${this.prefix}${endpoint}`;
 
@@ -26,8 +22,6 @@ class CommentService
 
     try {
       const response = await fetch(fullUrl, options);
-
-      // If there is no content, simply return null (useful for DELETE or 204 responses)
       if (response.status === 204) return null;
 
       const text = await response.text();
@@ -45,24 +39,17 @@ class CommentService
       throw error;
     }
   }
- 
+
   //get all the comments of the blogs
-  getCommentsByBlog(blogId)
-  {
-     return this.request(`/blog/${blogId}`,"GET")
+  getCommentsByBlog(blogId) {
+    return this.request(`/blog/${blogId}`, "GET");
   }
 
   //post the new comment
-  CommentPost(commentData)
-  {
-     return this.request("", "POST", commentData)
+  CommentPost(commentData) {
+    return this.request("", "POST", commentData);
   }
-
-
-
-
 }
-
 
 const commentService = new CommentService(API_BASE_URL);
 

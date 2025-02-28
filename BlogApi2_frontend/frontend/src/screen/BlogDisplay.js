@@ -6,22 +6,31 @@ import "react-toastify/dist/ReactToastify.css";
 import "../css/BlogDisplay.css";
 import BlogService from "../services/blogService";
 import commentService from "../services/commentService";
+import { ROUTES } from "../RoutesConstant";
 
 function BlogDetailPage() {
   const { blogId } = useParams();
-  const navigate = useNavigate();
-  const blogIdInt = parseInt(blogId, 10);
+  const navigate = useNavigate();                                                                                                                                                                          //const blogIdInt = parseInt(blogId, 10);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [blogData, setBlogData] = useState(null);
   const { authorId, authorName } = useAuthor();
-  const [commentText, setCommentText] = useState(""); // ✅ Added missing state
-  const [submittedComment, setSubmittedComment] = useState(""); // ✅ Fixed naming
+  const [commentText, setCommentText] = useState(""); 
+  const [submittedComment, setSubmittedComment] = useState("");
   const [comments, setComments] = useState([]);
+
+
+    useEffect(() => {
+      if (!authorId) {
+        console.warn("User is not logged in. Redirecting to login...");
+        navigate(ROUTES.LOGIN);
+      }
+    }, [authorId, navigate]);
 
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const response = await BlogService.getBlogById(blogIdInt);
+        const response = await BlogService.getBlogById(blogId);
+        //console.log(response)
         setBlogData(response);
       } catch (error) {
         console.error("Error fetching blog data:", error);
@@ -30,14 +39,12 @@ function BlogDetailPage() {
     };
 
     fetchBlog();
-  }, [blogIdInt]);
+  }, [blogId]);
 
   useEffect(() => {
     const fetchComments = async () => {
-      try {
-        const response = await commentService.getCommentsByBlog(blogIdInt);
-        if (!response) throw new Error("Failed to load comments.");
-        //const data = await response.json();
+       try {
+        const response = await commentService.getCommentsByBlog(blogId);
         setComments(response);
       } catch (error) {
         console.error("Error fetching comments:", error);
@@ -46,7 +53,7 @@ function BlogDetailPage() {
     };
 
     fetchComments();
-  }, [blogIdInt]);
+  }, [blogId]);
 
   const handleCommentChange = (e) => {
     setCommentText(e.target.value);
@@ -68,7 +75,7 @@ function BlogDetailPage() {
     setIsSubmitting(true);
 
     const commentData = {
-      BlogId: blogIdInt,
+      BlogId: blogId,
       CommentText: commentText,
       CreatedAt: new Date().toISOString(),
       AuthorId: authorId,
@@ -80,8 +87,8 @@ function BlogDetailPage() {
       if (response) {
         const newComment = await response;
         setComments((prevComments) => [...prevComments, newComment]);
-        setCommentText(""); 
-        setSubmittedComment(commentText); 
+        setCommentText("");
+        setSubmittedComment(commentText);
         toast.success("Comment added successfully!");
       } else {
         toast.error("Failed to add comment.");
@@ -102,7 +109,7 @@ function BlogDetailPage() {
             <h1 className="blog-title">{blogData.title}</h1>
             <p className="blog-content">{blogData.content}</p>
             <div className="blog-meta">
-              <span>✍️ By {blogData.authorName}</span>
+              <span>✍️ By {blogData.name}</span>
               <span>
                 📅{" "}
                 {new Date(blogData.createdAt).toLocaleDateString("en-US", {
@@ -137,14 +144,14 @@ function BlogDetailPage() {
           </button>
         </form>
       </div>
-      {/* Comment List */}
+      
       <div className="comments-list">
         <h2 className="comment-header">Comments</h2>
         {comments.length > 0 ? (
           comments.map((comment, index) => (
             <div key={index} className="comment-item comment">
               <h3 className="author-name">
-                {comment.authorName || authorName || "Anonymous"}
+                {comment.authorName || authorName }
               </h3>
               <p className="comment-content">
                 {comment.commentText || submittedComment}
@@ -164,7 +171,7 @@ function BlogDetailPage() {
           </p>
         )}
       </div>
-      {/* Go Back Button */}
+      
       <button onClick={() => navigate(-1)} className="go-back-button">
         ⬅️ Go Back
       </button>

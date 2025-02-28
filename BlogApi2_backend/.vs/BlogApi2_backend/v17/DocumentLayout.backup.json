@@ -3,34 +3,30 @@
   "WorkspaceRootPath": "C:\\Users\\2020677\\source\\repos\\Blog_project_smruti\\BlogApi2_backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|c:\\users\\2020677\\source\\repos\\blog_project_smruti\\blogapi2_backend\\blogapi2_backend\\controllers\\commentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|solutionrelative:blogapi2_backend\\controllers\\commentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|c:\\users\\2020677\\source\\repos\\blog_project_smruti\\blogapi2_backend\\blogapi2_backend\\services\\authorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|solutionrelative:blogapi2_backend\\services\\authorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|c:\\users\\2020677\\source\\repos\\blog_project_smruti\\blogapi2_backend\\blogapi2_backend\\models\\entities\\comments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|solutionrelative:blogapi2_backend\\models\\entities\\comments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|c:\\users\\2020677\\source\\repos\\blog_project_smruti\\blogapi2_backend\\blogapi2_backend\\controllers\\authorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|solutionrelative:blogapi2_backend\\controllers\\authorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|c:\\users\\2020677\\source\\repos\\blog_project_smruti\\blogapi2_backend\\blogapi2_backend\\blogapi2_backend.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
-      "RelativeMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|solutionrelative:blogapi2_backend\\blogapi2_backend.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+      "AbsoluteMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|c:\\users\\2020677\\source\\repos\\blog_project_smruti\\blogapi2_backend\\blogapi2_backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|solutionrelative:blogapi2_backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|c:\\users\\2020677\\source\\repos\\blog_project_smruti\\blogapi2_backend\\blogapi2_backend\\models\\dtos\\updateblogdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|solutionrelative:blogapi2_backend\\models\\dtos\\updateblogdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|c:\\users\\2020677\\source\\repos\\blog_project_smruti\\blogapi2_backend\\blogapi2_backend\\migrations\\20250205072744_blog navigation removed.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|solutionrelative:blogapi2_backend\\migrations\\20250205072744_blog navigation removed.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|c:\\users\\2020677\\source\\repos\\blog_project_smruti\\blogapi2_backend\\blogapi2_backend\\services\\iservices\\iauthorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|solutionrelative:blogapi2_backend\\services\\iservices\\iauthorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
-      "VerticalTabListWidth": 278,
+      "VerticalTabListWidth": 130,
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,72 +34,50 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:2:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Comments.cs",
-              "DocumentMoniker": "C:\\Users\\2020677\\source\\repos\\Blog_project_smruti\\BlogApi2_backend\\BlogApi2_backend\\Models\\Entities\\Comments.cs",
-              "RelativeDocumentMoniker": "BlogApi2_backend\\Models\\Entities\\Comments.cs",
-              "ToolTip": "C:\\Users\\2020677\\source\\repos\\Blog_project_smruti\\BlogApi2_backend\\BlogApi2_backend\\Models\\Entities\\Comments.cs",
-              "RelativeToolTip": "BlogApi2_backend\\Models\\Entities\\Comments.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-10T05:54:07.782Z"
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CommentController.cs",
-              "DocumentMoniker": "C:\\Users\\2020677\\source\\repos\\Blog_project_smruti\\BlogApi2_backend\\BlogApi2_backend\\Controllers\\CommentController.cs",
-              "RelativeDocumentMoniker": "BlogApi2_backend\\Controllers\\CommentController.cs",
-              "ToolTip": "C:\\Users\\2020677\\source\\repos\\Blog_project_smruti\\BlogApi2_backend\\BlogApi2_backend\\Controllers\\CommentController.cs",
-              "RelativeToolTip": "BlogApi2_backend\\Controllers\\CommentController.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAAC0AAAA3AAAAAAAAAA==",
+              "Title": "AuthorService.cs",
+              "DocumentMoniker": "C:\\Users\\2020677\\source\\repos\\Blog_project_smruti\\BlogApi2_backend\\BlogApi2_backend\\Services\\AuthorService.cs",
+              "RelativeDocumentMoniker": "BlogApi2_backend\\Services\\AuthorService.cs",
+              "ToolTip": "C:\\Users\\2020677\\source\\repos\\Blog_project_smruti\\BlogApi2_backend\\BlogApi2_backend\\Services\\AuthorService.cs",
+              "RelativeToolTip": "BlogApi2_backend\\Services\\AuthorService.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAawDgAAABNAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-09T16:34:08.66Z",
+              "WhenOpened": "2025-02-28T09:58:27.732Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "UpdateBlogDto.cs",
-              "DocumentMoniker": "C:\\Users\\2020677\\source\\repos\\Blog_project_smruti\\BlogApi2_backend\\BlogApi2_backend\\Models\\Dtos\\UpdateBlogDto.cs",
-              "RelativeDocumentMoniker": "BlogApi2_backend\\Models\\Dtos\\UpdateBlogDto.cs",
-              "ToolTip": "C:\\Users\\2020677\\source\\repos\\Blog_project_smruti\\BlogApi2_backend\\BlogApi2_backend\\Models\\Dtos\\UpdateBlogDto.cs",
-              "RelativeToolTip": "BlogApi2_backend\\Models\\Dtos\\UpdateBlogDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Title": "IAuthorService.cs",
+              "DocumentMoniker": "C:\\Users\\2020677\\source\\repos\\Blog_project_smruti\\BlogApi2_backend\\BlogApi2_backend\\Services\\IServices\\IAuthorService.cs",
+              "RelativeDocumentMoniker": "BlogApi2_backend\\Services\\IServices\\IAuthorService.cs",
+              "ToolTip": "C:\\Users\\2020677\\source\\repos\\Blog_project_smruti\\BlogApi2_backend\\BlogApi2_backend\\Services\\IServices\\IAuthorService.cs",
+              "RelativeToolTip": "BlogApi2_backend\\Services\\IServices\\IAuthorService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T10:17:48.467Z"
+              "WhenOpened": "2025-02-28T09:48:10.432Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "20250205072744_Blog navigation removed.cs",
-              "DocumentMoniker": "C:\\Users\\2020677\\source\\repos\\Blog_project_smruti\\BlogApi2_backend\\BlogApi2_backend\\Migrations\\20250205072744_Blog navigation removed.cs",
-              "RelativeDocumentMoniker": "BlogApi2_backend\\Migrations\\20250205072744_Blog navigation removed.cs",
-              "ToolTip": "C:\\Users\\2020677\\source\\repos\\Blog_project_smruti\\BlogApi2_backend\\BlogApi2_backend\\Migrations\\20250205072744_Blog navigation removed.cs",
-              "RelativeToolTip": "BlogApi2_backend\\Migrations\\20250205072744_Blog navigation removed.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "AuthorController.cs",
+              "DocumentMoniker": "C:\\Users\\2020677\\source\\repos\\Blog_project_smruti\\BlogApi2_backend\\BlogApi2_backend\\Controllers\\AuthorController.cs",
+              "RelativeDocumentMoniker": "BlogApi2_backend\\Controllers\\AuthorController.cs",
+              "ToolTip": "C:\\Users\\2020677\\source\\repos\\Blog_project_smruti\\BlogApi2_backend\\BlogApi2_backend\\Controllers\\AuthorController.cs",
+              "RelativeToolTip": "BlogApi2_backend\\Controllers\\AuthorController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJQAAACJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-05T07:27:45.091Z"
+              "WhenOpened": "2025-02-28T09:37:06.05Z",
+              "EditorCaption": ""
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "BlogApi2_backend.http",
-              "DocumentMoniker": "C:\\Users\\2020677\\source\\repos\\Blog_project_smruti\\BlogApi2_backend\\BlogApi2_backend\\BlogApi2_backend.http",
-              "RelativeDocumentMoniker": "BlogApi2_backend\\BlogApi2_backend.http",
-              "ToolTip": "C:\\Users\\2020677\\source\\repos\\Blog_project_smruti\\BlogApi2_backend\\BlogApi2_backend\\BlogApi2_backend.http",
-              "RelativeToolTip": "BlogApi2_backend\\BlogApi2_backend.http",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2025-02-05T07:04:22.428Z"
+              "$type": "Bookmark",
+              "Name": "ST:2:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             },
             {
               "$type": "Bookmark",
@@ -116,6 +90,19 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\2020677\\source\\repos\\Blog_project_smruti\\BlogApi2_backend\\BlogApi2_backend\\Program.cs",
+              "RelativeDocumentMoniker": "BlogApi2_backend\\Program.cs",
+              "ToolTip": "C:\\Users\\2020677\\source\\repos\\Blog_project_smruti\\BlogApi2_backend\\BlogApi2_backend\\Program.cs",
+              "RelativeToolTip": "BlogApi2_backend\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-27T11:14:28.9Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -6,35 +6,38 @@ import "react-toastify/dist/ReactToastify.css";
 import "../css/AuthorBlogDashboard.css";
 import BlogService from "../services/blogService";
 import authorService from "../services/authorService";
+import { ROUTES } from "../RoutesConstant";
 
 function AuthorDashboard() {
   const [blogs, setBlogs] = useState([]);
   const navigate = useNavigate();
-  const { authorId } = useAuthor(); // Assuming this provides the author ID
+  const { authorId } = useAuthor(); 
+
+  
+      useEffect(() => {
+        if (!authorId) {
+          console.warn("User is not logged in. Redirecting to login...");
+          navigate(ROUTES.LOGIN);
+        }
+      }, [authorId, navigate]);
 
   useEffect(() => {
     async function fetchAuthorBlogs(id) {
       try {
         const response = await authorService.getAuthorById(id);
-        console.log(response);
-        if (!response) {
-          throw new Error("Author not found");
-        }
-        if (response && response.blogs) {
-          setBlogs(response.blogs); // Set blogs to state
-        }
+        setBlogs(response?.blogs || []);
       } catch (error) {
         console.error("Error fetching blogs:", error.message);
       }
     }
 
-    // Fetch blogs if authorId is available
+   
     if (authorId) {
       fetchAuthorBlogs(authorId);
     }
   }, [authorId]);
 
-  //confirmation of deletion
+  
   const showDeleteConfirmation = (blogid) => {
     toast(
       ({ closeToast }) => (
@@ -43,8 +46,8 @@ function AuthorDashboard() {
           <div className="button-group2">
             <button className="yes-btn" 
               onClick={() => {
-                handleDelete(blogid, true); // Perform deletion
-                setTimeout(closeToast, 200); // Close toast after 2 seconds
+                handleDelete(blogid, true); 
+                toast.dismiss(); 
               }}>
               Yes
             </button>
@@ -55,12 +58,12 @@ function AuthorDashboard() {
         </div>
       ),
       {
-        position: "top-right", // Ensure it appears at the center
-        autoClose:false, // Prevents auto-closing
-        closeOnClick: false, // Prevent accidental closing
-        closeButton: false, // Hide default close button
+        position: "top-right", 
+        autoClose:false, 
+        closeOnClick: false, 
+        closeButton: false, 
         draggable: false,
-        hideProgressBar: true, // Remove progress bar
+        hideProgressBar: true, 
       }
     );
   };
@@ -77,7 +80,7 @@ function AuthorDashboard() {
       await BlogService.deleteBlog(blogId);
       setBlogs((prevBlogs) =>
         prevBlogs.filter((blog) => blog.blogId !== blogId)
-      ); // Update state
+      ); 
       toast.success("Blog deleted successfully!");
     } catch (error) {
       console.error("Error deleting blog:", error);
@@ -86,7 +89,7 @@ function AuthorDashboard() {
   };
 
   const handleDeleteClick = (blogId) => {
-    showDeleteConfirmation(blogId); // Trigger the confirmation toast
+    showDeleteConfirmation(blogId); 
   };
 
   return (

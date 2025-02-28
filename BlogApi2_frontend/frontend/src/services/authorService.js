@@ -1,5 +1,8 @@
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const API_BASE_URL =
-  process.env.REACT_APP_API_BASE_URL || "http://localhost:5233";
+  process.env.REACT_APP_API_BASE_URL;
 
 class AuthorService {
   constructor(baseUrl, prefix = "/api/Author") {
@@ -7,7 +10,7 @@ class AuthorService {
     this.prefix = prefix;
   }
 
-  // Generic request method that handles the API call
+  
   async request(endpoint, method = "GET", body = null, headers = {}) {
     const fullUrl = `${this.baseUrl}${this.prefix}${endpoint}`;
 
@@ -25,7 +28,7 @@ class AuthorService {
     try {
       const response = await fetch(fullUrl, options);
 
-      // If there is no content, simply return null (useful for DELETE or 204 responses)
+      
       if (response.status === 204) return null;
 
       const text = await response.text();
@@ -39,7 +42,8 @@ class AuthorService {
         data?.message || `HTTP error! Status: ${response.status}`
       );
     } catch (error) {
-      console.error("API request failed:", error);
+      
+      toast.error(`API FAILED TO FETCH:${error.message}`)
       throw error;
     }
   }

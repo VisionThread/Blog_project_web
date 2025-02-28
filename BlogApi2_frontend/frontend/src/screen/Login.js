@@ -19,14 +19,12 @@ function Login() {
     e.preventDefault();
 
     const response = await authorService.authorLogin(logInUser);
-
     if (response) {
       toast.success("Login successful!");
       // Proceed with the login
       login(response.authorId, response.name);
-      setTimeout(() => {
-        navigate(ROUTES.HOME);
-      }, 2000);
+      navigate(ROUTES.HOME);
+     
     } else {
       toast.error("Invalid credentials");
     }

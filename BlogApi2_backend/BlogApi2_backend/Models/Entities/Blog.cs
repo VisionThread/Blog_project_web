@@ -9,7 +9,7 @@
         public int AuthorId { get; set; }
 
         // Navigation Property to Author (for easier access)
-        public Author Author { get; set; }
+        public Author? Author { get; set; }
 
         //for comments or feedback
         public List<Comments> Comments { get; set; } = new List<Comments>();

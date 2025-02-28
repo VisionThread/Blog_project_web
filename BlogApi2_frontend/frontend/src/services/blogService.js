@@ -1,5 +1,7 @@
-const API_BASE_URL =
-  process.env.REACT_APP_API_BASE_URL || "http://localhost:5233";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 class BlogService {
   constructor(baseUrl, prefix = "/api/Blog") {
@@ -7,7 +9,6 @@ class BlogService {
     this.prefix = prefix;
   }
 
-  // Generic request method that handles the API call
   async request(endpoint, method = "GET", body = null, headers = {}) {
     const fullUrl = `${this.baseUrl}${this.prefix}${endpoint}`;
 
@@ -25,7 +26,6 @@ class BlogService {
     try {
       const response = await fetch(fullUrl, options);
 
-      // If there is no content, simply return null (useful for DELETE or 204 responses)
       if (response.status === 204) return null;
 
       const text = await response.text();
@@ -39,7 +39,7 @@ class BlogService {
         data?.message || `HTTP error! Status: ${response.status}`
       );
     } catch (error) {
-      console.error("API request failed:", error);
+      toast.error(`API FAILED TO FETCH:${error.message}`)
       throw error;
     }
   }
@@ -61,12 +61,11 @@ class BlogService {
 
   // GET /api/Blog/title?title=...
   searchBlogByTitle(title) {
-    // encodeURIComponent ensures that any special characters in the title are escaped
-    return this.request(`/title?title=${encodeURIComponent(title)}`, "GET");
+    
+    return this.request(`/title?title=${encodeURIComponent(title)}`, "GET");                                                                              // encodeURIComponent ensures that any special characters in the title are escaped
   }
 
   //DELETE /api/Blog/{blogid}
-
   deleteBlog(blogId) {
     return this.request(`/${blogId}`, "DELETE");
   }
