@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using AutoMapper;
 using BlogApi2_backend.Services;
 using BlogApi2_backend.Services.IServices;
+using BlogApi2_backend.Repository;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,10 +18,12 @@ builder.Services.AddOpenApi();
 builder.Services.AddDbContext<BlogContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddScoped<IBlogRepository, BlogRepository>();
 builder.Services.AddScoped<IBlogReadService, BlogService>();
 builder.Services.AddScoped<IBlogWriteService, BlogService>();
 builder.Services.AddScoped<IBlogDeleteService, BlogService>();
 
+builder.Services.AddScoped<IAuthorRepository, AuthorRepository>();
 builder.Services.AddScoped<IAuthorService, AuthorService>();
 builder.Services.AddScoped<IAuthorWriteService, AuthorService>();
 

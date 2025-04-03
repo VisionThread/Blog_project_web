@@ -1,79 +1,76 @@
 ﻿using AutoMapper;
-using AutoMapper.QueryableExtensions;
 using BlogApi2_backend.Data;
 using BlogApi2_backend.Models.Dtos;
 using BlogApi2_backend.Models.Entities;
+using BlogApi2_backend.Repository;
 using BlogApi2_backend.Services.IServices;
-using Microsoft.EntityFrameworkCore;
 
 namespace BlogApi2_backend.Services
 {
-    public class AuthorService : IAuthorService,IAuthorWriteService
+    public class AuthorService : IAuthorService, IAuthorWriteService
     {
-        private readonly BlogContext _dbcontext;
-
         private readonly IMapper _mapper;
+        private readonly IAuthorRepository _authorRepository;
 
-        public AuthorService(BlogContext dbcontext, IMapper mapper)
+        public AuthorService(BlogContext dbcontext, IMapper mapper, IAuthorRepository authorRepository)
         {
-            _dbcontext = dbcontext;
+
             _mapper = mapper;
+            _authorRepository = authorRepository;
         }
 
         public async Task<IEnumerable<Author>> GetAllAuthors()
         {
-            var authors = await _dbcontext.Authors.ToListAsync();
-            return authors;
+            return await _authorRepository.GetAllAuthors();
         }
+
+
+
+
+
 
         public async Task<GetAuthorDto?> GetAuthorById(int id)
         {
-            return await _dbcontext.Authors
-                              .Where(a => a.Id == id)                                                                                                      //Filters the authors to get the one with the matching id.
-                              .ProjectTo<GetAuthorDto>(_mapper.ConfigurationProvider)                                                                                                              //Uses AutoMapper to transform the query results into AuthorDto objects. This method reads your mapping configuration and selects only the necessary fields.
-                              .FirstOrDefaultAsync();
-            
+            var author = await _authorRepository.GetAuthorById(id);
+            return _mapper.Map<GetAuthorDto>(author);                                                                 // Map the Author entity to GetAuthorDto
         }
 
         public async Task<GetAuthorDto?> GetAuthorByName(string name)
         {
-            return await _dbcontext.Authors
-                             .Where(a => a.Name.ToLower() == name.ToLower())
-                             .ProjectTo<GetAuthorDto>(_mapper.ConfigurationProvider)
-                             .FirstOrDefaultAsync();
-           
+            var author = await _authorRepository.GetAuthorByName(name);
+            return _mapper.Map<GetAuthorDto>(author);
+
         }
 
         /// ------------------------------------------------CRUD methods here----------------------------------------------------------
         /// 
-        
+
         public async Task<Author> LoginAuthor(LoginDto loginDto)
         {
-            var author= await _dbcontext.Authors
-                    .FirstOrDefaultAsync(a => a.Email == loginDto.Email && a.Password == loginDto.Password);
-
+            var author = await _authorRepository.LoginAuthor(loginDto.Email, loginDto.Password);
+            if (author == null)
+            {
+                throw new ArgumentException("Invalid email or password");
+            }
             return author;
         }
 
         public async Task<Author> RegisterAuthor(AddAuthor addAuthor)
         {
-            var existingAuthor = await _dbcontext.Authors                                                                                           // Check if the email is already in use asynchronously
-                    .FirstOrDefaultAsync(a => a.Email == addAuthor.Email);
-
+            var existingAuthor = await _authorRepository.GetAuthorByName(addAuthor.Email);
             if (existingAuthor != null)
             {
                 throw new ArgumentException("Email is already registered!");
             }
-            var authorEntity = _mapper.Map<Author>(addAuthor);
-            await _dbcontext.Authors.AddAsync(authorEntity);                                                                  // Add the new Author entity to the database asynchronously
-            await _dbcontext.SaveChangesAsync();
 
+            var authorEntity = _mapper.Map<Author>(addAuthor);
+            await _authorRepository.AddAuthor(authorEntity);
             return authorEntity;
         }
 
         public async Task<Author> UpdateDetailAuthor(int id, UpdateAuthorDto updateAuthorDto)
         {
-            var author = await _dbcontext.Authors.FirstOrDefaultAsync(a => a.Id == id);
+            var author = await _authorRepository.GetAuthorById(id);
             if (author == null)
             {
                 throw new KeyNotFoundException("Author not found");
@@ -84,9 +81,7 @@ namespace BlogApi2_backend.Services
             {
                 author.Password = updateAuthorDto.Password;
             }
-            // Save the changes asynchronously
-            await _dbcontext.SaveChangesAsync();
-            
+            await _authorRepository.UpdateAuthor(author);
             return author;
         }
     }

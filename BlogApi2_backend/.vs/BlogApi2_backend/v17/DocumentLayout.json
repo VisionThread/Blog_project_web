@@ -1,38 +1,74 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\2020677\\source\\repos\\Blog_project_smruti\\BlogApi2_backend\\",
+  "WorkspaceRootPath": "C:\\Users\\2020677\\Music\\Blog_project_new2\\Blog_project_web\\BlogApi2_backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|c:\\users\\2020677\\source\\repos\\blog_project_smruti\\blogapi2_backend\\blogapi2_backend\\controllers\\blogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|solutionrelative:blogapi2_backend\\controllers\\blogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|c:\\users\\2020677\\source\\repos\\blog_project_smruti\\blogapi2_backend\\blogapi2_backend\\services\\iservices\\iblogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|solutionrelative:blogapi2_backend\\services\\iservices\\iblogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|c:\\users\\2020677\\source\\repos\\blog_project_smruti\\blogapi2_backend\\blogapi2_backend\\services\\authorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|solutionrelative:blogapi2_backend\\services\\authorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|c:\\users\\2020677\\source\\repos\\blog_project_smruti\\blogapi2_backend\\blogapi2_backend\\services\\iservices\\iauthorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|solutionrelative:blogapi2_backend\\services\\iservices\\iauthorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|c:\\users\\2020677\\source\\repos\\blog_project_smruti\\blogapi2_backend\\blogapi2_backend\\controllers\\authorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|solutionrelative:blogapi2_backend\\controllers\\authorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|c:\\users\\2020677\\source\\repos\\blog_project_smruti\\blogapi2_backend\\blogapi2_backend\\services\\blogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|c:\\users\\2020677\\music\\blog_project_new2\\blog_project_web\\blogapi2_backend\\blogapi2_backend\\services\\blogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|solutionrelative:blogapi2_backend\\services\\blogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|c:\\users\\2020677\\source\\repos\\blog_project_smruti\\blogapi2_backend\\blogapi2_backend\\blogapi2_backend.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "AbsoluteMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|c:\\users\\2020677\\music\\blog_project_new2\\blog_project_web\\blogapi2_backend\\blogapi2_backend\\services\\authorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|solutionrelative:blogapi2_backend\\services\\authorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|c:\\users\\2020677\\music\\blog_project_new2\\blog_project_web\\blogapi2_backend\\blogapi2_backend\\repository\\iauthorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|solutionrelative:blogapi2_backend\\repository\\iauthorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|c:\\users\\2020677\\music\\blog_project_new2\\blog_project_web\\blogapi2_backend\\blogapi2_backend\\repository\\authorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|solutionrelative:blogapi2_backend\\repository\\authorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|c:\\users\\2020677\\music\\blog_project_new2\\blog_project_web\\blogapi2_backend\\blogapi2_backend\\blogapi2_backend.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
       "RelativeMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|solutionrelative:blogapi2_backend\\blogapi2_backend.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|c:\\users\\2020677\\source\\repos\\blog_project_smruti\\blogapi2_backend\\blogapi2_backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|c:\\users\\2020677\\music\\blog_project_new2\\blog_project_web\\blogapi2_backend\\blogapi2_backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|solutionrelative:blogapi2_backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|c:\\users\\2020677\\music\\blog_project_new2\\blog_project_web\\blogapi2_backend\\blogapi2_backend\\controllers\\authorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|solutionrelative:blogapi2_backend\\controllers\\authorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|c:\\users\\2020677\\music\\blog_project_new2\\blog_project_web\\blogapi2_backend\\blogapi2_backend\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|solutionrelative:blogapi2_backend\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|c:\\users\\2020677\\music\\blog_project_new2\\blog_project_web\\blogapi2_backend\\blogapi2_backend\\controllers\\commentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|solutionrelative:blogapi2_backend\\controllers\\commentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|c:\\users\\2020677\\music\\blog_project_new2\\blog_project_web\\blogapi2_backend\\blogapi2_backend\\controllers\\blogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|solutionrelative:blogapi2_backend\\controllers\\blogcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|c:\\users\\2020677\\music\\blog_project_new2\\blog_project_web\\blogapi2_backend\\blogapi2_backend\\repository\\blogrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|solutionrelative:blogapi2_backend\\repository\\blogrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|c:\\users\\2020677\\music\\blog_project_new2\\blog_project_web\\blogapi2_backend\\blogapi2_backend\\repository\\iblogrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|solutionrelative:blogapi2_backend\\repository\\iblogrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|c:\\users\\2020677\\music\\blog_project_new2\\blog_project_web\\blogapi2_backend\\blogapi2_backend\\blogapi2_backend.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|solutionrelative:blogapi2_backend\\blogapi2_backend.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|c:\\users\\2020677\\music\\blog_project_new2\\blog_project_web\\blogapi2_backend\\blogapi2_backend\\services\\iservices\\iblogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|solutionrelative:blogapi2_backend\\services\\iservices\\iblogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|c:\\users\\2020677\\music\\blog_project_new2\\blog_project_web\\blogapi2_backend\\blogapi2_backend\\data\\blogcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|solutionrelative:blogapi2_backend\\data\\blogcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|c:\\users\\2020677\\music\\blog_project_new2\\blog_project_web\\blogapi2_backend\\blogapi2_backend\\configuration\\automapperconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|solutionrelative:blogapi2_backend\\configuration\\automapperconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|c:\\users\\2020677\\music\\blog_project_new2\\blog_project_web\\blogapi2_backend\\blogapi2_backend\\services\\iservices\\iauthorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44FCE33E-2CDB-445A-9145-3FA4BEF7F080}|BlogApi2_backend\\BlogApi2_backend.csproj|solutionrelative:blogapi2_backend\\services\\iservices\\iauthorservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -41,47 +77,12 @@
       "VerticalTabListWidth": 130,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "DockedWidth": 1221,
+          "SelectedChildIndex": 18,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "BlogService.cs",
-              "DocumentMoniker": "C:\\Users\\2020677\\source\\repos\\Blog_project_smruti\\BlogApi2_backend\\BlogApi2_backend\\Services\\BlogService.cs",
-              "RelativeDocumentMoniker": "BlogApi2_backend\\Services\\BlogService.cs",
-              "ToolTip": "C:\\Users\\2020677\\source\\repos\\Blog_project_smruti\\BlogApi2_backend\\BlogApi2_backend\\Services\\BlogService.cs",
-              "RelativeToolTip": "BlogApi2_backend\\Services\\BlogService.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAQwBcAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-28T11:05:32.229Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "BlogController.cs",
-              "DocumentMoniker": "C:\\Users\\2020677\\source\\repos\\Blog_project_smruti\\BlogApi2_backend\\BlogApi2_backend\\Controllers\\BlogController.cs",
-              "RelativeDocumentMoniker": "BlogApi2_backend\\Controllers\\BlogController.cs",
-              "ToolTip": "C:\\Users\\2020677\\source\\repos\\Blog_project_smruti\\BlogApi2_backend\\BlogApi2_backend\\Controllers\\BlogController.cs",
-              "RelativeToolTip": "BlogApi2_backend\\Controllers\\BlogController.cs",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-28T11:05:49.507Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "IBlogService.cs",
-              "DocumentMoniker": "C:\\Users\\2020677\\source\\repos\\Blog_project_smruti\\BlogApi2_backend\\BlogApi2_backend\\Services\\IServices\\IBlogService.cs",
-              "RelativeDocumentMoniker": "BlogApi2_backend\\Services\\IServices\\IBlogService.cs",
-              "ToolTip": "C:\\Users\\2020677\\source\\repos\\Blog_project_smruti\\BlogApi2_backend\\BlogApi2_backend\\Services\\IServices\\IBlogService.cs",
-              "RelativeToolTip": "BlogApi2_backend\\Services\\IServices\\IBlogService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-28T11:04:21.979Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
             },
             {
               "$type": "Bookmark",
@@ -101,58 +102,195 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "BlogApi2_backend.http",
-              "DocumentMoniker": "C:\\Users\\2020677\\source\\repos\\Blog_project_smruti\\BlogApi2_backend\\BlogApi2_backend\\BlogApi2_backend.http",
-              "RelativeDocumentMoniker": "BlogApi2_backend\\BlogApi2_backend.http",
-              "ToolTip": "C:\\Users\\2020677\\source\\repos\\Blog_project_smruti\\BlogApi2_backend\\BlogApi2_backend\\BlogApi2_backend.http",
-              "RelativeToolTip": "BlogApi2_backend\\BlogApi2_backend.http",
-              "ViewState": "AgIAAAEBAAAAAAAAAAAmwPcAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2025-02-28T10:42:02.281Z",
+              "DocumentIndex": 3,
+              "Title": "AuthorRepository.cs",
+              "DocumentMoniker": "C:\\Users\\2020677\\Music\\Blog_project_new2\\Blog_project_web\\BlogApi2_backend\\BlogApi2_backend\\Repository\\AuthorRepository.cs",
+              "RelativeDocumentMoniker": "BlogApi2_backend\\Repository\\AuthorRepository.cs",
+              "ToolTip": "C:\\Users\\2020677\\Music\\Blog_project_new2\\Blog_project_web\\BlogApi2_backend\\BlogApi2_backend\\Repository\\AuthorRepository.cs",
+              "RelativeToolTip": "BlogApi2_backend\\Repository\\AuthorRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T11:49:17.681Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "IAuthorRepository.cs",
+              "DocumentMoniker": "C:\\Users\\2020677\\Music\\Blog_project_new2\\Blog_project_web\\BlogApi2_backend\\BlogApi2_backend\\Repository\\IAuthorRepository.cs",
+              "RelativeDocumentMoniker": "BlogApi2_backend\\Repository\\IAuthorRepository.cs",
+              "ToolTip": "C:\\Users\\2020677\\Music\\Blog_project_new2\\Blog_project_web\\BlogApi2_backend\\BlogApi2_backend\\Repository\\IAuthorRepository.cs",
+              "RelativeToolTip": "BlogApi2_backend\\Repository\\IAuthorRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T11:44:29.323Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "BlogController.cs",
+              "DocumentMoniker": "C:\\Users\\2020677\\Music\\Blog_project_new2\\Blog_project_web\\BlogApi2_backend\\BlogApi2_backend\\Controllers\\BlogController.cs",
+              "RelativeDocumentMoniker": "BlogApi2_backend\\Controllers\\BlogController.cs",
+              "ToolTip": "C:\\Users\\2020677\\Music\\Blog_project_new2\\Blog_project_web\\BlogApi2_backend\\BlogApi2_backend\\Controllers\\BlogController.cs",
+              "RelativeToolTip": "BlogApi2_backend\\Controllers\\BlogController.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T11:26:30.437Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "BlogRepository.cs",
+              "DocumentMoniker": "C:\\Users\\2020677\\Music\\Blog_project_new2\\Blog_project_web\\BlogApi2_backend\\BlogApi2_backend\\Repository\\BlogRepository.cs",
+              "RelativeDocumentMoniker": "BlogApi2_backend\\Repository\\BlogRepository.cs",
+              "ToolTip": "C:\\Users\\2020677\\Music\\Blog_project_new2\\Blog_project_web\\BlogApi2_backend\\BlogApi2_backend\\Repository\\BlogRepository.cs",
+              "RelativeToolTip": "BlogApi2_backend\\Repository\\BlogRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADkAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T07:32:35.281Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "IBlogRepository.cs",
+              "DocumentMoniker": "C:\\Users\\2020677\\Music\\Blog_project_new2\\Blog_project_web\\BlogApi2_backend\\BlogApi2_backend\\Repository\\IBlogRepository.cs",
+              "RelativeDocumentMoniker": "BlogApi2_backend\\Repository\\IBlogRepository.cs",
+              "ToolTip": "C:\\Users\\2020677\\Music\\Blog_project_new2\\Blog_project_web\\BlogApi2_backend\\BlogApi2_backend\\Repository\\IBlogRepository.cs",
+              "RelativeToolTip": "BlogApi2_backend\\Repository\\IBlogRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T07:31:27.818Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "C:\\Users\\2020677\\Music\\Blog_project_new2\\Blog_project_web\\BlogApi2_backend\\BlogApi2_backend\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "BlogApi2_backend\\Controllers\\WeatherForecastController.cs",
+              "ToolTip": "C:\\Users\\2020677\\Music\\Blog_project_new2\\Blog_project_web\\BlogApi2_backend\\BlogApi2_backend\\Controllers\\WeatherForecastController.cs",
+              "RelativeToolTip": "BlogApi2_backend\\Controllers\\WeatherForecastController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T07:27:44.025Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CommentController.cs",
+              "DocumentMoniker": "C:\\Users\\2020677\\Music\\Blog_project_new2\\Blog_project_web\\BlogApi2_backend\\BlogApi2_backend\\Controllers\\CommentController.cs",
+              "RelativeDocumentMoniker": "BlogApi2_backend\\Controllers\\CommentController.cs",
+              "ToolTip": "C:\\Users\\2020677\\Music\\Blog_project_new2\\Blog_project_web\\BlogApi2_backend\\BlogApi2_backend\\Controllers\\CommentController.cs",
+              "RelativeToolTip": "BlogApi2_backend\\Controllers\\CommentController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T07:27:43.386Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "BlogContext.cs",
+              "DocumentMoniker": "C:\\Users\\2020677\\Music\\Blog_project_new2\\Blog_project_web\\BlogApi2_backend\\BlogApi2_backend\\Data\\BlogContext.cs",
+              "RelativeDocumentMoniker": "BlogApi2_backend\\Data\\BlogContext.cs",
+              "ToolTip": "C:\\Users\\2020677\\Music\\Blog_project_new2\\Blog_project_web\\BlogApi2_backend\\BlogApi2_backend\\Data\\BlogContext.cs",
+              "RelativeToolTip": "BlogApi2_backend\\Data\\BlogContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T07:16:03.807Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\2020677\\Music\\Blog_project_new2\\Blog_project_web\\BlogApi2_backend\\BlogApi2_backend\\Program.cs",
+              "RelativeDocumentMoniker": "BlogApi2_backend\\Program.cs",
+              "ToolTip": "C:\\Users\\2020677\\Music\\Blog_project_new2\\Blog_project_web\\BlogApi2_backend\\BlogApi2_backend\\Program.cs",
+              "RelativeToolTip": "BlogApi2_backend\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-27T11:14:28.9Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "BlogApi2_backend.csproj",
+              "DocumentMoniker": "C:\\Users\\2020677\\Music\\Blog_project_new2\\Blog_project_web\\BlogApi2_backend\\BlogApi2_backend\\BlogApi2_backend.csproj",
+              "RelativeDocumentMoniker": "BlogApi2_backend\\BlogApi2_backend.csproj",
+              "ToolTip": "C:\\Users\\2020677\\Music\\Blog_project_new2\\Blog_project_web\\BlogApi2_backend\\BlogApi2_backend\\BlogApi2_backend.csproj",
+              "RelativeToolTip": "BlogApi2_backend\\BlogApi2_backend.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-04-03T07:27:05.825Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "AutoMapperConfig.cs",
+              "DocumentMoniker": "C:\\Users\\2020677\\Music\\Blog_project_new2\\Blog_project_web\\BlogApi2_backend\\BlogApi2_backend\\Configuration\\AutoMapperConfig.cs",
+              "RelativeDocumentMoniker": "BlogApi2_backend\\Configuration\\AutoMapperConfig.cs",
+              "ToolTip": "C:\\Users\\2020677\\Music\\Blog_project_new2\\Blog_project_web\\BlogApi2_backend\\BlogApi2_backend\\Configuration\\AutoMapperConfig.cs",
+              "RelativeToolTip": "BlogApi2_backend\\Configuration\\AutoMapperConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T07:27:38.739Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BlogService.cs",
+              "DocumentMoniker": "C:\\Users\\2020677\\Music\\Blog_project_new2\\Blog_project_web\\BlogApi2_backend\\BlogApi2_backend\\Services\\BlogService.cs",
+              "RelativeDocumentMoniker": "BlogApi2_backend\\Services\\BlogService.cs",
+              "ToolTip": "C:\\Users\\2020677\\Music\\Blog_project_new2\\Blog_project_web\\BlogApi2_backend\\BlogApi2_backend\\Services\\BlogService.cs",
+              "RelativeToolTip": "BlogApi2_backend\\Services\\BlogService.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAgwDYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T11:05:32.229Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IBlogService.cs",
+              "DocumentMoniker": "C:\\Users\\2020677\\Music\\Blog_project_new2\\Blog_project_web\\BlogApi2_backend\\BlogApi2_backend\\Services\\IServices\\IBlogService.cs",
+              "RelativeDocumentMoniker": "BlogApi2_backend\\Services\\IServices\\IBlogService.cs",
+              "ToolTip": "C:\\Users\\2020677\\Music\\Blog_project_new2\\Blog_project_web\\BlogApi2_backend\\BlogApi2_backend\\Services\\IServices\\IBlogService.cs",
+              "RelativeToolTip": "BlogApi2_backend\\Services\\IServices\\IBlogService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T11:04:21.979Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "AuthorService.cs",
-              "DocumentMoniker": "C:\\Users\\2020677\\source\\repos\\Blog_project_smruti\\BlogApi2_backend\\BlogApi2_backend\\Services\\AuthorService.cs",
+              "DocumentMoniker": "C:\\Users\\2020677\\Music\\Blog_project_new2\\Blog_project_web\\BlogApi2_backend\\BlogApi2_backend\\Services\\AuthorService.cs",
               "RelativeDocumentMoniker": "BlogApi2_backend\\Services\\AuthorService.cs",
-              "ToolTip": "C:\\Users\\2020677\\source\\repos\\Blog_project_smruti\\BlogApi2_backend\\BlogApi2_backend\\Services\\AuthorService.cs",
+              "ToolTip": "C:\\Users\\2020677\\Music\\Blog_project_new2\\Blog_project_web\\BlogApi2_backend\\BlogApi2_backend\\Services\\AuthorService.cs",
               "RelativeToolTip": "BlogApi2_backend\\Services\\AuthorService.cs",
-              "ViewState": "AgIAADUAAAAAAAAAAAAlwEEAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-28T09:58:27.732Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IAuthorService.cs",
-              "DocumentMoniker": "C:\\Users\\2020677\\source\\repos\\Blog_project_smruti\\BlogApi2_backend\\BlogApi2_backend\\Services\\IServices\\IAuthorService.cs",
-              "RelativeDocumentMoniker": "BlogApi2_backend\\Services\\IServices\\IAuthorService.cs",
-              "ToolTip": "C:\\Users\\2020677\\source\\repos\\Blog_project_smruti\\BlogApi2_backend\\BlogApi2_backend\\Services\\IServices\\IAuthorService.cs",
-              "RelativeToolTip": "BlogApi2_backend\\Services\\IServices\\IAuthorService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-28T09:48:10.432Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "AuthorController.cs",
-              "DocumentMoniker": "C:\\Users\\2020677\\source\\repos\\Blog_project_smruti\\BlogApi2_backend\\BlogApi2_backend\\Controllers\\AuthorController.cs",
+              "DocumentMoniker": "C:\\Users\\2020677\\Music\\Blog_project_new2\\Blog_project_web\\BlogApi2_backend\\BlogApi2_backend\\Controllers\\AuthorController.cs",
               "RelativeDocumentMoniker": "BlogApi2_backend\\Controllers\\AuthorController.cs",
-              "ToolTip": "C:\\Users\\2020677\\source\\repos\\Blog_project_smruti\\BlogApi2_backend\\BlogApi2_backend\\Controllers\\AuthorController.cs",
+              "ToolTip": "C:\\Users\\2020677\\Music\\Blog_project_new2\\Blog_project_web\\BlogApi2_backend\\BlogApi2_backend\\Controllers\\AuthorController.cs",
               "RelativeToolTip": "BlogApi2_backend\\Controllers\\AuthorController.cs",
               "ViewState": "AgIAAFoAAAAAAAAAAAAowHYAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -161,15 +299,27 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\2020677\\source\\repos\\Blog_project_smruti\\BlogApi2_backend\\BlogApi2_backend\\Program.cs",
-              "RelativeDocumentMoniker": "BlogApi2_backend\\Program.cs",
-              "ToolTip": "C:\\Users\\2020677\\source\\repos\\Blog_project_smruti\\BlogApi2_backend\\BlogApi2_backend\\Program.cs",
-              "RelativeToolTip": "BlogApi2_backend\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 16,
+              "Title": "IAuthorService.cs",
+              "DocumentMoniker": "C:\\Users\\2020677\\Music\\Blog_project_new2\\Blog_project_web\\BlogApi2_backend\\BlogApi2_backend\\Services\\IServices\\IAuthorService.cs",
+              "RelativeDocumentMoniker": "BlogApi2_backend\\Services\\IServices\\IAuthorService.cs",
+              "ToolTip": "C:\\Users\\2020677\\Music\\Blog_project_new2\\Blog_project_web\\BlogApi2_backend\\BlogApi2_backend\\Services\\IServices\\IAuthorService.cs",
+              "RelativeToolTip": "BlogApi2_backend\\Services\\IServices\\IAuthorService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T11:14:28.9Z",
+              "WhenOpened": "2025-02-28T09:48:10.432Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BlogApi2_backend.http",
+              "DocumentMoniker": "C:\\Users\\2020677\\Music\\Blog_project_new2\\Blog_project_web\\BlogApi2_backend\\BlogApi2_backend\\BlogApi2_backend.http",
+              "RelativeDocumentMoniker": "BlogApi2_backend\\BlogApi2_backend.http",
+              "ToolTip": "C:\\Users\\2020677\\Music\\Blog_project_new2\\Blog_project_web\\BlogApi2_backend\\BlogApi2_backend\\BlogApi2_backend.http",
+              "RelativeToolTip": "BlogApi2_backend\\BlogApi2_backend.http",
+              "ViewState": "AgIAALcAAAAAAAAAAAAYwM8AAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2025-02-28T10:42:02.281Z",
               "EditorCaption": ""
             }
           ]
