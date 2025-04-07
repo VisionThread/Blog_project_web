@@ -17,6 +17,7 @@ namespace BlogApi2_backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [AutoValidateAntiforgeryToken]
     public class AuthorController : ControllerBase
     {
        

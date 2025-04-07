@@ -507,4 +507,3 @@ C:\Users\2020677\Music\Blog_project_new2\Blog_project_web\BlogApi2_backend\BlogA
 C:\Users\2020677\Music\Blog_project_new2\Blog_project_web\BlogApi2_backend\BlogApi2_backend\obj\Debug\net9.0\BlogApi2_backend.pdb
 C:\Users\2020677\Music\Blog_project_new2\Blog_project_web\BlogApi2_backend\BlogApi2_backend\obj\Debug\net9.0\BlogApi2_backend.genruntimeconfig.cache
 C:\Users\2020677\Music\Blog_project_new2\Blog_project_web\BlogApi2_backend\BlogApi2_backend\obj\Debug\net9.0\ref\BlogApi2_backend.dll
-C:\Users\2020677\Music\Blog_project_new2\Blog_project_web\BlogApi2_backend\BlogApi2_backend\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

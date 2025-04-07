@@ -2,9 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\BlogApi2_backend",
+    "\\BlogApi2_backend.Tests",
+    "\\BlogApi2_backend.Tests\\Controller",
+    "\\BlogApi2_backend\\Controllers",
+    "\\BlogApi2_backend\\Repository",
     "\\BlogApi2_backend\\Services",
     "\\BlogApi2_backend\\Services\\IServices"
   ],
-  "SelectedNode": "\\BlogApi2_backend.sln",
+  "SelectedNode": "\\BlogApi2_backend\\Controllers\\CommentController.cs",
   "PreviewInSolutionExplorer": false
 }

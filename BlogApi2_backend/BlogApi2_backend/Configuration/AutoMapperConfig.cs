@@ -9,8 +9,9 @@ namespace BlogApi2_backend.Configuration
         public AutoMapperConfig()
         {
             CreateMap<AddComment, Comments>().ReverseMap();
-            CreateMap<Blog,GetBlogTitleDto>().ForMember(dest => dest.AuthorName, opt => opt.MapFrom(src => src.Author.Name));
-            
+            CreateMap<Blog, GetBlogTitleDto>()
+                .ForMember(dest => dest.AuthorName, opt => opt.MapFrom(src => src.Author != null ? src.Author.Name : string.Empty));
+
             CreateMap<AddBlogDto, Blog>().ReverseMap();
             CreateMap<UpdateBlogDto, Blog>().ReverseMap();
 

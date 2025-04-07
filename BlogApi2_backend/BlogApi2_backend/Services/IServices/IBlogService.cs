@@ -13,7 +13,7 @@ namespace BlogApi2_backend.Services.IServices
         Task<Blog?> GetBlogById(int id);
 
         Task<IEnumerable<GetBlogTitleDto>> GetBlogByTitle(string title);
-    }
+    }  
 
     //interface for updation and deletion
     public interface IBlogWriteService
