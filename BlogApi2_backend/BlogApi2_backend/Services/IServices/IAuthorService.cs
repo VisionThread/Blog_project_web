@@ -9,7 +9,7 @@ namespace BlogApi2_backend.Services.IServices
 
         Task<GetAuthorDto?> GetAuthorById(int id);
 
-        Task<GetAuthorDto?> GetAuthorByName(string name);
+        Task<IEnumerable<GetAuthorDto?>> GetAuthorByName(string name);
     }
 
     public interface IAuthorWriteService

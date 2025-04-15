@@ -35,10 +35,11 @@ namespace BlogApi2_backend.Services
             return _mapper.Map<GetAuthorDto>(author);                                                                 // Map the Author entity to GetAuthorDto
         }
 
-        public async Task<GetAuthorDto?> GetAuthorByName(string name)
+        public async Task<IEnumerable<GetAuthorDto?>> GetAuthorByName(string name)
         {
             var author = await _authorRepository.GetAuthorByName(name);
-            return _mapper.Map<GetAuthorDto>(author);
+            return _mapper.Map< IEnumerable<GetAuthorDto>>(author);
+            //return author;
 
         }
 

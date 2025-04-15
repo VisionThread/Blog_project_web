@@ -6,7 +6,7 @@ namespace BlogApi2_backend.Repository
     {
         Task<IEnumerable<Author>> GetAllAuthors();
         Task<Author?> GetAuthorById(int id);
-        Task<Author?> GetAuthorByName(string name);
+        Task<IEnumerable<Author>> GetAuthorByName(string name);
         Task AddAuthor(Author author);
         Task UpdateAuthor(Author author);
         Task<Author?> LoginAuthor(string email, string password);

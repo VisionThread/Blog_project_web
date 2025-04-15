@@ -28,15 +28,16 @@ namespace BlogApi2_backend.Repository
 
         public async Task<Author?> GetAuthorById(int id)
         {
-            return await _dbcontext.Authors
+            return await _dbcontext.Authors.Include(a => a.Blogs)
                 .FirstOrDefaultAsync(a => a.Id == id);
         }
 
-        public async Task<Author?> GetAuthorByName(string name)
+        public async Task<IEnumerable<Author>> GetAuthorByName(string name)
         {
             return await _dbcontext.Authors
                 .Include(a => a.Blogs)
-                .FirstOrDefaultAsync(a => a.Name.ToLower() == name.ToLower());
+                .Where(a => a.Name.ToLower().Contains(name.ToLower()))
+                .ToListAsync();
         }
 
         public async Task<Author?> LoginAuthor(string email, string password)
