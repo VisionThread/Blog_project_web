@@ -2,7 +2,6 @@
 using BlogApi2_backend.Data;
 using BlogApi2_backend.Models.Dtos;
 using BlogApi2_backend.Models.Entities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,13 +9,13 @@ namespace BlogApi2_backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    
+
     public class CommentController : ControllerBase
     {
         private readonly BlogContext dbcontext;
         private readonly IMapper _mapper;
 
-        public CommentController(BlogContext dbcontext,IMapper mapper)
+        public CommentController(BlogContext dbcontext, IMapper mapper)
         {
             this.dbcontext = dbcontext;
             this._mapper = mapper;
@@ -26,7 +25,7 @@ namespace BlogApi2_backend.Controllers
         [HttpGet("blog/{blogId}")]
         public async Task<IActionResult> GetCommentsForBlog(int blogId)
         {
-            
+
             var blog = await dbcontext.Blogs
                                 .Where(b => b.Id == blogId)
                                 .Select(b => new
@@ -75,7 +74,7 @@ namespace BlogApi2_backend.Controllers
 
             var comment = _mapper.Map<Comments>(addCommentDto);
 
-            
+
 
             dbcontext.Comments.Add(comment);
             await dbcontext.SaveChangesAsync();
