@@ -1,0 +1,270 @@
+˜
+ BlogApi2_backend.WeatherForecastobjectG
+WeatherForecast()2BlogApi2_backend.WeatherForecast.WeatherForecast()5
+Date.get)BlogApi2_backend.WeatherForecast.Date.get5
+Date.set)BlogApi2_backend.WeatherForecast.Date.setE
+TemperatureC.get1BlogApi2_backend.WeatherForecast.TemperatureC.getE
+TemperatureC.set1BlogApi2_backend.WeatherForecast.TemperatureC.setE
+TemperatureF.get1BlogApi2_backend.WeatherForecast.TemperatureF.getE
+TemperatureF.set1BlogApi2_backend.WeatherForecast.TemperatureF.set;
+Summary.get,BlogApi2_backend.WeatherForecast.Summary.get;
+Summary.set,BlogApi2_backend.WeatherForecast.Summary.set‚
+/BlogApi2_backend.Migrations.Commentsectionadded2Microsoft.EntityFrameworkCore.Migrations.MigrationobjectÆ
+=Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)mBlogApi2_backend.Migrations.Commentsectionadded.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)≤
+?Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)oBlogApi2_backend.Migrations.Commentsectionadded.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)¨
+<BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)lBlogApi2_backend.Migrations.Commentsectionadded.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)^
+Commentsectionadded()EBlogApi2_backend.Migrations.Commentsectionadded.Commentsectionadded()4
+2BlogApi2_backend.Services.IServices.IAuthorService∏
+)BlogApi2_backend.Migrations.Intialcreate12Microsoft.EntityFrameworkCore.Migrations.Migrationobject®
+=Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)gBlogApi2_backend.Migrations.Intialcreate1.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)¨
+?Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)iBlogApi2_backend.Migrations.Intialcreate1.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)¶
+<BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)fBlogApi2_backend.Migrations.Intialcreate1.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)L
+Intialcreate1()9BlogApi2_backend.Migrations.Intialcreate1.Intialcreate1()1
+Programobject
+	Program()Program.Program()È
+0BlogApi2_backend.Migrations.Incommentauthoradded2Microsoft.EntityFrameworkCore.Migrations.MigrationobjectØ
+=Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)nBlogApi2_backend.Migrations.Incommentauthoradded.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)≥
+?Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)pBlogApi2_backend.Migrations.Incommentauthoradded.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)≠
+<BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)mBlogApi2_backend.Migrations.Incommentauthoradded.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)a
+Incommentauthoradded()GBlogApi2_backend.Migrations.Incommentauthoradded.Incommentauthoradded()∏
+)BlogApi2_backend.Migrations.Commentupdatd2Microsoft.EntityFrameworkCore.Migrations.Migrationobject®
+=Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)gBlogApi2_backend.Migrations.Commentupdatd.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)¨
+?Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)iBlogApi2_backend.Migrations.Commentupdatd.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)¶
+<BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)fBlogApi2_backend.Migrations.Commentupdatd.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)L
+Commentupdatd()9BlogApi2_backend.Migrations.Commentupdatd.Commentupdatd()
+1BlogApi2_backend.Migrations.Blognavigationremoved2Microsoft.EntityFrameworkCore.Migrations.Migrationobject∞
+=Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)oBlogApi2_backend.Migrations.Blognavigationremoved.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)¥
+?Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)qBlogApi2_backend.Migrations.Blognavigationremoved.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)Æ
+<BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)nBlogApi2_backend.Migrations.Blognavigationremoved.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)d
+Blognavigationremoved()IBlogApi2_backend.Migrations.Blognavigationremoved.Blognavigationremoved()ï
+$BlogApi2_backend.Migrations.Initial42Microsoft.EntityFrameworkCore.Migrations.Migrationobject£
+=Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)bBlogApi2_backend.Migrations.Initial4.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)ß
+?Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)dBlogApi2_backend.Migrations.Initial4.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)°
+<BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)aBlogApi2_backend.Migrations.Initial4.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)=
+
+Initial4()/BlogApi2_backend.Migrations.Initial4.Initial4()/
+-BlogApi2_backend.Repository.IAuthorRepository9
+7BlogApi2_backend.Services.IServices.IAuthorWriteServiceÇ
+!BlogApi2_backend.Data.BlogContext'Microsoft.EntityFrameworkCore.DbContextobjectú
+;BlogContext(Microsoft.EntityFrameworkCore.DbContextOptions)]BlogApi2_backend.Data.BlogContext.BlogContext(Microsoft.EntityFrameworkCore.DbContextOptions)ú
+;OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)]BlogApi2_backend.Data.BlogContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)8
+	Blogs.get+BlogApi2_backend.Data.BlogContext.Blogs.get8
+	Blogs.set+BlogApi2_backend.Data.BlogContext.Blogs.set<
+Authors.get-BlogApi2_backend.Data.BlogContext.Authors.get<
+Authors.set-BlogApi2_backend.Data.BlogContext.Authors.set>
+Comments.get.BlogApi2_backend.Data.BlogContext.Comments.get>
+Comments.set.BlogApi2_backend.Data.BlogContext.Comments.setß
+,BlogApi2_backend.Repository.AuthorRepositoryobject-BlogApi2_backend.Repository.IAuthorRepositoryó
+3AuthorRepository(BlogApi2_backend.Data.BlogContext)`BlogApi2_backend.Repository.AuthorRepository.AuthorRepository(BlogApi2_backend.Data.BlogContext)ï
+2AddAuthor(BlogApi2_backend.Models.Entities.Author)_BlogApi2_backend.Repository.AuthorRepository.AddAuthor(BlogApi2_backend.Models.Entities.Author)O
+GetAllAuthors()<BlogApi2_backend.Repository.AuthorRepository.GetAllAuthors()U
+GetAuthorById(int)?BlogApi2_backend.Repository.AuthorRepository.GetAuthorById(int)_
+GetAuthorByName(string)DBlogApi2_backend.Repository.AuthorRepository.GetAuthorByName(string)g
+LoginAuthor(string, string)HBlogApi2_backend.Repository.AuthorRepository.LoginAuthor(string, string)õ
+5UpdateAuthor(BlogApi2_backend.Models.Entities.Author)bBlogApi2_backend.Repository.AuthorRepository.UpdateAuthor(BlogApi2_backend.Models.Entities.Author)-
++BlogApi2_backend.Repository.IBlogRepository—
+%BlogApi2_backend.Services.BlogServiceobject4BlogApi2_backend.Services.IServices.IBlogReadService5BlogApi2_backend.Services.IServices.IBlogWriteService6BlogApi2_backend.Services.IServices.IBlogDeleteService¬
+LBlogService(AutoMapper.IMapper, BlogApi2_backend.Repository.IBlogRepository)rBlogApi2_backend.Services.BlogService.BlogService(AutoMapper.IMapper, BlogApi2_backend.Repository.IBlogRepository)J
+GetBlogById(int)6BlogApi2_backend.Services.BlogService.GetBlogById(int)V
+GetBlogByTitle(string)<BlogApi2_backend.Services.BlogService.GetBlogByTitle(string)>
+
+GetBlogs()0BlogApi2_backend.Services.BlogService.GetBlogs()ê
+3CreateBlog(BlogApi2_backend.Models.Dtos.AddBlogDto)YBlogApi2_backend.Services.BlogService.CreateBlog(BlogApi2_backend.Models.Dtos.AddBlogDto)†
+;UpdateBlog(int, BlogApi2_backend.Models.Dtos.UpdateBlogDto)aBlogApi2_backend.Services.BlogService.UpdateBlog(int, BlogApi2_backend.Models.Dtos.UpdateBlogDto)P
+DeleteBlogById(int)9BlogApi2_backend.Services.BlogService.DeleteBlogById(int)J
+DeleteAllBlogs()6BlogApi2_backend.Services.BlogService.DeleteAllBlogs()Å
+.BlogApi2_backend.Controllers.CommentController'Microsoft.AspNetCore.Mvc.ControllerBaseobject√
+HCommentController(BlogApi2_backend.Data.BlogContext, AutoMapper.IMapper)wBlogApi2_backend.Controllers.CommentController.CommentController(BlogApi2_backend.Data.BlogContext, AutoMapper.IMapper)a
+GetCommentsForBlog(int)FBlogApi2_backend.Controllers.CommentController.GetCommentsForBlog(int)ô
+3AddComment(BlogApi2_backend.Models.Dtos.AddComment)bBlogApi2_backend.Controllers.CommentController.AddComment(BlogApi2_backend.Models.Dtos.AddComment)Y
+GetCommentById(int)BBlogApi2_backend.Controllers.CommentController.GetCommentById(int)Ê
+
++BlogApi2_backend.Controllers.BlogController'Microsoft.AspNetCore.Mvc.ControllerBaseobjectà
+,GetStatusCodeFromException(System.Exception)XBlogApi2_backend.Controllers.BlogController.GetStatusCodeFromException(System.Exception)ò
+≥BlogController(BlogApi2_backend.Services.IServices.IBlogReadService, BlogApi2_backend.Services.IServices.IBlogWriteService, BlogApi2_backend.Services.IServices.IBlogDeleteService)ﬂBlogApi2_backend.Controllers.BlogController.BlogController(BlogApi2_backend.Services.IServices.IBlogReadService, BlogApi2_backend.Services.IServices.IBlogWriteService, BlogApi2_backend.Services.IServices.IBlogDeleteService)D
+
+GetBlogs()6BlogApi2_backend.Controllers.BlogController.GetBlogs()\
+GetBlogByTitle(string)BBlogApi2_backend.Controllers.BlogController.GetBlogByTitle(string)P
+GetBlogById(int)<BlogApi2_backend.Controllers.BlogController.GetBlogById(int)ñ
+3CreateBlog(BlogApi2_backend.Models.Dtos.AddBlogDto)_BlogApi2_backend.Controllers.BlogController.CreateBlog(BlogApi2_backend.Models.Dtos.AddBlogDto)¶
+;UpdateBlog(int, BlogApi2_backend.Models.Dtos.UpdateBlogDto)gBlogApi2_backend.Controllers.BlogController.UpdateBlog(int, BlogApi2_backend.Models.Dtos.UpdateBlogDto)V
+DeleteBlogById(int)?BlogApi2_backend.Controllers.BlogController.DeleteBlogById(int)P
+DeleteAllBlogs()<BlogApi2_backend.Controllers.BlogController.DeleteAllBlogs()Ï	
+-BlogApi2_backend.Controllers.AuthorController'Microsoft.AspNetCore.Mvc.ControllerBaseobjectä
+,GetStatusCodeFromException(System.Exception)ZBlogApi2_backend.Controllers.AuthorController.GetStatusCodeFromException(System.Exception)≠
+}AuthorController(BlogApi2_backend.Services.IServices.IAuthorService, BlogApi2_backend.Services.IServices.IAuthorWriteService)´BlogApi2_backend.Controllers.AuthorController.AuthorController(BlogApi2_backend.Services.IServices.IAuthorService, BlogApi2_backend.Services.IServices.IAuthorWriteService)J
+GetAuthors():BlogApi2_backend.Controllers.AuthorController.GetAuthors()V
+GetAuthorById(int)@BlogApi2_backend.Controllers.AuthorController.GetAuthorById(int)T
+GetAuthor(string)?BlogApi2_backend.Controllers.AuthorController.GetAuthor(string)ä
+,Login(BlogApi2_backend.Models.Dtos.LoginDto)ZBlogApi2_backend.Controllers.AuthorController.Login(BlogApi2_backend.Models.Dtos.LoginDto)í
+0Register(BlogApi2_backend.Models.Dtos.AddAuthor)^BlogApi2_backend.Controllers.AuthorController.Register(BlogApi2_backend.Models.Dtos.AddAuthor)∞
+?UpdateAuthor(int, BlogApi2_backend.Models.Dtos.UpdateAuthorDto)mBlogApi2_backend.Controllers.AuthorController.UpdateAuthor(int, BlogApi2_backend.Models.Dtos.UpdateAuthorDto)ï	
+'BlogApi2_backend.Services.AuthorServiceobject2BlogApi2_backend.Services.IServices.IAuthorService7BlogApi2_backend.Services.IServices.IAuthorWriteServiceì
+sAuthorService(BlogApi2_backend.Data.BlogContext, AutoMapper.IMapper, BlogApi2_backend.Repository.IAuthorRepository)õBlogApi2_backend.Services.AuthorService.AuthorService(BlogApi2_backend.Data.BlogContext, AutoMapper.IMapper, BlogApi2_backend.Repository.IAuthorRepository)J
+GetAllAuthors()7BlogApi2_backend.Services.AuthorService.GetAllAuthors()P
+GetAuthorById(int):BlogApi2_backend.Services.AuthorService.GetAuthorById(int)Z
+GetAuthorByName(string)?BlogApi2_backend.Services.AuthorService.GetAuthorByName(string)ê
+2LoginAuthor(BlogApi2_backend.Models.Dtos.LoginDto)ZBlogApi2_backend.Services.AuthorService.LoginAuthor(BlogApi2_backend.Models.Dtos.LoginDto)ò
+6RegisterAuthor(BlogApi2_backend.Models.Dtos.AddAuthor)^BlogApi2_backend.Services.AuthorService.RegisterAuthor(BlogApi2_backend.Models.Dtos.AddAuthor)∂
+EUpdateDetailAuthor(int, BlogApi2_backend.Models.Dtos.UpdateAuthorDto)mBlogApi2_backend.Services.AuthorService.UpdateDetailAuthor(int, BlogApi2_backend.Models.Dtos.UpdateAuthorDto)7
+5BlogApi2_backend.Services.IServices.IBlogWriteService6
+4BlogApi2_backend.Services.IServices.IBlogReadService˜
+*BlogApi2_backend.Repository.BlogRepositoryobject+BlogApi2_backend.Repository.IBlogRepositoryë
+1BlogRepository(BlogApi2_backend.Data.BlogContext)\BlogApi2_backend.Repository.BlogRepository.BlogRepository(BlogApi2_backend.Data.BlogContext)ë
+1CreateBlog(BlogApi2_backend.Models.Entities.Blog)\BlogApi2_backend.Repository.BlogRepository.CreateBlog(BlogApi2_backend.Models.Entities.Blog)O
+DeleteAllBlogs();BlogApi2_backend.Repository.BlogRepository.DeleteAllBlogs()ë
+1DeleteBlog(BlogApi2_backend.Models.Entities.Blog)\BlogApi2_backend.Repository.BlogRepository.DeleteBlog(BlogApi2_backend.Models.Entities.Blog)O
+GetBlogById(int);BlogApi2_backend.Repository.BlogRepository.GetBlogById(int)C
+
+GetBlogs()5BlogApi2_backend.Repository.BlogRepository.GetBlogs()]
+GetBlogsByTitle(string)BBlogApi2_backend.Repository.BlogRepository.GetBlogsByTitle(string)ë
+1UpdateBlog(BlogApi2_backend.Models.Entities.Blog)\BlogApi2_backend.Repository.BlogRepository.UpdateBlog(BlogApi2_backend.Models.Entities.Blog)8
+6BlogApi2_backend.Services.IServices.IBlogDeleteService›
+6BlogApi2_backend.Controllers.WeatherForecastController'Microsoft.AspNetCore.Mvc.ControllerBaseobject™
+wWeatherForecastController(Microsoft.Extensions.Logging.ILogger<BlogApi2_backend.Controllers.WeatherForecastController>)ÆBlogApi2_backend.Controllers.WeatherForecastController.WeatherForecastController(Microsoft.Extensions.Logging.ILogger<BlogApi2_backend.Controllers.WeatherForecastController>)E
+Get()<BlogApi2_backend.Controllers.WeatherForecastController.Get()∏
+)BlogApi2_backend.Migrations.InitialCreate2Microsoft.EntityFrameworkCore.Migrations.Migrationobject®
+=Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)gBlogApi2_backend.Migrations.InitialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)¨
+?Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)iBlogApi2_backend.Migrations.InitialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)¶
+<BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)fBlogApi2_backend.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)L
+InitialCreate()9BlogApi2_backend.Migrations.InitialCreate.InitialCreate()£
+&BlogApi2_backend.Migrations.NewChanges2Microsoft.EntityFrameworkCore.Migrations.Migrationobject•
+=Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)dBlogApi2_backend.Migrations.NewChanges.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)©
+?Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)fBlogApi2_backend.Migrations.NewChanges.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)£
+<BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)cBlogApi2_backend.Migrations.NewChanges.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)C
+NewChanges()3BlogApi2_backend.Migrations.NewChanges.NewChanges()ë
+4BlogApi2_backend.Migrations.BlogContextModelSnapshot:Microsoft.EntityFrameworkCore.Infrastructure.ModelSnapshotobject•
+6BuildModel(Microsoft.EntityFrameworkCore.ModelBuilder)kBlogApi2_backend.Migrations.BlogContextModelSnapshot.BuildModel(Microsoft.EntityFrameworkCore.ModelBuilder)m
+BlogContextModelSnapshot()OBlogApi2_backend.Migrations.BlogContextModelSnapshot.BlogContextModelSnapshot()Î
+'BlogApi2_backend.Models.Entities.Authorobject<
+Author()0BlogApi2_backend.Models.Entities.Author.Author()8
+Id.get.BlogApi2_backend.Models.Entities.Author.Id.get8
+Id.set.BlogApi2_backend.Models.Entities.Author.Id.set<
+Name.get0BlogApi2_backend.Models.Entities.Author.Name.get<
+Name.set0BlogApi2_backend.Models.Entities.Author.Name.set>
+	Email.get1BlogApi2_backend.Models.Entities.Author.Email.get>
+	Email.set1BlogApi2_backend.Models.Entities.Author.Email.setD
+Password.get4BlogApi2_backend.Models.Entities.Author.Password.getD
+Password.set4BlogApi2_backend.Models.Entities.Author.Password.set>
+	Blogs.get1BlogApi2_backend.Models.Entities.Author.Blogs.get>
+	Blogs.set1BlogApi2_backend.Models.Entities.Author.Blogs.setı
+&BlogApi2_backend.Models.Dtos.AddAuthorobjectA
+AddAuthor()2BlogApi2_backend.Models.Dtos.AddAuthor.AddAuthor();
+Name.get/BlogApi2_backend.Models.Dtos.AddAuthor.Name.get;
+Name.set/BlogApi2_backend.Models.Dtos.AddAuthor.Name.set=
+	Email.get0BlogApi2_backend.Models.Dtos.AddAuthor.Email.get=
+	Email.set0BlogApi2_backend.Models.Dtos.AddAuthor.Email.setC
+Password.get3BlogApi2_backend.Models.Dtos.AddAuthor.Password.getC
+Password.set3BlogApi2_backend.Models.Dtos.AddAuthor.Password.set›
+,BlogApi2_backend.Models.Dtos.GetBlogTitleDtoobjectS
+GetBlogTitleDto()>BlogApi2_backend.Models.Dtos.GetBlogTitleDto.GetBlogTitleDto()=
+Id.get3BlogApi2_backend.Models.Dtos.GetBlogTitleDto.Id.get=
+Id.set3BlogApi2_backend.Models.Dtos.GetBlogTitleDto.Id.setC
+	Title.get6BlogApi2_backend.Models.Dtos.GetBlogTitleDto.Title.getC
+	Title.set6BlogApi2_backend.Models.Dtos.GetBlogTitleDto.Title.setG
+Content.get8BlogApi2_backend.Models.Dtos.GetBlogTitleDto.Content.getG
+Content.set8BlogApi2_backend.Models.Dtos.GetBlogTitleDto.Content.setK
+CreatedAt.get:BlogApi2_backend.Models.Dtos.GetBlogTitleDto.CreatedAt.getK
+CreatedAt.set:BlogApi2_backend.Models.Dtos.GetBlogTitleDto.CreatedAt.setM
+AuthorName.get;BlogApi2_backend.Models.Dtos.GetBlogTitleDto.AuthorName.getM
+AuthorName.set;BlogApi2_backend.Models.Dtos.GetBlogTitleDto.AuthorName.set±
+,BlogApi2_backend.Models.Dtos.UpdateAuthorDtoobjectS
+UpdateAuthorDto()>BlogApi2_backend.Models.Dtos.UpdateAuthorDto.UpdateAuthorDto()A
+Name.get5BlogApi2_backend.Models.Dtos.UpdateAuthorDto.Name.getA
+Name.set5BlogApi2_backend.Models.Dtos.UpdateAuthorDto.Name.setC
+	Email.get6BlogApi2_backend.Models.Dtos.UpdateAuthorDto.Email.getC
+	Email.set6BlogApi2_backend.Models.Dtos.UpdateAuthorDto.Email.setI
+Password.get9BlogApi2_backend.Models.Dtos.UpdateAuthorDto.Password.getI
+Password.set9BlogApi2_backend.Models.Dtos.UpdateAuthorDto.Password.setÔ
+$BlogApi2_backend.Models.Dtos.BlogDtoobject;
+	BlogDto().BlogApi2_backend.Models.Dtos.BlogDto.BlogDto()=
+
+BlogId.get/BlogApi2_backend.Models.Dtos.BlogDto.BlogId.get=
+
+BlogId.set/BlogApi2_backend.Models.Dtos.BlogDto.BlogId.set;
+	Title.get.BlogApi2_backend.Models.Dtos.BlogDto.Title.get;
+	Title.set.BlogApi2_backend.Models.Dtos.BlogDto.Title.set?
+Content.get0BlogApi2_backend.Models.Dtos.BlogDto.Content.get?
+Content.set0BlogApi2_backend.Models.Dtos.BlogDto.Content.setC
+CreatedAt.get2BlogApi2_backend.Models.Dtos.BlogDto.CreatedAt.getC
+CreatedAt.set2BlogApi2_backend.Models.Dtos.BlogDto.CreatedAt.set©
+*BlogApi2_backend.Models.Dtos.UpdateBlogDtoobjectM
+UpdateBlogDto():BlogApi2_backend.Models.Dtos.UpdateBlogDto.UpdateBlogDto()A
+	Title.get4BlogApi2_backend.Models.Dtos.UpdateBlogDto.Title.getA
+	Title.set4BlogApi2_backend.Models.Dtos.UpdateBlogDto.Title.setE
+Content.get6BlogApi2_backend.Models.Dtos.UpdateBlogDto.Content.getE
+Content.set6BlogApi2_backend.Models.Dtos.UpdateBlogDto.Content.setG
+AuthorId.get7BlogApi2_backend.Models.Dtos.UpdateBlogDto.AuthorId.getG
+AuthorId.set7BlogApi2_backend.Models.Dtos.UpdateBlogDto.AuthorId.setõ
+'BlogApi2_backend.Models.Dtos.AddBlogDtoobjectD
+AddBlogDto()4BlogApi2_backend.Models.Dtos.AddBlogDto.AddBlogDto()>
+	Title.get1BlogApi2_backend.Models.Dtos.AddBlogDto.Title.get>
+	Title.set1BlogApi2_backend.Models.Dtos.AddBlogDto.Title.setB
+Content.get3BlogApi2_backend.Models.Dtos.AddBlogDto.Content.getB
+Content.set3BlogApi2_backend.Models.Dtos.AddBlogDto.Content.setF
+CreatedAt.get5BlogApi2_backend.Models.Dtos.AddBlogDto.CreatedAt.getF
+CreatedAt.set5BlogApi2_backend.Models.Dtos.AddBlogDto.CreatedAt.setD
+AuthorId.get4BlogApi2_backend.Models.Dtos.AddBlogDto.AuthorId.getD
+AuthorId.set4BlogApi2_backend.Models.Dtos.AddBlogDto.AuthorId.set∑
+)BlogApi2_backend.Models.Entities.CommentsobjectB
+
+Comments()4BlogApi2_backend.Models.Entities.Comments.Comments():
+Id.get0BlogApi2_backend.Models.Entities.Comments.Id.get:
+Id.set0BlogApi2_backend.Models.Entities.Comments.Id.setL
+CommentText.get9BlogApi2_backend.Models.Entities.Comments.CommentText.getL
+CommentText.set9BlogApi2_backend.Models.Entities.Comments.CommentText.setH
+CreatedAt.get7BlogApi2_backend.Models.Entities.Comments.CreatedAt.getH
+CreatedAt.set7BlogApi2_backend.Models.Entities.Comments.CreatedAt.setB
+
+BlogId.get4BlogApi2_backend.Models.Entities.Comments.BlogId.getB
+
+BlogId.set4BlogApi2_backend.Models.Entities.Comments.BlogId.setF
+AuthorId.get6BlogApi2_backend.Models.Entities.Comments.AuthorId.getF
+AuthorId.set6BlogApi2_backend.Models.Entities.Comments.AuthorId.set´
+)BlogApi2_backend.Models.Dtos.GetAuthorDtoobjectJ
+GetAuthorDto()8BlogApi2_backend.Models.Dtos.GetAuthorDto.GetAuthorDto()F
+AuthorId.get6BlogApi2_backend.Models.Dtos.GetAuthorDto.AuthorId.getF
+AuthorId.set6BlogApi2_backend.Models.Dtos.GetAuthorDto.AuthorId.setJ
+AuthorName.get8BlogApi2_backend.Models.Dtos.GetAuthorDto.AuthorName.getJ
+AuthorName.set8BlogApi2_backend.Models.Dtos.GetAuthorDto.AuthorName.set@
+	Blogs.get3BlogApi2_backend.Models.Dtos.GetAuthorDto.Blogs.get@
+	Blogs.set3BlogApi2_backend.Models.Dtos.GetAuthorDto.Blogs.setØ
+'BlogApi2_backend.Models.Dtos.AddCommentobjectD
+AddComment()4BlogApi2_backend.Models.Dtos.AddComment.AddComment()J
+CommentText.get7BlogApi2_backend.Models.Dtos.AddComment.CommentText.getJ
+CommentText.set7BlogApi2_backend.Models.Dtos.AddComment.CommentText.setF
+CreatedAt.get5BlogApi2_backend.Models.Dtos.AddComment.CreatedAt.getF
+CreatedAt.set5BlogApi2_backend.Models.Dtos.AddComment.CreatedAt.set@
+
+BlogId.get2BlogApi2_backend.Models.Dtos.AddComment.BlogId.get@
+
+BlogId.set2BlogApi2_backend.Models.Dtos.AddComment.BlogId.setD
+AuthorId.get4BlogApi2_backend.Models.Dtos.AddComment.AuthorId.getD
+AuthorId.set4BlogApi2_backend.Models.Dtos.AddComment.AuthorId.setÛ
+%BlogApi2_backend.Models.Dtos.LoginDtoobject>
+
+LoginDto()0BlogApi2_backend.Models.Dtos.LoginDto.LoginDto()<
+	Email.get/BlogApi2_backend.Models.Dtos.LoginDto.Email.get<
+	Email.set/BlogApi2_backend.Models.Dtos.LoginDto.Email.setB
+Password.get2BlogApi2_backend.Models.Dtos.LoginDto.Password.getB
+Password.set2BlogApi2_backend.Models.Dtos.LoginDto.Password.setÛ
+%BlogApi2_backend.Models.Entities.Blogobject6
+Blog(),BlogApi2_backend.Models.Entities.Blog.Blog()6
+Id.get,BlogApi2_backend.Models.Entities.Blog.Id.get6
+Id.set,BlogApi2_backend.Models.Entities.Blog.Id.set<
+	Title.get/BlogApi2_backend.Models.Entities.Blog.Title.get<
+	Title.set/BlogApi2_backend.Models.Entities.Blog.Title.set@
+Content.get1BlogApi2_backend.Models.Entities.Blog.Content.get@
+Content.set1BlogApi2_backend.Models.Entities.Blog.Content.setD
+CreatedAt.get3BlogApi2_backend.Models.Entities.Blog.CreatedAt.getD
+CreatedAt.set3BlogApi2_backend.Models.Entities.Blog.CreatedAt.setB
+AuthorId.get2BlogApi2_backend.Models.Entities.Blog.AuthorId.getB
+AuthorId.set2BlogApi2_backend.Models.Entities.Blog.AuthorId.set>
+
+Author.get0BlogApi2_backend.Models.Entities.Blog.Author.get>
+
+Author.set0BlogApi2_backend.Models.Entities.Blog.Author.setB
+Comments.get2BlogApi2_backend.Models.Entities.Blog.Comments.getB
+Comments.set2BlogApi2_backend.Models.Entities.Blog.Comments.setß
+/BlogApi2_backend.Configuration.AutoMapperConfigAutoMapper.ProfileobjectX
+AutoMapperConfig()BBlogApi2_backend.Configuration.AutoMapperConfig.AutoMapperConfig()

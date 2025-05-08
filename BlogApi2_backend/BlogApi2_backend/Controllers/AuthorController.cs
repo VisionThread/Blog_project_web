@@ -110,11 +110,11 @@ namespace BlogApi2_backend.Controllers
 
         }
 
-        [HttpGet("trigger-error")]
-        public IActionResult TriggerError()
-        {
-            throw new ArgumentNullException("This is a test exception");  // No try-catch here
-        }
+        //[HttpGet("trigger-error")]
+        //public IActionResult TriggerError()
+        //{
+        //    throw new ArgumentNullException("This is a test exception");  // No try-catch here
+        //}
 
 
     }

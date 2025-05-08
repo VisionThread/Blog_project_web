@@ -1,10 +1,10 @@
 using BlogApi2_backend.Configuration;
 using BlogApi2_backend.Data;
-using Microsoft.EntityFrameworkCore;
-using AutoMapper;
+using BlogApi2_backend.Exceptions;
+using BlogApi2_backend.Repository;
 using BlogApi2_backend.Services;
 using BlogApi2_backend.Services.IServices;
-using BlogApi2_backend.Repository;
+using Microsoft.EntityFrameworkCore;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -51,12 +51,14 @@ IServiceCollection serviceCollection = builder.Services.AddAutoMapper(typeof(Aut
 
 
 var app = builder.Build();
- 
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
+
+app.UseMiddleware<GlobalExceptionMiddleware>();
 
 // Apply CORS middleware
 app.UseCors("AllowSpecificOrigin");

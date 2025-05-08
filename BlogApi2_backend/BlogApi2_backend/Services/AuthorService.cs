@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using BlogApi2_backend.Data;
 using BlogApi2_backend.Models.Dtos;
 using BlogApi2_backend.Models.Entities;
 using BlogApi2_backend.Repository;
@@ -12,7 +11,7 @@ namespace BlogApi2_backend.Services
         private readonly IMapper _mapper;
         private readonly IAuthorRepository _authorRepository;
 
-        public AuthorService(BlogContext dbcontext, IMapper mapper, IAuthorRepository authorRepository)
+        public AuthorService(IMapper mapper, IAuthorRepository authorRepository)
         {
 
             _mapper = mapper;
@@ -24,11 +23,6 @@ namespace BlogApi2_backend.Services
             return await _authorRepository.GetAllAuthors();
         }
 
-
-
-
-
-
         public async Task<GetAuthorDto?> GetAuthorById(int id)
         {
             var author = await _authorRepository.GetAuthorById(id);
@@ -38,7 +32,7 @@ namespace BlogApi2_backend.Services
         public async Task<IEnumerable<GetAuthorDto?>> GetAuthorByName(string name)
         {
             var author = await _authorRepository.GetAuthorByName(name);
-            return _mapper.Map< IEnumerable<GetAuthorDto>>(author);
+            return _mapper.Map<IEnumerable<GetAuthorDto>>(author);
             //return author;
 
         }

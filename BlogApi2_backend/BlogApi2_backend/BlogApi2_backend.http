@@ -8,7 +8,7 @@ GET {{BlogApi2_backend_HostAddress}}/api/Blog
 Accept: application/json
 
 ###
-GET {{BlogApi2_backend_HostAddress}}/api/Blog/1
+GET {{BlogApi2_backend_HostAddress}}/api/Blog/9
 Accept: application/json
 
 ###
@@ -60,7 +60,7 @@ GET {{BlogApi2_backend_HostAddress}}/api/Blog
 Accept: application/json
 
 ###
-GET {{BlogApi2_backend_HostAddress}}/api/Author
+GET {{BlogApi2_backend_HostAddress}}/api/Author/7
 Accept: application/json
 
 ###
@@ -179,7 +179,7 @@ Content-Type: application/json
 
 {
     "email":"janedoe@example.com",
-    "password":"revvity@123"
+    "password":"revty@123"
 }
 
 ###
@@ -195,12 +195,12 @@ Accept: application/json
 
 
 ###
-GET {{BlogApi2_backend_HostAddress}}/api/Author/by-name?name=smruti%20sonekar
+GET {{BlogApi2_backend_HostAddress}}/api/Author/by-name?name=anna%20brown
 Accept: application/json
 
 
 ###
-GET {{BlogApi2_backend_HostAddress}}/api/Author/by-id/15
+GET {{BlogApi2_backend_HostAddress}}/api/Author/by-id/10
 Accept: application/json
 
 ###
@@ -224,7 +224,7 @@ Content-Type: application/json
 }
 
 ###
-GET {{BlogApi2_backend_HostAddress}}/api/Blog/title?title=The%20
+GET {{BlogApi2_backend_HostAddress}}/api/Blog/title?title=Breaking%20
 Accept:  application/json
 
 
@@ -234,9 +234,9 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "Name": "Tia khanna",
-  "Email": "tia34@domain.com",
-  "Password": "tia"
+  "Name": "pia modi",
+  "Email": "pia34@example.com",
+  "Password": ""
 }
 
 ###
@@ -273,4 +273,8 @@ Content-Type: application/json
 
 ###
 GET {{BlogApi2_backend_HostAddress}}/api/Comment/blog/35
+Accept: application/json
+
+###
+GET {{BlogApi2_backend_HostAddress}}/api/Author/trigger-error
 Accept: application/json

@@ -19,11 +19,15 @@ namespace BlogApi2_backend.Services
             _blogRepository = blogRepository;
         }
 
-
-
         public async Task<Blog?> GetBlogById(int id)
         {
-            return await _blogRepository.GetBlogById(id); // so even if it return null we can handle it in controller 
+
+            var blog = await _blogRepository.GetBlogById(id);
+            if (blog == null)
+            {
+                throw new ArgumentException("No Blogs Found");
+            }
+            return await _blogRepository.GetBlogById(id);
         }
 
         public async Task<IEnumerable<GetBlogTitleDto>> GetBlogByTitle(string title)
@@ -52,11 +56,13 @@ namespace BlogApi2_backend.Services
             await _blogRepository.CreateBlog(blogEntity);
 
             return blogEntity;
+
         }
 
 
         public async Task<bool> UpdateBlog(int id, UpdateBlogDto updateBlog)
         {
+
             var blogToUpdate = await _blogRepository.GetBlogById(id);
 
             if (blogToUpdate == null)
@@ -68,6 +74,8 @@ namespace BlogApi2_backend.Services
 
             blogToUpdate.Content = updateBlog.Content;
 
+            blogToUpdate.CreatedAt = DateTime.UtcNow;
+
             await _blogRepository.UpdateBlog(blogToUpdate);
             return true;
         }
@@ -78,6 +86,7 @@ namespace BlogApi2_backend.Services
         /// /
         public async Task<bool> DeleteBlogById(int id)
         {
+
             var blogToDelete = await _blogRepository.GetBlogById(id);
 
             if (blogToDelete == null)
@@ -87,6 +96,7 @@ namespace BlogApi2_backend.Services
 
             await _blogRepository.DeleteBlog(blogToDelete);
             return true;
+
         }
 
         public async Task<bool> DeleteAllBlogs()

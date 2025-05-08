@@ -95,6 +95,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "BlogApi2_backend.Controllers.AuthorController",
+    "Method": "TriggerError",
+    "RelativePath": "api/Author/trigger-error",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "BlogApi2_backend.Controllers.BlogController",
     "Method": "GetBlogs",
     "RelativePath": "api/Blog",

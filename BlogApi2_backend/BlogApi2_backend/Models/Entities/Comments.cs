@@ -8,12 +8,6 @@
 
         // Foreign Key for Blog
         public int BlogId { get; set; }
-
-        // Navigation Property to Blog
-        //public Blog? Blog { get; set; }
-
-        //navigation to authors as well
-        // Optional: If you want to track who posted the comment
         public int AuthorId { get; set; }
 
     }
