@@ -17,17 +17,23 @@ function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
-    const response = await authorService.authorLogin(logInUser);
-    if (response) {
-      toast.success("Login successful!");
-      // Proceed with the login
-      login(response.authorId, response.name);
-      navigate(ROUTES.HOME);
-     
-    } else {
-      toast.error("Invalid credentials");
+    try{
+      const response = await authorService.authorLogin(logInUser);
+      if (response) {
+        toast.success("Login successful!");
+        // Proceed with the login
+        login(response.authorId, response.name);
+        navigate(ROUTES.HOME);
+       
+      } else {
+        toast.error("Invalid credentials");
+      }
     }
+    catch (error) {
+      
+      //toast.error("Login failed. Please try again."); 
+    }
+   
   };
 
   return (

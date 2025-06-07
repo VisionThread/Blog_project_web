@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthor } from "../context/AuthorContext";
 import { useBlog } from "../context/BlogContext";
@@ -12,23 +12,27 @@ function AddBlog() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [blogId, setBlogId] = useState(null);
-  const { authorId } = useAuthor(); 
+  const { authorId } = useAuthor();
 
   const { saveBlogId } = useBlog();
   const navigate = useNavigate();
+  const toastshow = useRef(false);
+
+  useEffect(() => {
+    if (!authorId && !toastshow.current) {
+      toast.error("Please log in to create a blog");
+      toastshow.current = true;
+      navigate(ROUTES.LOGIN);
+    }
+  }, [authorId, navigate]);
 
   const handleCreateBlog = async (e) => {
     e.preventDefault();
 
-    if (!authorId) {
-      toast.error("Please log in to create a blog");
-      navigate(ROUTES.LOGIN); 
-      return;
-    }
-
     const blogData = {
       Title: title,
       Content: content,
+      createdAt: new Date().toISOString(),
       AuthorId: authorId,
     };
 

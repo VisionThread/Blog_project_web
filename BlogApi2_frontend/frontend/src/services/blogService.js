@@ -38,7 +38,9 @@ class BlogService {
       throw new Error(
         data?.message || `HTTP error! Status: ${response.status}`
       );
-    } catch (error) {
+    } catch (error) 
+    {
+      toast.dismiss();
       toast.error(`API FAILED TO FETCH:${error.message}`)
       throw error;
     }

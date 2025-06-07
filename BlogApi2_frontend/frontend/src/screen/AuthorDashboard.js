@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthor } from "../context/AuthorContext";
 import { toast } from "react-toastify";
@@ -7,19 +7,19 @@ import "../css/AuthorBlogDashboard.css";
 import BlogService from "../services/blogService";
 import authorService from "../services/authorService";
 import { ROUTES } from "../RoutesConstant";
+import { FaTrash, FaEdit } from "react-icons/fa"; // Import the trash icon from Font Awesome
 
 function AuthorDashboard() {
   const [blogs, setBlogs] = useState([]);
   const navigate = useNavigate();
-  const { authorId } = useAuthor(); 
+  const { authorId } = useAuthor();
 
-  
-      useEffect(() => {
-        if (!authorId) {
-          console.warn("User is not logged in. Redirecting to login...");
-          navigate(ROUTES.LOGIN);
-        }
-      }, [authorId, navigate]);
+  useEffect(() => {
+    if (!authorId) {
+      //console.warn("User is not logged in. Redirecting to login...");
+      navigate(ROUTES.LOGIN);
+    }
+  }, [authorId, navigate]);
 
   useEffect(() => {
     async function fetchAuthorBlogs(id) {
@@ -31,24 +31,24 @@ function AuthorDashboard() {
       }
     }
 
-   
     if (authorId) {
       fetchAuthorBlogs(authorId);
     }
   }, [authorId]);
 
-  
   const showDeleteConfirmation = (blogid) => {
     toast(
       ({ closeToast }) => (
         <div className="delete-toast">
           <p>Are you sure you want to delete this blog?</p>
           <div className="button-group2">
-            <button className="yes-btn" 
+            <button
+              className="yes-btn"
               onClick={() => {
-                handleDelete(blogid, true); 
-                toast.dismiss(); 
-              }}>
+                handleDelete(blogid, true);
+                toast.dismiss();
+              }}
+            >
               Yes
             </button>
             <button className="no-btn" onClick={closeToast}>
@@ -58,17 +58,15 @@ function AuthorDashboard() {
         </div>
       ),
       {
-        position: "top-right", 
-        autoClose:false, 
-        closeOnClick: false, 
-        closeButton: false, 
+        position: "top-right",
+        autoClose: false,
+        closeOnClick: false,
+        closeButton: false,
         draggable: false,
-        hideProgressBar: true, 
+        hideProgressBar: true,
       }
     );
   };
-  
-  
 
   const handleDelete = async (blogId, isConfirmed) => {
     if (!isConfirmed) {
@@ -80,7 +78,7 @@ function AuthorDashboard() {
       await BlogService.deleteBlog(blogId);
       setBlogs((prevBlogs) =>
         prevBlogs.filter((blog) => blog.blogId !== blogId)
-      ); 
+      );
       toast.success("Blog deleted successfully!");
     } catch (error) {
       console.error("Error deleting blog:", error);
@@ -89,7 +87,7 @@ function AuthorDashboard() {
   };
 
   const handleDeleteClick = (blogId) => {
-    showDeleteConfirmation(blogId); 
+    showDeleteConfirmation(blogId);
   };
 
   return (
@@ -110,14 +108,15 @@ function AuthorDashboard() {
                   onClick={() => navigate(`/editblog/${blog.blogId}`)}
                   className="edit-button"
                 >
-                  ✏️ Edit
+                  <FaEdit />
+                  Edit
                 </button>
 
                 <button
                   onClick={() => handleDeleteClick(blog.blogId)}
                   className="delete-button"
                 >
-                  🗑️ Delete
+                  <FaTrash /> Delete
                 </button>
               </div>
             </li>

@@ -6,6 +6,7 @@ import "../css/EditBlog.css";
 import BlogService from "../services/blogService";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { FaCheck, FaEye, FaTimes } from "react-icons/fa";
 
 function EditBlog() {
   const { blogId } = useParams();
@@ -21,12 +22,11 @@ function EditBlog() {
     }
   }, [authorId, navigate]);
   useEffect(() => {
-    if (!blogId) 
-      {
+    if (!blogId) {
       console.error("Blog ID is not available yet");
       return;
     }
-   
+
     const fetchBlog = async () => {
       try {
         const response = await BlogService.getBlogById(blogId);
@@ -51,11 +51,13 @@ function EditBlog() {
     console.log("Updating blog with:", {
       title: blog.title,
       content: blog.content,
+      createdAt: blog.createdAt,
       AuthorId: authorId,
     });
     const updatedData = {
       title: blog.title,
       content: blog.content,
+      createdAt: blog.createdAt,
       AuthorId: authorId,
     };
 
@@ -96,7 +98,7 @@ function EditBlog() {
         />
 
         <button type="submit" className="editor-btn save-btn">
-          ✅ Save Changes
+          <FaCheck style={{ marginRight: "10px" }} /> Save Changes
         </button>
 
         <button
@@ -104,14 +106,15 @@ function EditBlog() {
           onClick={() => navigate(ROUTES.AUTHOR_DASHBOARD)}
           className="editor-btn cancel-btn"
         >
-          ❌ Cancel
+          <FaTimes style={{ marginRight: "5px", color: "red" }} /> Cancel
         </button>
 
         <button
           type="button"
           onClick={() => navigate(`/blog/${blogId}`)}
-          className="editor-btn  preview-btn"
+          className="editor-btn preview-btn"
         >
+          <FaEye style={{ marginRight: "5px" }} />
           Preview
         </button>
       </form>

@@ -109,7 +109,7 @@ function BlogDetailPage() {
             <h1 className="blog-title">{blogData.title}</h1>
             <p className="blog-content">{blogData.content}</p>
             <div className="blog-meta">
-              <span>✍️ By {blogData.name}</span>
+              <span>✍️ By {blogData.authorName}</span>
               <span>
                 📅{" "}
                 {new Date(blogData.createdAt).toLocaleDateString("en-US", {

@@ -1,8 +1,7 @@
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const API_BASE_URL =
-  process.env.REACT_APP_API_BASE_URL;
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 class AuthorService {
   constructor(baseUrl, prefix = "/api/Author") {
@@ -10,7 +9,6 @@ class AuthorService {
     this.prefix = prefix;
   }
 
-  
   async request(endpoint, method = "GET", body = null, headers = {}) {
     const fullUrl = `${this.baseUrl}${this.prefix}${endpoint}`;
 
@@ -28,7 +26,6 @@ class AuthorService {
     try {
       const response = await fetch(fullUrl, options);
 
-      
       if (response.status === 204) return null;
 
       const text = await response.text();
@@ -36,14 +33,13 @@ class AuthorService {
 
       if (response.ok) {
         return data;
+      } else {
+        const errorMsg = data?.message || response.statusText;
+        toast.error(`Error : ${errorMsg}`); // Only one toast here
+        throw new Error(errorMsg); // Always throw
       }
-
-      throw new Error(
-        data?.message || `HTTP error! Status: ${response.status}`
-      );
     } catch (error) {
-      
-      toast.error(`API FAILED TO FETCH:${error.message}`)
+      //toast.error(`Something went wrong`); // Only one toast here
       throw error;
     }
   }

@@ -35,6 +35,20 @@ function SearchBlogs() {
     return () => clearTimeout(debounceTimeout);                                                                      
   }, [searchQuery]);
 
+  const handleSearch = () => {
+    if (!searchQuery.trim()) {
+      setError("Please enter a blog title.");
+      return;
+    }
+
+    const selectedBlog = blogs.find((blog) => blog.title === searchQuery);
+    if (selectedBlog) {
+      navigate(`/blog/${selectedBlog.id}`);
+    } else {
+      setError("No blog found with the given title.");
+    }
+  }
+
   return (
     <div className="overall-container">
       <h1 className="overall-title">Search Blog</h1>
@@ -48,6 +62,9 @@ function SearchBlogs() {
           onChange={(e) => setSearchQuery(e.target.value)}
           className="search-input-field"
         />
+        <button onClick={handleSearch} className="search-author-btn">
+          Search
+        </button>
         {/* Autocomplete Suggestions */}
         {showSuggestions && blogs.length > 0 && (
           <ul className="autocomplete-suggestions">

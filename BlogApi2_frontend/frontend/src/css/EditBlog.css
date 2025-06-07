@@ -1,64 +1,61 @@
 /* Container */
 .editor-container {
-  max-width: 42rem; 
-  margin: 0 auto; 
-  padding: 1.5rem; 
-  background-color: #ffffff; 
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-  border-radius: 0.5rem; 
-  /* min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #f7fafc;
-  padding: 2.5rem 1rem; */
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
 }
 
 /* Title */
 .editor-title {
-  font-size: 1.5rem; 
-  font-weight: bold; 
-  margin-bottom: 1rem; 
-  color: var(--color-forest); 
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: var(--color-forest);
 }
 
 /* Input & Textarea */
 .editor-input {
-  width: 95%; 
-  padding: 0.5rem; 
-  border: 1px solid #d1d5db; 
-  border-radius: 0.25rem; 
-  margin-bottom: 1rem; 
+  width: 95%;
+  padding: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
 }
 
 /* Base Button Styles */
 .editor-btn {
-  padding: 0.5rem 1.5rem; 
-  color: #ffffff; 
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1.5rem;
+  color: #ffffff;
   border: none;
-  border-radius: 0.475rem; 
+  border-radius: 0.475rem;
   cursor: pointer;
-  transition: background-color 0.3s ease; 
-  
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 /* Save Button */
 .save-btn {
-  background-color: #16a34a; 
+  background-color: #16a34a;
 }
 
 /* Cancel Button */
 .cancel-btn {
-  background-color: #6b7280; 
-  margin-left: 0.5rem; 
+  background-color: #6b7280;
+  margin-left: 0.5rem;
 }
 
 /* Preview Button */
 .preview-btn {
-  background-color: #6b7280; 
-  margin-left: 0.5rem; 
+  background-color: #6b7280;
+  margin-left: 0.5rem;
 }
 
 .preview-btn:hover {
-  background-color: #4b5563; 
+  background-color: #4b5563;
 }
